@@ -95,6 +95,8 @@ Aplicación autónoma de monitorización, rastreo y alerta en tiempo real de **v
 - [x] Soporte PWA completo (`manifest.json`, `sw.js` y botón "📲 Instalar App") para instalar en Chrome/Móvil como aplicación nativa.
 - [x] Diseño 100% responsive para teléfonos móviles con scroll horizontal fluido y botones táctiles optimizados.
 - [x] Repositorio público sincronizado en GitHub (`https://github.com/20Luisma/ViajesMartin.git`) con historial 100% blindado y cero credenciales expuestas.
+- [x] Pool rotativo multi-cuenta de RapidAPI con 6 claves activas (~600 consultas/mes de Google Flights) y fallback transparente.
+- [x] Motor de persistencia y fusión acumulativa de chollos para que los escaneos en vivo sumen vuelos sin perder los anteriores.
 - [ ] Programar daemon/cron o PM2 para ejecución desatendida del scanner.
 
 ---
@@ -107,6 +109,7 @@ Aplicación autónoma de monitorización, rastreo y alerta en tiempo real de **v
 - **Filtros & Persistencia:** `FlightFilter.js` (filtra horas útiles y descarta vuelos basura) y `AlertHistory.js` (anti-spam con umbral de 4 € de bajada).
 - **Dashboard Web & PWA:** Interfaz en `public/` con diseño fintech dark mode, soporte offline/network-first (`sw.js`) e instalación nativa como PWA.
 - **Mobile Responsive:** Adaptación completa para smartphones con navegación horizontal por chips y acciones táctiles de 44px+.
+- **Pool de Claves RapidAPI:** Soporte en cascada de claves separadas por coma en `RAPIDAPI_KEY` con rotación ante códigos 429/403.
 - **Acciones Interactivas:** 
   - Botón "🔄 Rastrear Ahora" en el header para ejecutar rastreos en vivo al instante.
   - Botón "📲 Telegram" en cada tarjeta para enviar alertas individuales al teléfono.
