@@ -377,19 +377,14 @@ if ($action === 'scan') {
     }
     $deals = array_values($uniqueDeals);
 
-    // Ordenar: primero los nuevos en esta tanda, luego los más recientes y desempate por ratio
+    // Ordenar: fecha de salida de vuelo más próxima primero (cronológico calendario)
     usort($deals, function($a, $b) {
-        $isNewA = !empty($a['isNew']) ? 1 : 0;
-        $isNewB = !empty($b['isNew']) ? 1 : 0;
-        if ($isNewA !== $isNewB) return $isNewB <=> $isNewA;
-
-        $timeA = !empty($a['firstSeen']) ? strtotime($a['firstSeen']) : 0;
-        $timeB = !empty($b['firstSeen']) ? strtotime($b['firstSeen']) : 0;
-        if ($timeA !== $timeB) return $timeB <=> $timeA;
-
-        if ($a['isPriority'] && !$b['isPriority']) return -1;
-        if (!$a['isPriority'] && $b['isPriority']) return 1;
-        return $b['ratio'] <=> $a['ratio'];
+        $dateA = $a['outbound']['departureDate'] ?? '';
+        $dateB = $b['outbound']['departureDate'] ?? '';
+        if ($dateA !== $dateB) {
+            return strcmp($dateA, $dateB);
+        }
+        return $a['totalPrice'] <=> $b['totalPrice'];
     });
 
     // Guardar en data/deals.json

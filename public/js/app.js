@@ -44,7 +44,7 @@ class VuelosApp {
     this.stats = {};
     this.currentMode = 'all';
     this.currentMaxPrice = Infinity;
-    this.currentSort = 'recent-first';
+    this.currentSort = 'date-asc';
     this.searchQuery = '';
 
     this.initElements();
@@ -254,20 +254,13 @@ class VuelosApp {
 
   getSortedDeals(deals) {
     return [...deals].sort((a, b) => {
-      if (this.currentSort === 'recent-first') {
-        // 1. Nuevos en esta tanda primero
-        if (a.isNew && !b.isNew) return -1;
-        if (!a.isNew && b.isNew) return 1;
-
-        // 2. Fecha de descubrimiento más reciente primero
-        const timeA = a.firstSeen ? new Date(a.firstSeen).getTime() : 0;
-        const timeB = b.firstSeen ? new Date(b.firstSeen).getTime() : 0;
+      if (this.currentSort === 'date-asc') {
+        const timeA = new Date(a.outbound.departureDate).getTime();
+        const timeB = new Date(b.outbound.departureDate).getTime();
         if (timeA !== timeB) {
-          return timeB - timeA;
+          return timeA - timeB;
         }
-
-        // 3. Desempate por mejor ratio calidad
-        return b.ratio - a.ratio;
+        return a.totalPrice - b.totalPrice;
       }
       if (this.currentSort === 'ratio') {
         return b.ratio - a.ratio;
@@ -277,9 +270,6 @@ class VuelosApp {
       }
       if (this.currentSort === 'hours-desc') {
         return b.usefulHours - a.usefulHours;
-      }
-      if (this.currentSort === 'date-asc') {
-        return new Date(a.outbound.departureDate) - new Date(b.outbound.departureDate);
       }
       return 0;
     });
