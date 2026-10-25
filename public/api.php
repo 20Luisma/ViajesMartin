@@ -34,7 +34,7 @@ if (empty($botToken)) $botToken = getenv('TELEGRAM_BOT_TOKEN') ?: '';
 if (empty($chatId)) $chatId = getenv('TELEGRAM_CHAT_ID') ?: '';
 if (empty($rapidApiKey)) $rapidApiKey = getenv('RAPIDAPI_KEY') ?: '';
 
-$action = $_GET['action'] ?? '';
+$action = $_GET['action'] ?? ($argv[1] ?? (php_sapi_name() === 'cli' ? 'scan' : ''));
 
 if ($action === 'send_telegram') {
     $iata = htmlspecialchars($_GET['iata'] ?? 'BCN');
