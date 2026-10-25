@@ -309,11 +309,26 @@ if ($action === 'scan') {
         }
     }
 
-    // Deduplicación canónica entre APIs (conservando la mejor tarifa y horario)
+    // Deduplicación y fusión acumulativa con chollos previamente descubiertos
+    $dataPath = __DIR__ . '/data/deals.json';
+    $existingDeals = [];
+    if (file_exists($dataPath)) {
+        $prevData = json_decode(file_get_contents($dataPath), true);
+        if (!empty($prevData['deals']) && is_array($prevData['deals'])) {
+            $existingDeals = $prevData['deals'];
+        }
+    }
+
+    // Combinar chollos previos aún vigentes en el futuro con los nuevos encontrados
+    $allCandidateDeals = array_merge($existingDeals, $deals);
     $uniqueDeals = [];
-    foreach ($deals as $d) {
+
+    foreach ($allCandidateDeals as $d) {
         $outD = substr($d['outbound']['departureDate'], 0, 10);
         $inD = substr($d['inbound']['departureDate'], 0, 10);
+        // Descartar vuelos cuya ida ya haya pasado
+        if ($outD < date('Y-m-d')) continue;
+
         $key = "{$d['destinationIata']}_{$outD}_{$inD}_{$d['airline']}";
         
         if (isset($uniqueDeals[$key])) {
