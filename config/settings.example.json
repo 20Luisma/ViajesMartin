@@ -1,0 +1,13 @@
+{
+  "origin_airport": "BCN",
+  "max_price_eur": 45,
+  "min_useful_hours_daytrip": 10,
+  "telegram": {
+    "enabled": true,
+    "bot_token": "TU_BOT_TOKEN_AQUI",
+    "chat_id": "TU_CHAT_ID_AQUI"
+  },
+  "preferred_destinations": [
+    "PMI", "IBZ", "MAH", "OPO", "LIS", "BGY", "MXP", "BOD", "NCE", "SVQ", "GVA", "BRU", "VIE"
+  ]
+}

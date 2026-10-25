@@ -1,0 +1,42 @@
+{
+  "originAirport": "BCN",
+  "searchDaysAhead": 180,
+  "thresholds": {
+    "daytrip": {
+      "maxPrice": 45,
+      "minUsefulHours": 9.0,
+      "outboundMaxDepartureTime": "09:30",
+      "inboundMinDepartureTime": "19:45"
+    },
+    "weekend": {
+      "maxPrice": 60,
+      "minUsefulHours": 24.0,
+      "outboundMaxDepartureTime": "13:00",
+      "inboundMinDepartureTime": "18:00"
+    },
+    "bridge": {
+      "maxPrice": 65,
+      "minUsefulHours": 42.0
+    }
+  },
+  "blacklistedAirports": [
+    "BVA",
+    "HHN",
+    "NYO",
+    "FKB"
+  ],
+  "priorityDestinations": [
+    "PMI", "IBZ", "MAH", "SVQ", "SCQ", "AGP", "ALC", "VLC", "BIO", "OVD", "SDR", "ZAZ", "LPA", "TFN", "TFS", "ACE", "FUE",
+    "OPO", "LIS", "FAO", "FNC",
+    "BGY", "MXP", "FCO", "CIA", "NAP", "BLQ", "PSA", "VCE", "TSF", "TRS", "BRI", "BDS", "PMO", "CTA", "TRN", "CAG", "OLB", "AHO", "VRN", "PEG", "REG",
+    "BOD", "NCE", "MRS", "TLS", "LYS", "NTE",
+    "BRS", "MAN", "BHX", "LPL", "EDI", "DUB", "ORK", "SNN", "NCL", "EMA", "PIK", "LTN", "STN", "LGW",
+    "CRL", "BRU", "EIN", "AMS", "BER", "HAM", "CGN", "NUE", "FMM", "VIE", "BUD", "PRG", "SOF", "KRK", "WMI", "GDN", "POZ", "WRO", "KTW",
+    "CPH", "BLL", "ARN",
+    "GVA", "BSL",
+    "MLA", "LUX", "BTS", "CFU", "ATH", "HER", "JTR", "ZAD", "SPU", "DBV", "TIA", "OTP", "CLJ",
+    "RIX", "TLL", "VNO",
+    "RAK", "FEZ", "TNG", "NDR", "RBA", "OUJ", "OZZ", "AGA", "CMN", "TTU"
+  ],
+  "scanIntervalMinutes": 60
+}

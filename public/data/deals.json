@@ -1,0 +1,690 @@
+{
+  "updatedAt": "2026-10-25T14:23:18.584Z",
+  "origin": "BCN",
+  "totalDeals": 27,
+  "stats": {
+    "cheapestPrice": 29.98,
+    "maxUsefulHours": 64.08333333333333,
+    "daytripsCount": 4,
+    "weekendsCount": 5,
+    "bridgesCount": 18,
+    "destinationsCount": 19
+  },
+  "deals": [
+    {
+      "mode": "bridge",
+      "airline": "Ryanair",
+      "destinationIata": "BGY",
+      "destinationCity": "Bergamo",
+      "destinationCountry": "Italia",
+      "originIata": "BCN",
+      "totalPrice": 29.98,
+      "usefulHours": 58.833333333333336,
+      "ratio": 1.9624193907049143,
+      "isPriority": true,
+      "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=BGY&isReturn=true&dateOut=2026-11-26&dateIn=2026-11-28&adults=1",
+      "outbound": {
+        "flightNumber": "FR846",
+        "departureDate": "2026-11-26T06:05:00",
+        "arrivalDate": "2026-11-26T07:50:00",
+        "price": 14.99
+      },
+      "inbound": {
+        "flightNumber": "FR3142",
+        "departureDate": "2026-11-28T18:40:00",
+        "arrivalDate": "2026-11-28T20:15:00",
+        "price": 14.99
+      }
+    },
+    {
+      "mode": "bridge",
+      "airline": "Ryanair",
+      "destinationIata": "TRN",
+      "destinationCity": "Turín",
+      "destinationCountry": "Italia",
+      "originIata": "BCN",
+      "totalPrice": 29.98,
+      "usefulHours": 54.5,
+      "ratio": 1.8178785857238158,
+      "isPriority": true,
+      "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=TRN&isReturn=true&dateOut=2026-11-11&dateIn=2026-11-13&adults=1",
+      "outbound": {
+        "flightNumber": "FR774",
+        "departureDate": "2026-11-11T07:50:00",
+        "arrivalDate": "2026-11-11T09:30:00",
+        "price": 14.99
+      },
+      "inbound": {
+        "flightNumber": "FR775",
+        "departureDate": "2026-11-13T16:00:00",
+        "arrivalDate": "2026-11-13T17:30:00",
+        "price": 14.99
+      }
+    },
+    {
+      "mode": "bridge",
+      "airline": "Ryanair",
+      "destinationIata": "FCO",
+      "destinationCity": "Roma",
+      "destinationCountry": "Italia",
+      "originIata": "BCN",
+      "totalPrice": 30.98,
+      "usefulHours": 55.666666666666664,
+      "ratio": 1.79685818807833,
+      "isPriority": true,
+      "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=FCO&isReturn=true&dateOut=2026-12-15&dateIn=2026-12-17&adults=1",
+      "outbound": {
+        "flightNumber": "FR3180",
+        "departureDate": "2026-12-15T06:00:00",
+        "arrivalDate": "2026-12-15T07:55:00",
+        "price": 14.99
+      },
+      "inbound": {
+        "flightNumber": "FR6926",
+        "departureDate": "2026-12-17T15:35:00",
+        "arrivalDate": "2026-12-17T17:25:00",
+        "price": 15.99
+      }
+    },
+    {
+      "mode": "bridge",
+      "airline": "Ryanair",
+      "destinationIata": "PMI",
+      "destinationCity": "Palma",
+      "destinationCountry": "España",
+      "originIata": "BCN",
+      "totalPrice": 35.98,
+      "usefulHours": 64.08333333333333,
+      "ratio": 1.781082082638503,
+      "isPriority": true,
+      "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=PMI&isReturn=true&dateOut=2026-11-02&dateIn=2026-11-04&adults=1",
+      "outbound": {
+        "flightNumber": "FR1342",
+        "departureDate": "2026-11-02T05:45:00",
+        "arrivalDate": "2026-11-02T06:45:00",
+        "price": 20.99
+      },
+      "inbound": {
+        "flightNumber": "FR1343",
+        "departureDate": "2026-11-04T22:50:00",
+        "arrivalDate": "2026-11-04T23:45:00",
+        "price": 14.99
+      }
+    },
+    {
+      "mode": "bridge",
+      "airline": "Ryanair",
+      "destinationIata": "IBZ",
+      "destinationCity": "Ibiza",
+      "destinationCountry": "España",
+      "originIata": "BCN",
+      "totalPrice": 35.98,
+      "usefulHours": 61.583333333333336,
+      "ratio": 1.7115990365017604,
+      "isPriority": true,
+      "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=IBZ&isReturn=true&dateOut=2026-10-29&dateIn=2026-10-31&adults=1",
+      "outbound": {
+        "flightNumber": "FR3028",
+        "departureDate": "2026-10-29T07:25:00",
+        "arrivalDate": "2026-10-29T08:30:00",
+        "price": 20.99
+      },
+      "inbound": {
+        "flightNumber": "FR3130",
+        "departureDate": "2026-10-31T22:05:00",
+        "arrivalDate": "2026-10-31T23:05:00",
+        "price": 14.99
+      }
+    },
+    {
+      "mode": "bridge",
+      "airline": "Vueling",
+      "destinationIata": "IBZ",
+      "destinationCity": "Ibiza",
+      "destinationCountry": "España",
+      "originIata": "BCN",
+      "totalPrice": 35,
+      "usefulHours": 59.583333333333336,
+      "ratio": 1.7023809523809526,
+      "isPriority": true,
+      "bookingUrl": "https://www.google.com/travel/flights?q=Flights%20to%20IBZ%20from%20BCN%20on%202026-11-13%20through%202026-11-15",
+      "outbound": {
+        "flightNumber": "VY",
+        "departureDate": "2026-11-13T07:50:00",
+        "arrivalDate": "2026-11-13T08:55:00",
+        "price": 17.5
+      },
+      "inbound": {
+        "flightNumber": "Vueling",
+        "departureDate": "2026-11-15T20:30:00",
+        "arrivalDate": "2026-11-15T22:15:00",
+        "price": 17.5
+      }
+    },
+    {
+      "mode": "bridge",
+      "airline": "Ryanair",
+      "destinationIata": "IBZ",
+      "destinationCity": "Ibiza",
+      "destinationCountry": "España",
+      "originIata": "BCN",
+      "totalPrice": 36,
+      "usefulHours": 60.083333333333336,
+      "ratio": 1.6689814814814816,
+      "isPriority": true,
+      "bookingUrl": "https://www.google.com/travel/flights?q=Flights%20to%20IBZ%20from%20BCN%20on%202026-11-13%20through%202026-11-15",
+      "outbound": {
+        "flightNumber": "FR",
+        "departureDate": "2026-11-13T07:20:00",
+        "arrivalDate": "2026-11-13T08:25:00",
+        "price": 18
+      },
+      "inbound": {
+        "flightNumber": "Ryanair",
+        "departureDate": "2026-11-15T20:30:00",
+        "arrivalDate": "2026-11-15T22:15:00",
+        "price": 18
+      }
+    },
+    {
+      "mode": "bridge",
+      "airline": "Ryanair",
+      "destinationIata": "IBZ",
+      "destinationCity": "Ibiza",
+      "destinationCountry": "España",
+      "originIata": "BCN",
+      "totalPrice": 36,
+      "usefulHours": 60.083333333333336,
+      "ratio": 1.6689814814814816,
+      "isPriority": true,
+      "bookingUrl": "https://www.google.com/travel/flights?q=Flights%20to%20IBZ%20from%20BCN%20on%202026-11-27%20through%202026-11-29",
+      "outbound": {
+        "flightNumber": "FR",
+        "departureDate": "2026-11-27T07:20:00",
+        "arrivalDate": "2026-11-27T08:25:00",
+        "price": 18
+      },
+      "inbound": {
+        "flightNumber": "Ryanair",
+        "departureDate": "2026-11-29T20:30:00",
+        "arrivalDate": "2026-11-29T22:15:00",
+        "price": 18
+      }
+    },
+    {
+      "mode": "bridge",
+      "airline": "Ryanair",
+      "destinationIata": "NAP",
+      "destinationCity": "Nápoles",
+      "destinationCountry": "Italia",
+      "originIata": "BCN",
+      "totalPrice": 40.98,
+      "usefulHours": 61.833333333333336,
+      "ratio": 1.508866113551326,
+      "isPriority": true,
+      "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=NAP&isReturn=true&dateOut=2027-01-13&dateIn=2027-01-15&adults=1",
+      "outbound": {
+        "flightNumber": "FR5710",
+        "departureDate": "2027-01-13T06:00:00",
+        "arrivalDate": "2027-01-13T08:00:00",
+        "price": 19.99
+      },
+      "inbound": {
+        "flightNumber": "FR5711",
+        "departureDate": "2027-01-15T21:50:00",
+        "arrivalDate": "2027-01-15T23:50:00",
+        "price": 20.99
+      }
+    },
+    {
+      "mode": "bridge",
+      "airline": "Ryanair",
+      "destinationIata": "BRS",
+      "destinationCity": "Bristol",
+      "destinationCountry": "Reino Unido",
+      "originIata": "BCN",
+      "totalPrice": 29.98,
+      "usefulHours": 43.916666666666664,
+      "ratio": 1.4648654658661329,
+      "isPriority": true,
+      "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=BRS&isReturn=true&dateOut=2026-12-12&dateIn=2026-12-14&adults=1",
+      "outbound": {
+        "flightNumber": "FR3160",
+        "departureDate": "2026-12-12T09:55:00",
+        "arrivalDate": "2026-12-12T11:20:00",
+        "price": 14.99
+      },
+      "inbound": {
+        "flightNumber": "FR3161",
+        "departureDate": "2026-12-14T07:15:00",
+        "arrivalDate": "2026-12-14T10:25:00",
+        "price": 14.99
+      }
+    },
+    {
+      "mode": "bridge",
+      "airline": "Ryanair",
+      "destinationIata": "MAN",
+      "destinationCity": "Manchester",
+      "destinationCountry": "Reino Unido",
+      "originIata": "BCN",
+      "totalPrice": 32.98,
+      "usefulHours": 44.75,
+      "ratio": 1.3568829593693148,
+      "isPriority": true,
+      "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=MAN&isReturn=true&dateOut=2026-11-28&dateIn=2026-11-30&adults=1",
+      "outbound": {
+        "flightNumber": "FR6597",
+        "departureDate": "2026-11-28T10:25:00",
+        "arrivalDate": "2026-11-28T12:00:00",
+        "price": 16.99
+      },
+      "inbound": {
+        "flightNumber": "FR6596",
+        "departureDate": "2026-11-30T08:45:00",
+        "arrivalDate": "2026-11-30T12:05:00",
+        "price": 15.99
+      }
+    },
+    {
+      "mode": "bridge",
+      "airline": "Ryanair",
+      "destinationIata": "ORK",
+      "destinationCity": "Cork",
+      "destinationCountry": "Irlanda",
+      "originIata": "BCN",
+      "totalPrice": 44.98,
+      "usefulHours": 59.416666666666664,
+      "ratio": 1.3209574625759597,
+      "isPriority": true,
+      "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=ORK&isReturn=true&dateOut=2026-12-12&dateIn=2026-12-14&adults=1",
+      "outbound": {
+        "flightNumber": "FR7959",
+        "departureDate": "2026-12-12T06:30:00",
+        "arrivalDate": "2026-12-12T08:05:00",
+        "price": 14.99
+      },
+      "inbound": {
+        "flightNumber": "FR7958",
+        "departureDate": "2026-12-14T19:30:00",
+        "arrivalDate": "2026-12-14T22:55:00",
+        "price": 29.99
+      }
+    },
+    {
+      "mode": "bridge",
+      "airline": "Ryanair",
+      "destinationIata": "REG",
+      "destinationCity": "Reggio Calabria",
+      "destinationCountry": "Italia",
+      "originIata": "BCN",
+      "totalPrice": 33.98,
+      "usefulHours": 43.083333333333336,
+      "ratio": 1.2679026878556015,
+      "isPriority": true,
+      "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=REG&isReturn=true&dateOut=2026-12-04&dateIn=2026-12-06&adults=1",
+      "outbound": {
+        "flightNumber": "FR8598",
+        "departureDate": "2026-12-04T19:40:00",
+        "arrivalDate": "2026-12-04T21:50:00",
+        "price": 16.99
+      },
+      "inbound": {
+        "flightNumber": "FR8599",
+        "departureDate": "2026-12-06T16:55:00",
+        "arrivalDate": "2026-12-06T19:05:00",
+        "price": 16.99
+      }
+    },
+    {
+      "mode": "bridge",
+      "airline": "Ryanair",
+      "destinationIata": "LUX",
+      "destinationCity": "Luxembourg",
+      "destinationCountry": "Luxembourg",
+      "originIata": "BCN",
+      "totalPrice": 41.98,
+      "usefulHours": 48.75,
+      "ratio": 1.1612672701286328,
+      "isPriority": true,
+      "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=LUX&isReturn=true&dateOut=2026-12-03&dateIn=2026-12-05&adults=1",
+      "outbound": {
+        "flightNumber": "FR3108",
+        "departureDate": "2026-12-03T06:15:00",
+        "arrivalDate": "2026-12-03T08:25:00",
+        "price": 21.99
+      },
+      "inbound": {
+        "flightNumber": "FR3109",
+        "departureDate": "2026-12-05T09:10:00",
+        "arrivalDate": "2026-12-05T11:10:00",
+        "price": 19.99
+      }
+    },
+    {
+      "mode": "bridge",
+      "airline": "Vueling",
+      "destinationIata": "IBZ",
+      "destinationCity": "Ibiza",
+      "destinationCountry": "España",
+      "originIata": "BCN",
+      "totalPrice": 52,
+      "usefulHours": 59.583333333333336,
+      "ratio": 1.1458333333333335,
+      "isPriority": true,
+      "bookingUrl": "https://www.google.com/travel/flights?q=Flights%20to%20IBZ%20from%20BCN%20on%202026-11-27%20through%202026-11-29",
+      "outbound": {
+        "flightNumber": "VY",
+        "departureDate": "2026-11-27T07:50:00",
+        "arrivalDate": "2026-11-27T08:55:00",
+        "price": 26
+      },
+      "inbound": {
+        "flightNumber": "Vueling",
+        "departureDate": "2026-11-29T20:30:00",
+        "arrivalDate": "2026-11-29T22:15:00",
+        "price": 26
+      }
+    },
+    {
+      "mode": "bridge",
+      "airline": "Ryanair",
+      "destinationIata": "BHX",
+      "destinationCity": "Birmingham",
+      "destinationCountry": "Reino Unido",
+      "originIata": "BCN",
+      "totalPrice": 42.25,
+      "usefulHours": 47.916666666666664,
+      "ratio": 1.1341222879684418,
+      "isPriority": true,
+      "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=BHX&isReturn=true&dateOut=2026-11-28&dateIn=2026-11-30&adults=1",
+      "outbound": {
+        "flightNumber": "FR3800",
+        "departureDate": "2026-11-28T11:05:00",
+        "arrivalDate": "2026-11-28T12:30:00",
+        "price": 22.26
+      },
+      "inbound": {
+        "flightNumber": "FR3801",
+        "departureDate": "2026-11-30T12:25:00",
+        "arrivalDate": "2026-11-30T15:35:00",
+        "price": 19.99
+      }
+    },
+    {
+      "mode": "weekend",
+      "airline": "Ryanair",
+      "destinationIata": "PMO",
+      "destinationCity": "Palermo",
+      "destinationCountry": "Italia",
+      "originIata": "BCN",
+      "totalPrice": 33.2,
+      "usefulHours": 30.75,
+      "ratio": 0.9262048192771084,
+      "isPriority": true,
+      "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=PMO&isReturn=true&dateOut=2026-11-11&dateIn=2026-11-12&adults=1",
+      "outbound": {
+        "flightNumber": "FR3166",
+        "departureDate": "2026-11-11T11:10:00",
+        "arrivalDate": "2026-11-11T13:10:00",
+        "price": 14.99
+      },
+      "inbound": {
+        "flightNumber": "FR3167",
+        "departureDate": "2026-11-12T19:55:00",
+        "arrivalDate": "2026-11-12T21:50:00",
+        "price": 18.21
+      }
+    },
+    {
+      "mode": "weekend",
+      "airline": "Ryanair",
+      "destinationIata": "VCE",
+      "destinationCity": "Venecia",
+      "destinationCountry": "Italia",
+      "originIata": "BCN",
+      "totalPrice": 29.98,
+      "usefulHours": 26.583333333333332,
+      "ratio": 0.8867022459417389,
+      "isPriority": true,
+      "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=VCE&isReturn=true&dateOut=2026-12-13&dateIn=2026-12-14&adults=1",
+      "outbound": {
+        "flightNumber": "FR878",
+        "departureDate": "2026-12-13T08:30:00",
+        "arrivalDate": "2026-12-13T10:25:00",
+        "price": 14.99
+      },
+      "inbound": {
+        "flightNumber": "FR776",
+        "departureDate": "2026-12-14T13:00:00",
+        "arrivalDate": "2026-12-14T14:55:00",
+        "price": 14.99
+      }
+    },
+    {
+      "mode": "weekend",
+      "airline": "Ryanair",
+      "destinationIata": "NDR",
+      "destinationCity": "Nador",
+      "destinationCountry": "Marruecos",
+      "originIata": "BCN",
+      "totalPrice": 41.98,
+      "usefulHours": 37,
+      "ratio": 0.8813720819437828,
+      "isPriority": true,
+      "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=NDR&isReturn=true&dateOut=2026-12-06&dateIn=2026-12-07&adults=1",
+      "outbound": {
+        "flightNumber": "FR2233",
+        "departureDate": "2026-12-06T06:00:00",
+        "arrivalDate": "2026-12-06T06:50:00",
+        "price": 23.99
+      },
+      "inbound": {
+        "flightNumber": "FR2234",
+        "departureDate": "2026-12-07T19:50:00",
+        "arrivalDate": "2026-12-07T22:30:00",
+        "price": 17.99
+      }
+    },
+    {
+      "mode": "bridge",
+      "airline": "Ryanair",
+      "destinationIata": "SOF",
+      "destinationCity": "Sofía",
+      "destinationCountry": "Bulgaria",
+      "originIata": "BCN",
+      "totalPrice": 60.98,
+      "usefulHours": 47.75,
+      "ratio": 0.7830436208592981,
+      "isPriority": true,
+      "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=SOF&isReturn=true&dateOut=2026-11-28&dateIn=2026-11-30&adults=1",
+      "outbound": {
+        "flightNumber": "FR6330",
+        "departureDate": "2026-11-28T17:50:00",
+        "arrivalDate": "2026-11-28T21:45:00",
+        "price": 29.99
+      },
+      "inbound": {
+        "flightNumber": "FR6301",
+        "departureDate": "2026-11-30T21:30:00",
+        "arrivalDate": "2026-11-30T23:30:00",
+        "price": 30.99
+      }
+    },
+    {
+      "mode": "bridge",
+      "airline": "Vueling",
+      "destinationIata": "IBZ",
+      "destinationCity": "Ibiza",
+      "destinationCountry": "España",
+      "originIata": "BCN",
+      "totalPrice": 61,
+      "usefulHours": 45.583333333333336,
+      "ratio": 0.7472677595628415,
+      "isPriority": true,
+      "bookingUrl": "https://www.google.com/travel/flights?q=Flights%20to%20IBZ%20from%20BCN%20on%202026-11-20%20through%202026-11-22",
+      "outbound": {
+        "flightNumber": "VY",
+        "departureDate": "2026-11-20T22:00:00",
+        "arrivalDate": "2026-11-20T22:55:00",
+        "price": 30.5
+      },
+      "inbound": {
+        "flightNumber": "Vueling",
+        "departureDate": "2026-11-22T20:30:00",
+        "arrivalDate": "2026-11-22T22:15:00",
+        "price": 30.5
+      }
+    },
+    {
+      "mode": "weekend",
+      "airline": "Ryanair",
+      "destinationIata": "AHO",
+      "destinationCity": "Alguer",
+      "destinationCountry": "Italia",
+      "originIata": "BCN",
+      "totalPrice": 59.98,
+      "usefulHours": 29.416666666666668,
+      "ratio": 0.4904412581971769,
+      "isPriority": true,
+      "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=AHO&isReturn=true&dateOut=2027-04-12&dateIn=2027-04-13&adults=1",
+      "outbound": {
+        "flightNumber": "FR6803",
+        "departureDate": "2027-04-12T05:50:00",
+        "arrivalDate": "2027-04-12T07:15:00",
+        "price": 26.99
+      },
+      "inbound": {
+        "flightNumber": "FR6804",
+        "departureDate": "2027-04-13T12:40:00",
+        "arrivalDate": "2027-04-13T14:00:00",
+        "price": 32.99
+      }
+    },
+    {
+      "mode": "daytrip",
+      "airline": "Ryanair",
+      "destinationIata": "BGY",
+      "destinationCity": "Bergamo",
+      "destinationCountry": "Italia",
+      "originIata": "BCN",
+      "totalPrice": 29.98,
+      "usefulHours": 14.5,
+      "ratio": 0.48365577051367575,
+      "isPriority": true,
+      "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=BGY&isReturn=true&dateOut=2026-11-11&dateIn=2026-11-11&adults=1",
+      "outbound": {
+        "flightNumber": "FR3143",
+        "departureDate": "2026-11-11T06:05:00",
+        "arrivalDate": "2026-11-11T07:50:00",
+        "price": 14.99
+      },
+      "inbound": {
+        "flightNumber": "FR847",
+        "departureDate": "2026-11-11T22:20:00",
+        "arrivalDate": "2026-11-11T23:55:00",
+        "price": 14.99
+      }
+    },
+    {
+      "mode": "weekend",
+      "airline": "Ryanair",
+      "destinationIata": "BUD",
+      "destinationCity": "Budapest",
+      "destinationCountry": "Hungría",
+      "originIata": "BCN",
+      "totalPrice": 59.98,
+      "usefulHours": 28.75,
+      "ratio": 0.47932644214738246,
+      "isPriority": true,
+      "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=BUD&isReturn=true&dateOut=2027-01-12&dateIn=2027-01-13&adults=1",
+      "outbound": {
+        "flightNumber": "FR1421",
+        "departureDate": "2027-01-12T10:10:00",
+        "arrivalDate": "2027-01-12T12:50:00",
+        "price": 34.99
+      },
+      "inbound": {
+        "flightNumber": "FR1422",
+        "departureDate": "2027-01-13T17:35:00",
+        "arrivalDate": "2027-01-13T20:10:00",
+        "price": 24.99
+      }
+    },
+    {
+      "mode": "daytrip",
+      "airline": "Ryanair",
+      "destinationIata": "IBZ",
+      "destinationCity": "Ibiza",
+      "destinationCountry": "España",
+      "originIata": "BCN",
+      "totalPrice": 35.98,
+      "usefulHours": 14.416666666666666,
+      "ratio": 0.4006855660552159,
+      "isPriority": true,
+      "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=IBZ&isReturn=true&dateOut=2026-10-28&dateIn=2026-10-28&adults=1",
+      "outbound": {
+        "flightNumber": "FR3028",
+        "departureDate": "2026-10-28T06:55:00",
+        "arrivalDate": "2026-10-28T08:00:00",
+        "price": 20.99
+      },
+      "inbound": {
+        "flightNumber": "FR3175",
+        "departureDate": "2026-10-28T22:25:00",
+        "arrivalDate": "2026-10-28T23:25:00",
+        "price": 14.99
+      }
+    },
+    {
+      "mode": "daytrip",
+      "airline": "Ryanair",
+      "destinationIata": "PMI",
+      "destinationCity": "Palma",
+      "destinationCountry": "España",
+      "originIata": "BCN",
+      "totalPrice": 35.98,
+      "usefulHours": 12.333333333333334,
+      "ratio": 0.3427830276079304,
+      "isPriority": true,
+      "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=PMI&isReturn=true&dateOut=2026-11-04&dateIn=2026-11-04&adults=1",
+      "outbound": {
+        "flightNumber": "FR2495",
+        "departureDate": "2026-11-04T09:30:00",
+        "arrivalDate": "2026-11-04T10:30:00",
+        "price": 20.99
+      },
+      "inbound": {
+        "flightNumber": "FR1343",
+        "departureDate": "2026-11-04T22:50:00",
+        "arrivalDate": "2026-11-04T23:45:00",
+        "price": 14.99
+      }
+    },
+    {
+      "mode": "daytrip",
+      "airline": "Ryanair",
+      "destinationIata": "BLQ",
+      "destinationCity": "Bolonia",
+      "destinationCountry": "Italia",
+      "originIata": "BCN",
+      "totalPrice": 36.98,
+      "usefulHours": 12.666666666666666,
+      "ratio": 0.34252749233820085,
+      "isPriority": true,
+      "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=BLQ&isReturn=true&dateOut=2026-12-10&dateIn=2026-12-10&adults=1",
+      "outbound": {
+        "flightNumber": "FR575",
+        "departureDate": "2026-12-10T06:30:00",
+        "arrivalDate": "2026-12-10T08:15:00",
+        "price": 14.99
+      },
+      "inbound": {
+        "flightNumber": "FR2097",
+        "departureDate": "2026-12-10T20:55:00",
+        "arrivalDate": "2026-12-10T22:40:00",
+        "price": 21.99
+      }
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+# 🧠 Antigravity God-Mode: Memoria del Proyecto (Vuelos Martín)
+
+## 🌍 Contexto General del Proyecto
+Aplicación autónoma de monitorización, rastreo y alerta en tiempo real de **vuelos chollo desde Barcelona-El Prat (BCN)** hacia destinos europeos y de España, optimizada bajo el principio de **máximo aprovechamiento de tiempo útil y mínimo coste posible**.
+
+- **Usuario Principal:** Martín.
+- **Ubicación Base:** Esparreguera, Barcelona (Catalunya, España).
+- **Aeropuerto de Salida:** **BCN (Josep Tarradellas Barcelona-El Prat)**.
+- **Canal de Notificaciones Preferido:** Bot de Telegram propio con alertas push directas al móvil con enlace de compra.
+- **Repositorio Local:** `/Users/admin/Desktop/Proyectos/Vuelos Martin`
+- **Tono y Trato con Martín:** Tech Lead uruguayo (directo, rioplatense, "vos", "che", "impecable", cero peloteo emocional).
+
+---
+
+## 📌 Perfil de Viajero y Criterio de Selección de Martín
+
+1. **La Filosofía de Horas Útiles (Cero Vuelos Basura):**
+   - Martín ya experimentó con éxito viajar a **Lisboa en el día** (salida a las 06:00 AM desde BCN y regreso a las 23:00 PM), conociendo la ciudad entera en una jornada completa sin pagar un solo euro de hotel ni equipaje.
+   - Por tanto, la aplicación **NO se limita a viajes de varios días**. Los viajes de 1 día (day-trip) son de altísima prioridad por su ahorro financiero en alojamiento (0 € hotel).
+   - Quedan terminantemente descartados los vuelos con horarios trampa (ej. llegar a las 23:30h o salir a las 06:00h de la mañana del último día perdiendo la jornada).
+
+2. **Las 3 Modalidades de Búsqueda:**
+   - **Modalidad 1: "Express Day-Trip" (En el día • 0 € Hotel):**
+     - Salida BCN: 06:00 - 08:30 AM.
+     - Vuelta destino: 20:30 - 23:59 PM.
+     - Tiempo libre en ciudad: Mínimo 10 a 14 horas limpias.
+     - Destinos top: Palma de Mallorca, Menorca, Ibiza, Oporto, Lisboa, Milán, Burdeos, Niza, Sevilla, Ginebra.
+     - Precio objetivo: 18 € a 35 € ida y vuelta.
+   - **Modalidad 2: "Finde Relámpago" (1 noche • Sábado a Domingo):**
+     - Salida Sábado temprano, vuelta Domingo noche.
+     - Tiempo libre: ~30 a 36 horas.
+     - Precio objetivo: 25 € a 45 € ida y vuelta.
+   - **Modalidad 3: "Escapada Clásica" (2 noches • Viernes a Domingo / Puente):**
+     - Salida Viernes tarde o Sábado temprano, vuelta Domingo noche.
+     - Tiempo libre: ~48 a 55 horas.
+     - Precio objetivo: 30 € a 50 € ida y vuelta.
+
+3. **Restricciones Duras de Vuelo:**
+   - **100% Vuelos Directos:** Cero escalas.
+   - **Aeropuertos viables:** Descartar aeropuertos remotos cuyo traslado al centro supere el precio del billete (ej. París-Beauvais).
+
+---
+
+## 🛠️ Arquitectura Técnica Diseñada
+
+1. **Módulo de Rastreo (Scanners):**
+   - **Tequila API (Kiwi.com):** Búsquedas abiertas (`fly_from=BCN`, `fly_to=europe`, `nights_in_dst_from=0&nights_in_dst_to=2`, ordenado por precio).
+   - **Ryanair FareFinder API:** Endpoints públicos de tarifas reducidas desde BCN.
+   - **Amadeus Flight Inspiration:** Búsquedas inspiracionales con presupuesto máximo.
+
+2. **Motor de Filtros (Core Logic):**
+   - Cálculo del algoritmo de aprovechamiento:
+     $$\text{Ratio Chollo} = \frac{\text{Horas Útiles en Destino}}{\text{Precio Total (€)}}$$
+   - Si el ratio supera el umbral y el precio es < 45-50 €, se emite la alerta.
+
+3. **Notificador (Telegram Bot):**
+   - Envío de alerta Markdown con:
+     - Bandera y Ciudad destino.
+     - Horario ida (hora salida y llegada).
+     - Horario vuelta (hora salida y llegada).
+     - Horas netas de turismo.
+     - Precio total ida y vuelta.
+     - Enlace directo a la aerolínea para reservar en 1 click.
+
+4. **Persistencia (SQLite):**
+   - Registro de ofertas encontradas para:
+     - No repetir la misma alerta si el precio no baja.
+     - Detectar mínimos históricos de precios.
+
+---
+
+## 🚀 Estado Actual y Próximos Pasos
+
+- [x] Carpeta del proyecto inicializada en `/Users/admin/Desktop/Proyectos/Vuelos Martin`.
+- [x] Documentación exhaustiva en `README.md` y memoria viva en `MEMORY.md`.
+- [x] Reglas maestras `.agents/AGENTS.md` y workflows `/load_context` y `/save_context` configurados.
+- [x] Configurar token del bot de Telegram (`TELEGRAM_BOT_TOKEN` y `TELEGRAM_CHAT_ID` vía @miasistente_alfred_bot).
+- [x] Implementar el cliente de la API de búsqueda (`src/Scanners/RyanairScanner.js` con barrido global y focalizado en destinos top).
+- [x] Implementar el motor de cálculo de horas útiles, descarte de aeropuertos trampa y ratio de calidad (`src/Core/FlightFilter.js`).
+- [x] Implementar sistema de persistencia anti-duplicados (`src/Storage/AlertHistory.js`).
+- [x] Orquestador CLI y modo daemon continuo (`src/index.js`).
+- [x] Interfaz Web Premium (`public/index.html`, `public/css/style.css`, `public/js/app.js`) con dark mode, glassmorphism y filtros dinámicos.
+- [x] Despliegue en Producción en Hostinger VPS (`domains/contenido.creawebes.com/public_html/VuelosMartin/`).
+- [x] Botón "🔄 Rastrear Ahora" para escaneo manual en tiempo real desde el navegador.
+- [x] Botón "📲 Telegram" en cada tarjeta web para reenviarte vuelos a tu móvil con 1 click.
+- [x] Integración Multi-Aerolínea Google Flights (`src/Scanners/GoogleFlightsScanner.js` vía RapidAPI) capturando tarifas de **Vueling**, **Air Europa** e **Iberia**.
+- [x] Cobertura de destinos en **Marruecos** (Marrakech RAK, Fez FEZ, Tánger TNG, Nador NDR).
+- [x] Motor de deduplicación canónica entre APIs cruzadas (Ryanair vs Google Flights).
+- [x] Catálogo masivo de **más de 90 destinos directos desde BCN** (cubriendo Europa occidental, oriental, nórdicos, balcanes, bálticos y norte de África).
+- [x] Ampliación del horizonte de búsqueda a **180 días vista (hasta finales de abril)**.
+- [x] Selector web de precio flexible con filtros hasta **80 € y 100 €**.
+- [x] Control resiliente de cuotas de API (gestión automática de HTTP 429 con fallback continuo en Ryanair).
+- [x] Blindaje absoluto de credenciales en VPS (`chmod 600` en `.env` y bloqueo 403 en `.htaccess`).
+- [x] Cache-busting automático en Apache con `DirectoryIndex index.php` y versionado dinámico `?v=timestamp`.
+- [ ] Programar daemon/cron o PM2 para ejecución desatendida del scanner.
+
+---
+
+## 📝 Historial de Sesiones
+
+### Sesión 2026-10-25 (Core, Multi-Aerolínea, Dashboard Web y Despliegue en Vivo)
+- **Telegram Bot:** Conexión validada con `@miasistente_alfred_bot` y chat personal de Martín (`1871392012`) vía `.env`.
+- **Scanners:** `RyanairScanner.js` (gratuito, sin límites) + `GoogleFlightsScanner.js` (multi-aerolínea con Vueling y Air Europa).
+- **Filtros & Persistencia:** `FlightFilter.js` (filtra horas útiles y descarta vuelos basura) y `AlertHistory.js` (anti-spam con umbral de 4 € de bajada).
+- **Dashboard Web:** Interfaz completa en `public/` con diseño fintech dark mode al estilo Gastos Martín.
+- **Acciones Interactivas:** 
+  - Botón "🔄 Rastrear Ahora" en el header para ejecutar rastreos en vivo al instante.
+  - Botón "📲 Telegram" en cada tarjeta para enviar alertas individuales al teléfono.
+- **Despliegue Producción:** Desplegado y verificado HTTP 200 en `https://contenido.creawebes.com/VuelosMartin/`.
+
+

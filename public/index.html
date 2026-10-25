@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vuelos Martín — Cazador Inteligente de Vuelos Chollo desde BCN</title>
+  <meta name="description" content="Rastreador inteligente de vuelos directos desde Barcelona-El Prat. Day-trips en el día a 0€ de hotel y escapadas de fin de semana con máximo tiempo útil.">
+  <meta name="theme-color" content="#070b14">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Vuelos Martín">
+  
+  <link rel="icon" type="image/svg+xml" href="assets/icon.svg">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="css/style.css?v=2.6">
+</head>
+<body>
+  <!-- Header -->
+  <header class="app-header">
+    <div class="container">
+      <div class="header-inner">
+        <div class="brand">
+          <div class="brand-icon">✈️</div>
+          <div>
+            <h1 class="brand-title">Vuelos Martín</h1>
+            <div class="brand-tagline">
+              <span>Origen <strong>BCN (El Prat)</strong></span>
+              <span class="live-badge">
+                <span class="live-dot"></span> Radar Activo
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <button id="installAppBtn" class="install-pwa-btn" style="display: none;" title="Instalar como aplicación en este dispositivo">
+            <span class="btn-icon">📱</span> <span>Instalar App</span>
+          </button>
+          <button id="scanManualBtn" class="scan-now-btn" title="Hacer un rastreo manual en vivo">
+            <span class="btn-icon">🔄</span> <span id="scanBtnText">Rastrear Ahora</span>
+          </button>
+          <span class="meta-time" id="lastUpdated">Cargando radar...</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Stats Row -->
+    <section class="stats-grid" aria-label="Métricas del Radar">
+      <div class="stat-card stat-total">
+        <div class="stat-label">Chollos Filtrados</div>
+        <div class="stat-value" id="statTotal">--</div>
+        <div class="stat-desc">Vuelos directos aprobados</div>
+      </div>
+
+      <div class="stat-card stat-daytrip">
+        <div class="stat-label">⚡ Day-Trips (0 € Hotel)</div>
+        <div class="stat-value" id="statDaytrip">--</div>
+        <div class="stat-desc">Ida y vuelta en el mismo día</div>
+      </div>
+
+      <div class="stat-card stat-cheapest">
+        <div class="stat-label">Precio Más Bajo</div>
+        <div class="stat-value" id="statCheapest">--</div>
+        <div class="stat-desc">Ida y vuelta completa</div>
+      </div>
+
+      <div class="stat-card stat-hours">
+        <div class="stat-label">Máx Tiempo Libre</div>
+        <div class="stat-value" id="statMaxHours">--</div>
+        <div class="stat-desc">Horas netas de turismo</div>
+      </div>
+    </section>
+
+    <!-- Controls & Filters -->
+    <section class="controls-card" aria-label="Filtros de Búsqueda">
+      <div class="filter-row">
+        <!-- Modalidad Tabs -->
+        <div class="tabs-container" role="tablist">
+          <button class="tab-btn active" data-mode="all" role="tab">Todos</button>
+          <button class="tab-btn tab-daytrip" data-mode="daytrip" role="tab">⚡ En el día (0 € Hotel)</button>
+          <button class="tab-btn" data-mode="weekend" role="tab">🎒 Finde (1 Noche)</button>
+          <button class="tab-btn" data-mode="bridge" role="tab">🌉 Escapada (2 Noches)</button>
+        </div>
+
+        <!-- Sorting & Search -->
+        <div class="filter-actions">
+          <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="searchInput" class="search-input" placeholder="Buscar destino (ej. Oporto, Milán)...">
+          </div>
+
+          <select id="sortSelect" class="sort-select" aria-label="Ordenar vuelos">
+            <option value="ratio">Ratio Calidad (Horas / €)</option>
+            <option value="price-asc">Precio más bajo</option>
+            <option value="hours-desc">Más horas libres en destino</option>
+            <option value="date-asc">Fecha más próxima</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Price Chips -->
+      <div class="filter-row">
+        <div class="price-chips">
+          <span class="chip-label">Precio máx i/v:</span>
+          <button class="price-chip active" data-price="all">Todos</button>
+          <button class="price-chip" data-price="30">≤ 30 €</button>
+          <button class="price-chip" data-price="45">≤ 45 €</button>
+          <button class="price-chip" data-price="60">≤ 60 €</button>
+          <button class="price-chip" data-price="80">≤ 80 €</button>
+          <button class="price-chip" data-price="100">≤ 100 €</button>
+        </div>
+
+        <span class="meta-time" id="dealsCountBadge">Cargando...</span>
+      </div>
+    </section>
+
+    <!-- Flight Deals Grid -->
+    <section class="deals-grid" id="dealsContainer" aria-label="Listado de Vuelos Chollo">
+      <!-- Inyectado dinámicamente por app.js -->
+    </section>
+  </main>
+
+  <script src="js/app.js?v=2.5"></script>
+</body>
+</html>

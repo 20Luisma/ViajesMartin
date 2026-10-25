@@ -1,0 +1,21 @@
+{
+  "name": "vuelos-martin",
+  "version": "1.0.0",
+  "description": "Cazador Inteligente de Vuelos Chollo desde BCN",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node --env-file=.env src/index.js",
+    "scan": "node --env-file=.env src/index.js --once",
+    "test-alert": "node --env-file=.env src/test-alert.js"
+  },
+  "keywords": [
+    "flights",
+    "deals",
+    "ryanair",
+    "telegram",
+    "travel"
+  ],
+  "author": "Martín",
+  "license": "ISC"
+}

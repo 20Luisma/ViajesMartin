@@ -1,0 +1,10 @@
+.DS_Store
+.env
+storage/*.db
+storage/*.sqlite
+storage/*.json
+storage/logs/
+vendor/
+node_modules/
+.venv/
+
