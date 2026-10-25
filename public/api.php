@@ -328,17 +328,23 @@ if ($action === 'scan') {
 
     // Deduplicación y fusión acumulativa con chollos previamente descubiertos
     $dataPath = __DIR__ . '/data/deals.json';
-    $existingDeals = [];
+    $existingDealsMap = [];
     if (file_exists($dataPath)) {
         $prevData = json_decode(file_get_contents($dataPath), true);
         if (!empty($prevData['deals']) && is_array($prevData['deals'])) {
-            $existingDeals = $prevData['deals'];
+            foreach ($prevData['deals'] as $pd) {
+                $pOut = substr($pd['outbound']['departureDate'] ?? '', 0, 10);
+                $pIn = substr($pd['inbound']['departureDate'] ?? '', 0, 10);
+                $pKey = "{$pd['destinationIata']}_{$pOut}_{$pIn}_{$pd['airline']}";
+                $existingDealsMap[$pKey] = $pd;
+            }
         }
     }
 
-    // Combinar chollos previos aún vigentes en el futuro con los nuevos encontrados
-    $allCandidateDeals = array_merge($existingDeals, $deals);
+    $allCandidateDeals = array_merge(array_values($existingDealsMap), $deals);
     $uniqueDeals = [];
+    $nowIso = date('c');
+    $nowTime = time();
 
     foreach ($allCandidateDeals as $d) {
         $outD = substr($d['outbound']['departureDate'], 0, 10);
@@ -347,6 +353,18 @@ if ($action === 'scan') {
         if ($outD < date('Y-m-d')) continue;
 
         $key = "{$d['destinationIata']}_{$outD}_{$inD}_{$d['airline']}";
+        $isBrandNew = !isset($existingDealsMap[$key]);
+
+        // Mantener o asignar fecha de descubrimiento
+        if (isset($existingDealsMap[$key]['firstSeen'])) {
+            $d['firstSeen'] = $existingDealsMap[$key]['firstSeen'];
+        } else {
+            $d['firstSeen'] = $nowIso;
+        }
+
+        // Marcar como NUEVO si se descubrió en las últimas 48 horas
+        $firstSeenTime = strtotime($d['firstSeen']) ?: $nowTime;
+        $d['isNew'] = (($nowTime - $firstSeenTime) <= 48 * 3600);
         
         if (isset($uniqueDeals[$key])) {
             $prev = $uniqueDeals[$key];

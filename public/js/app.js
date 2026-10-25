@@ -352,12 +352,16 @@ class VuelosApp {
     const dateDisplay = isDaytrip ? outDate : `${outDate} ➔ ${inDate}`;
     const airlineName = deal.airline || 'Ryanair';
     const btnId = `tg-btn-${deal.destinationIata}-${deal.totalPrice.toFixed(0)}`;
+    const isNew = Boolean(deal.isNew);
 
     return `
-      <article class="deal-card">
+      <article class="deal-card ${isNew ? 'is-new-deal' : ''}">
         <div>
           <div class="card-top-badges">
-            <span class="deal-badge ${deal.mode}">${modeBadgeText}</span>
+            <div class="badge-group-left">
+              ${isNew ? '<span class="deal-badge-new"><span class="new-dot"></span>NUEVO</span>' : ''}
+              <span class="deal-badge ${deal.mode}">${modeBadgeText}</span>
+            </div>
             <span class="deal-carrier-badge">✈️ ${airlineName}</span>
           </div>
 
