@@ -92,20 +92,26 @@ Aplicación autónoma de monitorización, rastreo y alerta en tiempo real de **v
 - [x] Control resiliente de cuotas de API (gestión automática de HTTP 429 con fallback continuo en Ryanair).
 - [x] Blindaje absoluto de credenciales en VPS (`chmod 600` en `.env` y bloqueo 403 en `.htaccess`).
 - [x] Cache-busting automático en Apache con `DirectoryIndex index.php` y versionado dinámico `?v=timestamp`.
+- [x] Soporte PWA completo (`manifest.json`, `sw.js` y botón "📲 Instalar App") para instalar en Chrome/Móvil como aplicación nativa.
+- [x] Diseño 100% responsive para teléfonos móviles con scroll horizontal fluido y botones táctiles optimizados.
+- [x] Repositorio público sincronizado en GitHub (`https://github.com/20Luisma/ViajesMartin.git`) con historial 100% blindado y cero credenciales expuestas.
 - [ ] Programar daemon/cron o PM2 para ejecución desatendida del scanner.
 
 ---
 
 ## 📝 Historial de Sesiones
 
-### Sesión 2026-10-25 (Core, Multi-Aerolínea, Dashboard Web y Despliegue en Vivo)
+### Sesión 2026-10-25 (Core, Multi-Aerolínea, PWA, Dashboard Web y Despliegue en Vivo)
 - **Telegram Bot:** Conexión validada con `@miasistente_alfred_bot` y chat personal de Martín (`1871392012`) vía `.env`.
 - **Scanners:** `RyanairScanner.js` (gratuito, sin límites) + `GoogleFlightsScanner.js` (multi-aerolínea con Vueling y Air Europa).
 - **Filtros & Persistencia:** `FlightFilter.js` (filtra horas útiles y descarta vuelos basura) y `AlertHistory.js` (anti-spam con umbral de 4 € de bajada).
-- **Dashboard Web:** Interfaz completa en `public/` con diseño fintech dark mode al estilo Gastos Martín.
+- **Dashboard Web & PWA:** Interfaz en `public/` con diseño fintech dark mode, soporte offline/network-first (`sw.js`) e instalación nativa como PWA.
+- **Mobile Responsive:** Adaptación completa para smartphones con navegación horizontal por chips y acciones táctiles de 44px+.
 - **Acciones Interactivas:** 
   - Botón "🔄 Rastrear Ahora" en el header para ejecutar rastreos en vivo al instante.
   - Botón "📲 Telegram" en cada tarjeta para enviar alertas individuales al teléfono.
+  - Botón "📲 Instalar App" para agregar al inicio en Android/Chrome.
 - **Despliegue Producción:** Desplegado y verificado HTTP 200 en `https://contenido.creawebes.com/VuelosMartin/`.
+- **Blindaje y GitHub:** Saneamiento exhaustivo de secretos y subida limpia al repositorio público `https://github.com/20Luisma/ViajesMartin.git`.
 
 
