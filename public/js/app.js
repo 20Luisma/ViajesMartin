@@ -44,7 +44,7 @@ class VuelosApp {
     this.stats = {};
     this.currentMode = 'all';
     this.currentMaxPrice = Infinity;
-    this.currentSort = 'ratio';
+    this.currentSort = 'recent-first';
     this.searchQuery = '';
 
     this.initElements();
@@ -254,6 +254,21 @@ class VuelosApp {
 
   getSortedDeals(deals) {
     return [...deals].sort((a, b) => {
+      if (this.currentSort === 'recent-first') {
+        // 1. Nuevos en esta tanda primero
+        if (a.isNew && !b.isNew) return -1;
+        if (!a.isNew && b.isNew) return 1;
+
+        // 2. Fecha de descubrimiento más reciente primero
+        const timeA = a.firstSeen ? new Date(a.firstSeen).getTime() : 0;
+        const timeB = b.firstSeen ? new Date(b.firstSeen).getTime() : 0;
+        if (timeA !== timeB) {
+          return timeB - timeA;
+        }
+
+        // 3. Desempate por mejor ratio calidad
+        return b.ratio - a.ratio;
+      }
       if (this.currentSort === 'ratio') {
         return b.ratio - a.ratio;
       }
