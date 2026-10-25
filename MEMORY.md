@@ -97,7 +97,8 @@ Aplicación autónoma de monitorización, rastreo y alerta en tiempo real de **v
 - [x] Repositorio público sincronizado en GitHub (`https://github.com/20Luisma/ViajesMartin.git`) con historial 100% blindado y cero credenciales expuestas.
 - [x] Pool rotativo multi-cuenta de RapidAPI con 7 claves activas (~700 consultas/mes de Google Flights) y fallback transparente ante 429/403.
 - [x] Motor de persistencia y fusión acumulativa de chollos para que los escaneos en vivo sumen vuelos sin perder los anteriores.
-- [ ] Programar daemon/cron o PM2 para ejecución desatendida del scanner.
+- [x] Tarea programada (Cron) en Hostinger configurada para ejecución desatendida diaria a las 00:00 h.
+- [x] Checkpoint de seguridad creado: Git Tag `v-estable-2026-10-25`.
 
 ---
 
@@ -109,12 +110,14 @@ Aplicación autónoma de monitorización, rastreo y alerta en tiempo real de **v
 - **Filtros & Persistencia:** `FlightFilter.js` (filtra horas útiles y descarta vuelos basura) y `AlertHistory.js` (anti-spam con umbral de 4 € de bajada).
 - **Dashboard Web & PWA:** Interfaz en `public/` con diseño fintech dark mode, soporte offline/network-first (`sw.js`) e instalación nativa como PWA.
 - **Mobile Responsive:** Adaptación completa para smartphones con navegación horizontal por chips y acciones táctiles de 44px+.
-- **Pool de Claves RapidAPI:** Soporte en cascada de claves separadas por coma en `RAPIDAPI_KEY` con rotación transparente ante códigos 429/403.
+- **Pool de Claves RapidAPI:** Soporte en cascada de claves separadas por coma en `RAPIDAPI_KEY` con rotación transparente ante códigos 429/403 (7 claves activas).
+- **Cron Autónomo:** Configurado en Hostinger hPanel con ejecución directa `/usr/bin/php .../api.php` cada día a las 00:00.
 - **Acciones Interactivas:** 
   - Botón "🔄 Rastrear Ahora" en el header para ejecutar rastreos en vivo al instante.
   - Botón "📲 Telegram" en cada tarjeta para enviar alertas individuales al teléfono.
   - Botón "📲 Instalar App" para agregar al inicio en Android/Chrome.
 - **Despliegue Producción:** Desplegado y verificado HTTP 200 en `https://contenido.creawebes.com/VuelosMartin/`.
 - **Blindaje y GitHub:** Saneamiento exhaustivo de secretos y subida limpia al repositorio público `https://github.com/20Luisma/ViajesMartin.git`.
+- **Tag Git:** Sellado `v-estable-2026-10-25`.
 
 
