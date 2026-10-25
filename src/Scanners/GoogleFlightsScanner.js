@@ -60,14 +60,20 @@ const AIRPORT_METADATA = {
 export class GoogleFlightsScanner {
   constructor(settings = Config.settings) {
     this.settings = settings;
-    this.apiKey = Config.rapidapi.apiKey;
+    const rawKey = Config.rapidapi.apiKey || '';
+    this.apiKeys = rawKey.split(',').map((k) => k.trim()).filter(Boolean);
+    this.currentKeyIndex = 0;
     this.host = 'google-flights4.p.rapidapi.com';
     this.origin = settings.originAirport || 'BCN';
     this.priorityDestinations = settings.priorityDestinations || ['PMI', 'IBZ', 'OPO', 'SVQ', 'MAH', 'LIS', 'BGY'];
   }
 
+  get activeKey() {
+    return this.apiKeys[this.currentKeyIndex] || null;
+  }
+
   async fetchEndpoint(endpoint, params = {}) {
-    if (!this.apiKey) {
+    if (!this.activeKey) {
       console.warn('[GoogleFlights] Falta RAPIDAPI_KEY en .env');
       return null;
     }
@@ -79,14 +85,19 @@ export class GoogleFlightsScanner {
       const res = await fetch(url, {
         headers: {
           'x-rapidapi-host': this.host,
-          'x-rapidapi-key': this.apiKey,
+          'x-rapidapi-key': this.activeKey,
         },
       });
 
       if (!res.ok) {
-        if (res.status === 429) {
-          if (!this.quotaExhausted) {
-            console.warn('[GoogleFlights] ⚠️ Cuota mensual de RapidAPI alcanzada (HTTP 429). El scanner continúa con las demás fuentes ilimitadas.');
+        if (res.status === 429 || res.status === 403) {
+          // Rotar a la siguiente clave del pool
+          this.currentKeyIndex++;
+          if (this.currentKeyIndex < this.apiKeys.length) {
+            console.log(`[GoogleFlights] 🔄 Clave agotada (HTTP ${res.status}). Rotando a la clave #${this.currentKeyIndex + 1} del pool...`);
+            return this.fetchEndpoint(endpoint, params);
+          } else if (!this.quotaExhausted) {
+            console.warn('[GoogleFlights] ⚠️ Todas las claves del pool agotaron su cuota (HTTP 429). El scanner continúa con fuentes ilimitadas.');
             this.quotaExhausted = true;
           }
         } else {

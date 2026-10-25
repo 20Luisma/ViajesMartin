@@ -225,11 +225,16 @@ if ($action === 'scan') {
         ];
     }
 
-    // Escaneo de Google Flights (Vueling, Air Europa, etc.) si hay API Key disponible
-    if (!empty($rapidApiKey)) {
-        $gfTargets = ['IBZ', 'PMI'];
+    // Escaneo de Google Flights (Vueling, Air Europa, etc.) si hay claves disponibles
+    $rapidApiKeys = array_values(array_filter(array_map('trim', explode(',', $rapidApiKey))));
+    $currentKeyIndex = 0;
+
+    if (!empty($rapidApiKeys)) {
+        $gfTargets = ['IBZ', 'PMI', 'SVQ', 'MAH', 'OPO'];
         $gfDates = [
             ['out' => '2026-11-13', 'ret' => '2026-11-15'],
+            ['out' => '2026-11-20', 'ret' => '2026-11-22'],
+            ['out' => '2026-11-27', 'ret' => '2026-11-29'],
         ];
 
         $metaDict = [
@@ -242,17 +247,29 @@ if ($action === 'scan') {
 
         foreach ($gfTargets as $targetIata) {
             foreach ($gfDates as $dates) {
+                if ($currentKeyIndex >= count($rapidApiKeys)) {
+                    break 2; // Todas las claves del pool agotaron su cuota
+                }
+
+                $activeKey = $rapidApiKeys[$currentKeyIndex];
                 $gfUrl = "https://google-flights4.p.rapidapi.com/flights/search-roundtrip?departureId=BCN&arrivalId={$targetIata}&departureDate={$dates['out']}&arrivalDate={$dates['ret']}&currency=EUR";
+                
                 $chGf = curl_init($gfUrl);
                 curl_setopt($chGf, CURLOPT_RETURNTRANSFER, true);
                 curl_setopt($chGf, CURLOPT_TIMEOUT, 6);
                 curl_setopt($chGf, CURLOPT_HTTPHEADER, [
                     "x-rapidapi-host: google-flights4.p.rapidapi.com",
-                    "x-rapidapi-key: " . $rapidApiKey
+                    "x-rapidapi-key: " . $activeKey
                 ]);
                 $gfRes = curl_exec($chGf);
                 $gfCode = curl_getinfo($chGf, CURLINFO_HTTP_CODE);
                 curl_close($chGf);
+
+                // Si esta clave agotó cuota (429) o falló, rotamos a la siguiente del pool de inmediato
+                if ($gfCode === 429 || $gfCode === 403) {
+                    $currentKeyIndex++;
+                    continue;
+                }
 
                 if ($gfCode === 200 && $gfRes) {
                     $gfJson = json_decode($gfRes, true);
