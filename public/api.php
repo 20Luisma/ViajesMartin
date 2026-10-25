@@ -358,13 +358,13 @@ if ($action === 'scan') {
         // Mantener o asignar fecha de descubrimiento
         if (isset($existingDealsMap[$key]['firstSeen'])) {
             $d['firstSeen'] = $existingDealsMap[$key]['firstSeen'];
+            // Ya existía en el escaneo anterior: ya no es "nuevo" en esta tanda
+            $d['isNew'] = false;
         } else {
+            // Entró recién en este escaneo
             $d['firstSeen'] = $nowIso;
+            $d['isNew'] = true;
         }
-
-        // Marcar como NUEVO si se descubrió en las últimas 48 horas
-        $firstSeenTime = strtotime($d['firstSeen']) ?: $nowTime;
-        $d['isNew'] = (($nowTime - $firstSeenTime) <= 48 * 3600);
         
         if (isset($uniqueDeals[$key])) {
             $prev = $uniqueDeals[$key];

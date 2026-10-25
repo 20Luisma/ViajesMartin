@@ -358,11 +358,11 @@ class VuelosApp {
       <article class="deal-card ${isNew ? 'is-new-deal' : ''}">
         <div>
           <div class="card-top-badges">
-            <div class="badge-group-left">
-              ${isNew ? '<span class="deal-badge-new"><span class="new-dot"></span>NUEVO</span>' : ''}
-              <span class="deal-badge ${deal.mode}">${modeBadgeText}</span>
+            <span class="deal-badge ${deal.mode}">${modeBadgeText}</span>
+            <div class="badge-group-right">
+              ${isNew ? '<span class="deal-badge-new">✨ Nuevo</span>' : ''}
+              <span class="deal-carrier-badge">✈️ ${airlineName}</span>
             </div>
-            <span class="deal-carrier-badge">✈️ ${airlineName}</span>
           </div>
 
           <div class="deal-destination">

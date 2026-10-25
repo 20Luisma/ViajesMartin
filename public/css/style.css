@@ -667,52 +667,28 @@ body {
   gap: 8px;
 }
 
-.badge-group-left {
+.badge-group-right {
   display: flex;
   align-items: center;
   gap: 8px;
-  flex-wrap: wrap;
 }
 
 .deal-badge-new {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  padding: 4px 10px;
+  gap: 4px;
+  padding: 3px 8px;
   border-radius: 9999px;
-  font-size: 0.7rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  background: rgba(239, 68, 68, 0.2);
-  color: #f87171;
-  border: 1px solid rgba(239, 68, 68, 0.45);
-  box-shadow: 0 0 12px rgba(239, 68, 68, 0.3);
-  animation: pulseNew 2s infinite ease-in-out;
-}
-
-.deal-badge-new .new-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #ef4444;
-  box-shadow: 0 0 8px #ef4444;
-}
-
-@keyframes pulseNew {
-  0%, 100% {
-    transform: scale(1);
-    box-shadow: 0 0 12px rgba(239, 68, 68, 0.3);
-  }
-  50% {
-    transform: scale(1.04);
-    box-shadow: 0 0 18px rgba(239, 68, 68, 0.55);
-  }
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.35);
 }
 
 .deal-card.is-new-deal {
-  border-color: rgba(239, 68, 68, 0.35);
-  box-shadow: 0 12px 32px -10px rgba(0, 0, 0, 0.7), 0 0 20px -5px rgba(239, 68, 68, 0.15);
+  border-color: rgba(52, 211, 153, 0.3);
 }
 
 .card-top-badges .deal-badge {
