@@ -406,10 +406,65 @@ if ($action === 'scan') {
     $dataPath = __DIR__ . '/data/deals.json';
     file_put_contents($dataPath, json_encode($exportData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 
+    // Enviar alerta automática a Telegram por cada chollo NUEVO recién detectado
+    $newDeals = array_values(array_filter($deals, fn($d) => !empty($d['isNew'])));
+    $sentToTelegram = 0;
+
+    if (!empty($newDeals) && !empty($botToken) && !empty($chatId)) {
+        // Limitamos a un máximo de 5 alertas por tanda para no spamear Telegram si entran muchos de golpe
+        $dealsToSend = array_slice($newDeals, 0, 5);
+
+        foreach ($dealsToSend as $nd) {
+            $modeTitle = ($nd['mode'] === 'daytrip') 
+                ? '⚡ EXPRESS DAY-TRIP (En el día • 0 € Hotel)' 
+                : (($nd['mode'] === 'weekend') ? '🎒 FINDE RELÁMPAGO (1 Noche)' : '🌉 ESCAPADA 2 NOCHES');
+
+            $city = $nd['destinationCity'] ?? $nd['destinationIata'];
+            $iata = $nd['destinationIata'];
+            $airline = $nd['airline'] ?? 'Aerolínea';
+            $hours = number_format($nd['usefulHours'] ?? 0, 1);
+            $price = number_format($nd['totalPrice'] ?? 0, 2);
+            $url = $nd['bookingUrl'] ?? 'https://www.google.com/travel/flights';
+
+            $outDep = !empty($nd['outbound']['departureDate']) ? date('d/m H:i', strtotime($nd['outbound']['departureDate'])) : '';
+            $inDep = !empty($nd['inbound']['departureDate']) ? date('d/m H:i', strtotime($nd['inbound']['departureDate'])) : '';
+
+            $msg = "🔥 *¡NUEVO CHOLLO DETECTADO!*\n"
+                 . "🚨 *{$modeTitle}*\n\n"
+                 . "✈️ *BCN ➔ {$city} ({$iata})*\n"
+                 . "🏢 *Compañía:* {$airline}\n"
+                 . "🛫 *Ida:* {$outDep}  |  🛬 *Vuelta:* {$inDep}\n"
+                 . "⏱️ *Tiempo útil en destino:* {$hours} horas\n"
+                 . "💶 *Precio Total i/v:* *{$price} €*\n\n"
+                 . "🔗 [Reservar Vuelo Ahora]({$url})";
+
+            $tgPayload = [
+                'chat_id' => $chatId,
+                'text' => $msg,
+                'parse_mode' => 'Markdown',
+                'disable_web_page_preview' => false
+            ];
+
+            $ch = curl_init("https://api.telegram.org/bot{$botToken}/sendMessage");
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($tgPayload));
+            curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_TIMEOUT, 4);
+            curl_exec($ch);
+            curl_close($ch);
+
+            $sentToTelegram++;
+            usleep(250000); // 250ms de pausa entre mensajes
+        }
+    }
+
     echo json_encode([
         'status' => true,
         'message' => '¡Rastreo completado en vivo!',
         'totalDeals' => count($deals),
+        'newDeals' => count($newDeals),
+        'sentToTelegram' => $sentToTelegram,
         'updatedAt' => $exportData['updatedAt']
     ]);
     exit;
