@@ -94,7 +94,7 @@ if ($action === 'trip_copilot') {
         . "- checklist: array de cosas esenciales para ese destino concreto con { id, text, checked: false }\n"
         . "- survivalTips: array de consejos reales y prácticos de ese destino específico con { title, icon, desc }\n"
         . "- REGLA DE FECHAS: Los billetes de aerolínea (como Ryanair) a menudo no muestran el año (ej: '25 NOV'). Debes asumir SIEMPRE el año 2026 (o el año futuro correspondiente), NUNCA fechas pasadas como 2024 o 2025.\n"
-        . "- REGLA DE PROTECCIÓN DE VUELOS CONFIRMADOS: Si ya existe un viaje activo con fechas y números de vuelo confirmados, TIENES TERMINANTEMENTE PROHIBIDO alterar, inventar o mover las fechas de vuelo o los números de vuelo (flights). Los vuelos son sagrados y solo se tocan si Martín adjunta un billete nuevo o dice explícitamente que cambió el vuelo.\n"
+        . "- REGLA DE PROTECCIÓN DE DATOS CONFIRMADOS: Si ya existe un viaje activo con vuelos o alojamiento confirmados (ej: vuelos Ryanair FR3189/FR3188 o hotel 'Dar Berrada-Ziat'), TIENES TERMINANTEMENTE PROHIBIDO cambiarlos, inventar otros nombres de riad (como Dar Mfaddel o Dar Bensouda) o alterar fechas de vuelo. Los datos confirmados son sagrados y solo se modifican si Martín envía explícitamente una nueva reserva o billete.\n"
         . "- OPTIMIZACIÓN DE VELOCIDAD:\n"
         . "  * Si Martín hace una PREGUNTA CONVERSACIONAL, duda o pide tips (ej: sobre mapas, consejos, qué ver, comida, etc.) y NO requiere cambiar datos de vuelos ni paradas: responde al pie en 'reply' y pon \"updatedTrip\": null.\n"
         . "  * Solo incluye \"updatedTrip\" con el objeto completo si se está creando un viaje nuevo o modificando vuelos/hotel/itinerario.\n"

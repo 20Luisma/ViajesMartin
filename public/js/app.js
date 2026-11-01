@@ -808,12 +808,13 @@ class VuelosApp {
           </div>
         </div>
         <div class="hotel-meta-row">
-          <span>🕒 Check-in: <strong>${hotel.checkIn || '13:00'}</strong></span>
+          <span>🕒 Check-in: <strong>${hotel.checkIn || '12:00 - 13:00'}</strong></span>
           <span>🕒 Check-out: <strong>${hotel.checkOut || '11:00'}</strong></span>
-          <span>💶 Precio: <strong>${hotel.price || '35 €'}</strong></span>
+          ${hotel.confirmationNumber ? `<span>📋 Booking: <strong>#${hotel.confirmationNumber}</strong></span>` : ''}
+          ${hotel.phone ? `<span>📞 Tel: <strong>${hotel.phone}</strong></span>` : ''}
         </div>
         <p style="margin-top: 10px; font-size: 0.85rem; color: var(--text-muted); line-height: 1.4;">
-          💡 <strong>Nota del Copiloto:</strong> ${hotel.notes || 'Avisar llegada al Riad para transfer.'}
+          💡 <strong>Nota del Copiloto:</strong> ${hotel.notes || 'Avisar llegada para transfer.'}
         </p>
       </div>
     `;

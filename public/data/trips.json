@@ -47,13 +47,14 @@
                 }
             },
             "hotel": {
-                "name": "Riad Dar Mfaddel",
-                "address": "Fes El-Bali, Medina de Fez (a 7 min de Bab Boujloud)",
-                "checkIn": "13:00",
+                "name": "Dar Berrada-Ziat",
+                "address": "Barrio Ziat, Fes El-Bali, Medina de Fez",
+                "checkIn": "12:00 - 13:00 (Aprobada)",
                 "checkOut": "11:00",
-                "price": "35 €",
-                "phone": "+212 600-000000",
-                "notes": "Avisar hora de llegada por WhatsApp para que nos esperen en la Puerta Azul."
+                "confirmationNumber": "5259739989",
+                "pin": "6943",
+                "phone": "+212 5356 36092",
+                "notes": "Llegada aprobada 12:00-13:00. Teléfono: +212 5356 36092. Reserva Booking #5259739989 (PIN: 6943)."
             },
             "timeline": [
                 {
@@ -87,8 +88,8 @@
                     "id": 4,
                     "day": "2026-11-25",
                     "time": "12:15",
-                    "title": "Grand Taxi a Bab Boujloud",
-                    "desc": "Pactar 120-150 MAD antes de subir.",
+                    "title": "Grand Taxi a Bab Boujloud / Ziat",
+                    "desc": "Pactar 120-150 MAD antes de subir al taxi.",
                     "category": "transport",
                     "completed": false
                 },
@@ -96,8 +97,8 @@
                     "id": 5,
                     "day": "2026-11-25",
                     "time": "12:45",
-                    "title": "Check-in Riad Dar Mfaddel",
-                    "desc": "Dejar mochila, té con menta de bienvenida.",
+                    "title": "Check-in en Dar Berrada-Ziat",
+                    "desc": "Llegada aprobada 12:00-13:00. Dejar mochila, té con menta de bienvenida y confirmar con el anfitrión.",
                     "category": "hotel",
                     "completed": false
                 },
@@ -150,8 +151,8 @@
                     "id": 11,
                     "day": "2026-11-26",
                     "time": "08:15",
-                    "title": "Desayuno tradicional y Checkout",
-                    "desc": "Desayuno en el Riad. Dejar mochila en consigna gratis antes de salir.",
+                    "title": "Desayuno en Dar Berrada-Ziat y Checkout",
+                    "desc": "Desayuno en el riad. Dejar mochila en consigna gratis antes de salir.",
                     "category": "hotel",
                     "completed": false
                 },
