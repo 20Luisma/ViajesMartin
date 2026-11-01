@@ -1,9 +1,10 @@
-const CACHE_NAME = 'vuelos-martin-v1';
+const CACHE_NAME = 'vuelos-martin-v2';
 const STATIC_ASSETS = [
   './',
   'css/style.css',
-  'js/app.js',
+  'js/app.js?v=4.0',
   'manifest.json',
+  'data/trips.json',
   'assets/icon-192.png',
   'assets/icon-512.png',
   'assets/icon.svg',
@@ -29,16 +30,17 @@ self.addEventListener('activate', (event) => {
   self.clients.claim();
 });
 
-// Network-first strategy: API y datos siempre frescos, app shell en caché
+// Network-first con fallback a caché para viajes y estáticos
 self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
 
-  // Peticiones a API y datos de vuelos siempre directos a red
-  if (url.pathname.includes('api.php') || url.pathname.includes('data/deals.json')) {
+  // Peticiones de rastreo o reenvío no se cachean
+  if (url.search.includes('action=scan') || url.search.includes('action=send_telegram') || url.search.includes('action=trip_copilot')) {
     event.respondWith(fetch(event.request));
     return;
   }
 
+  // Para trips y app shell: intenta red primero, si falla (offline en Fez), sirve desde caché
   event.respondWith(
     fetch(event.request)
       .then((res) => {

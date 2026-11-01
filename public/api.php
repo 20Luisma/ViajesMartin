@@ -13,6 +13,7 @@ $envFile = file_exists(__DIR__ . '/.env') ? __DIR__ . '/.env' : __DIR__ . '/../.
 $botToken = '';
 $chatId = '';
 $rapidApiKey = '';
+$geminiApiKey = '';
 
 if (file_exists($envFile)) {
     $lines = file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
@@ -25,6 +26,7 @@ if (file_exists($envFile)) {
             if ($key === 'TELEGRAM_BOT_TOKEN') $botToken = $val;
             if ($key === 'TELEGRAM_CHAT_ID') $chatId = $val;
             if ($key === 'RAPIDAPI_KEY') $rapidApiKey = $val;
+            if ($key === 'GEMINI_API_KEY') $geminiApiKey = $val;
         }
     }
 }
@@ -33,8 +35,138 @@ if (file_exists($envFile)) {
 if (empty($botToken)) $botToken = getenv('TELEGRAM_BOT_TOKEN') ?: '';
 if (empty($chatId)) $chatId = getenv('TELEGRAM_CHAT_ID') ?: '';
 if (empty($rapidApiKey)) $rapidApiKey = getenv('RAPIDAPI_KEY') ?: '';
+if (empty($geminiApiKey)) $geminiApiKey = getenv('GEMINI_API_KEY') ?: '';
 
 $action = $_GET['action'] ?? ($argv[1] ?? (php_sapi_name() === 'cli' ? 'scan' : ''));
+
+if ($action === 'get_trips') {
+    $tripsFile = __DIR__ . '/data/trips.json';
+    if (file_exists($tripsFile)) {
+        echo file_get_contents($tripsFile);
+    } else {
+        echo json_encode(['activeTripId' => '', 'trips' => []]);
+    }
+    exit;
+}
+
+if ($action === 'save_trip') {
+    $rawInput = file_get_contents('php://input');
+    $data = json_decode($rawInput, true);
+    if (!$data) {
+        echo json_encode(['status' => false, 'message' => 'JSON inválido']);
+        exit;
+    }
+    $tripsFile = __DIR__ . '/data/trips.json';
+    file_put_contents($tripsFile, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+    echo json_encode(['status' => true, 'message' => 'Viaje guardado correctamente']);
+    exit;
+}
+
+if ($action === 'trip_copilot') {
+    @set_time_limit(120);
+    $rawInput = file_get_contents('php://input');
+    $payload = json_decode($rawInput, true);
+    $userMsg = trim($payload['message'] ?? '');
+    $tripState = $payload['trip'] ?? null;
+    $fileData = $payload['file'] ?? null;
+
+    if (empty($userMsg) && empty($fileData)) {
+        echo json_encode(['status' => false, 'message' => 'Mensaje o archivo vacío']);
+        exit;
+    }
+
+    if (empty($geminiApiKey)) {
+        echo json_encode(['status' => false, 'message' => 'GEMINI_API_KEY no configurada en el servidor.']);
+        exit;
+    }
+
+    $systemInstruction = "Sos el Tech Lead y Copiloto de Viajes personal de Martín. Hablás en español rioplatense (uruguayo: 'vos', 'che', 'bo', 'impecable', 'vamo arriba'), directo, práctico, sin rodeos ni servilismos.\n"
+        . "Tu misión es actuar como copiloto inteligente para la planificación de su viaje.\n"
+        . "Analizá el mensaje de Martín, y si adjunta una imagen o PDF (ej: reserva de vuelo, hotel de Booking, folleto), extraé todos los datos relevantes.\n"
+        . "Si Martín te dice que contrató un guía, cambió de hotel, alquiló un taxi, o quiere visitar un sitio nuevo, ajustá inteligentemente el itinerario (timeline), el checklist y los datos del hotel para evitar duplicados y optimizar los tiempos de forma realista y lógica.\n"
+        . "DEBES RESPONDER EXCLUSIVAMENTE CON UN OBJETO JSON VÁLIDO con esta estructura exacta:\n"
+        . "{\n"
+        . "  \"reply\": \"Tu respuesta conversacional directa a Martín explicando qué cambios hiciste en el itinerario y dándole consejos técnicos de viaje.\",\n"
+        . "  \"updatedTrip\": { ... objeto del viaje actualizado con la misma estructura JSON que recibiste ... }\n"
+        . "}";
+
+    $parts = [];
+    $parts[] = ["text" => $systemInstruction . "\n\nESTADO ACTUAL DEL VIAJE:\n" . json_encode($tripState, JSON_UNESCAPED_UNICODE) . "\n\nMENSAJE DE MARTÍN:\n" . ($userMsg ?: "Analizá el archivo adjunto y actualizá el viaje con estos datos.")];
+
+    if (!empty($fileData['data']) && !empty($fileData['mimeType'])) {
+        $parts[] = [
+            "inline_data" => [
+                "mime_type" => $fileData['mimeType'],
+                "data" => $fileData['data']
+            ]
+        ];
+    }
+
+    $apiUrl = "https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=" . urlencode($geminiApiKey);
+
+    $ch = curl_init($apiUrl);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode([
+        "contents" => [
+            ["parts" => $parts]
+        ],
+        "generationConfig" => [
+            "temperature" => 0.2
+        ]
+    ]));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+    $response = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+
+    if ($httpCode !== 200 || !$response) {
+        echo json_encode(['status' => false, 'message' => "Error al contactar a Gemini API (HTTP $httpCode)", 'detail' => $response]);
+        exit;
+    }
+
+    $geminiJson = json_decode($response, true);
+    $rawText = $geminiJson['candidates'][0]['content']['parts'][0]['text'] ?? '';
+    
+    // Limpieza de formato markdown si viniera
+    $cleanText = preg_replace('/^```(?:json)?\s*/i', '', trim($rawText));
+    $cleanText = preg_replace('/\s*```$/i', '', $cleanText);
+
+    $parsed = json_decode($cleanText, true);
+    if (!$parsed || !isset($parsed['reply'])) {
+        echo json_encode(['status' => true, 'reply' => $rawText ?: 'Recibido, pero no pude estructurar el itinerario.', 'updatedTrip' => $tripState]);
+        exit;
+    }
+
+    // Persistir el viaje actualizado en disco
+    if (!empty($parsed['updatedTrip'])) {
+        $tripsFile = __DIR__ . '/data/trips.json';
+        if (file_exists($tripsFile)) {
+            $allTrips = json_decode(file_get_contents($tripsFile), true) ?: ['trips' => []];
+            $found = false;
+            foreach ($allTrips['trips'] as &$t) {
+                if (($t['id'] ?? '') === ($parsed['updatedTrip']['id'] ?? '')) {
+                    $t = $parsed['updatedTrip'];
+                    $found = true;
+                    break;
+                }
+            }
+            if (!$found) {
+                $allTrips['trips'][] = $parsed['updatedTrip'];
+            }
+            file_put_contents($tripsFile, json_encode($allTrips, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+        }
+    }
+
+    echo json_encode([
+        'status' => true,
+        'reply' => $parsed['reply'],
+        'updatedTrip' => $parsed['updatedTrip'] ?? $tripState
+    ]);
+    exit;
+}
 
 if ($action === 'send_telegram') {
     $iata = htmlspecialchars($_GET['iata'] ?? 'BCN');

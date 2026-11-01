@@ -43,86 +43,196 @@
           <span class="meta-time" id="lastUpdated">Cargando radar...</span>
         </div>
       </div>
+
+      <!-- Main Navigation Switcher (Radar vs Mis Viajes) -->
+      <nav class="main-nav-switcher" role="tablist" aria-label="Secciones de la Aplicación">
+        <button id="navRadarBtn" class="nav-switch-btn active" data-view="radar" role="tab" aria-selected="true">
+          <span class="nav-icon">✈️</span>
+          <span class="nav-label">Radar de Chollos</span>
+        </button>
+        <button id="navTripsBtn" class="nav-switch-btn" data-view="trips" role="tab" aria-selected="false">
+          <span class="nav-icon">🎒</span>
+          <span class="nav-label">Mis Viajes</span>
+          <span class="trip-count-badge" id="tripCountBadge">1</span>
+        </button>
+      </nav>
     </div>
   </header>
 
   <main class="container">
-    <!-- Stats Row -->
-    <section class="stats-grid" aria-label="Métricas del Radar">
-      <div class="stat-card stat-total">
-        <div class="stat-label">Chollos Filtrados</div>
-        <div class="stat-value" id="statTotal">--</div>
-        <div class="stat-desc">Vuelos directos aprobados</div>
-      </div>
-
-      <div class="stat-card stat-daytrip">
-        <div class="stat-label">⚡ Day-Trips (0 € Hotel)</div>
-        <div class="stat-value" id="statDaytrip">--</div>
-        <div class="stat-desc">Ida y vuelta en el mismo día</div>
-      </div>
-
-      <div class="stat-card stat-cheapest">
-        <div class="stat-label">Precio Más Bajo</div>
-        <div class="stat-value" id="statCheapest">--</div>
-        <div class="stat-desc">Ida y vuelta completa</div>
-      </div>
-
-      <div class="stat-card stat-hours">
-        <div class="stat-label">Máx Tiempo Libre</div>
-        <div class="stat-value" id="statMaxHours">--</div>
-        <div class="stat-desc">Horas netas de turismo</div>
-      </div>
-    </section>
-
-    <!-- Controls & Filters -->
-    <section class="controls-card" aria-label="Filtros de Búsqueda">
-      <div class="filter-row">
-        <!-- Modalidad Tabs -->
-        <div class="tabs-container" role="tablist">
-          <button class="tab-btn active" data-mode="all" role="tab">Todos</button>
-          <button class="tab-btn tab-daytrip" data-mode="daytrip" role="tab">⚡ En el día (0 € Hotel)</button>
-          <button class="tab-btn" data-mode="weekend" role="tab">🎒 Finde (1 Noche)</button>
-          <button class="tab-btn" data-mode="bridge" role="tab">🌉 Escapada (2 Noches)</button>
+    <!-- VISTA 1: RADAR DE CHOLLOS -->
+    <div id="radarView" class="view-panel active">
+      <!-- Stats Row -->
+      <section class="stats-grid" aria-label="Métricas del Radar">
+        <div class="stat-card stat-total">
+          <div class="stat-label">Chollos Filtrados</div>
+          <div class="stat-value" id="statTotal">--</div>
+          <div class="stat-desc">Vuelos directos aprobados</div>
         </div>
 
-        <!-- Sorting & Search -->
-        <div class="filter-actions">
-          <div class="search-box">
-            <span class="search-icon">🔍</span>
-            <input type="text" id="searchInput" class="search-input" placeholder="Buscar destino (ej. Oporto, Milán)...">
+        <div class="stat-card stat-daytrip">
+          <div class="stat-label">⚡ Day-Trips (0 € Hotel)</div>
+          <div class="stat-value" id="statDaytrip">--</div>
+          <div class="stat-desc">Ida y vuelta en el mismo día</div>
+        </div>
+
+        <div class="stat-card stat-cheapest">
+          <div class="stat-label">Precio Más Bajo</div>
+          <div class="stat-value" id="statCheapest">--</div>
+          <div class="stat-desc">Ida y vuelta completa</div>
+        </div>
+
+        <div class="stat-card stat-hours">
+          <div class="stat-label">Máx Tiempo Libre</div>
+          <div class="stat-value" id="statMaxHours">--</div>
+          <div class="stat-desc">Horas netas de turismo</div>
+        </div>
+      </section>
+
+      <!-- Controls & Filters -->
+      <section class="controls-card" aria-label="Filtros de Búsqueda">
+        <div class="filter-row">
+          <!-- Modalidad Tabs -->
+          <div class="tabs-container" role="tablist">
+            <button class="tab-btn active" data-mode="all" role="tab">Todos</button>
+            <button class="tab-btn tab-daytrip" data-mode="daytrip" role="tab">⚡ En el día (0 € Hotel)</button>
+            <button class="tab-btn" data-mode="weekend" role="tab">🎒 Finde (1 Noche)</button>
+            <button class="tab-btn" data-mode="bridge" role="tab">🌉 Escapada (2 Noches)</button>
           </div>
 
-          <select id="sortSelect" class="sort-select" aria-label="Ordenar vuelos">
-            <option value="date-asc" selected>📅 Fecha más próxima (Viajar antes)</option>
-            <option value="ratio">Ratio Calidad (Horas / €)</option>
-            <option value="price-asc">Precio más bajo</option>
-            <option value="hours-desc">Más horas libres en destino</option>
-          </select>
+          <!-- Sorting & Search -->
+          <div class="filter-actions">
+            <div class="search-box">
+              <span class="search-icon">🔍</span>
+              <input type="text" id="searchInput" class="search-input" placeholder="Buscar destino (ej. Oporto, Milán)...">
+            </div>
+
+            <select id="sortSelect" class="sort-select" aria-label="Ordenar vuelos">
+              <option value="date-asc" selected>📅 Fecha más próxima (Viajar antes)</option>
+              <option value="ratio">Ratio Calidad (Horas / €)</option>
+              <option value="price-asc">Precio más bajo</option>
+              <option value="hours-desc">Más horas libres en destino</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Price Chips -->
+        <div class="filter-row">
+          <div class="price-chips">
+            <span class="chip-label">Precio máx i/v:</span>
+            <button class="price-chip active" data-price="all">Todos</button>
+            <button class="price-chip" data-price="30">≤ 30 €</button>
+            <button class="price-chip" data-price="45">≤ 45 €</button>
+            <button class="price-chip" data-price="60">≤ 60 €</button>
+            <button class="price-chip" data-price="80">≤ 80 €</button>
+            <button class="price-chip" data-price="100">≤ 100 €</button>
+          </div>
+
+          <span class="meta-time" id="dealsCountBadge">Cargando...</span>
+        </div>
+      </section>
+
+      <!-- Flight Deals Grid -->
+      <section class="deals-grid" id="dealsContainer" aria-label="Listado de Vuelos Chollo">
+        <!-- Inyectado dinámicamente por app.js -->
+      </section>
+    </div>
+
+    <!-- VISTA 2: MIS VIAJES (PLANIFICACIÓN & ITINERARIO) -->
+    <div id="tripsView" class="view-panel" style="display: none;">
+      <!-- Hero Trip Card con Cuenta Regresiva -->
+      <section class="trip-hero-card" id="tripHeroSection">
+        <!-- Inyectado dinámicamente -->
+      </section>
+
+      <!-- Tarjetas de Embarque & Hotel -->
+      <section class="trip-boarding-passes" id="tripBoardingPasses">
+        <!-- Inyectado dinámicamente -->
+      </section>
+
+      <!-- Controles de la Vista de Viaje -->
+      <section class="trip-subnav-container">
+        <div class="trip-subnav-pills" role="tablist">
+          <button class="trip-subnav-pill active" data-subtab="itinerary">📅 Itinerario Paso a Paso</button>
+          <button class="trip-subnav-pill" data-subtab="checklist">📋 Checklist Inteligente</button>
+          <button class="trip-subnav-pill" data-subtab="tips">💡 Guía de Supervivencia</button>
+        </div>
+      </section>
+
+      <!-- Subpanel 1: Itinerario (Timeline) -->
+      <div id="tripSubItinerary" class="trip-subpanel active">
+        <div class="timeline-container" id="tripTimelineContainer">
+          <!-- Inyectado dinámicamente -->
         </div>
       </div>
 
-      <!-- Price Chips -->
-      <div class="filter-row">
-        <div class="price-chips">
-          <span class="chip-label">Precio máx i/v:</span>
-          <button class="price-chip active" data-price="all">Todos</button>
-          <button class="price-chip" data-price="30">≤ 30 €</button>
-          <button class="price-chip" data-price="45">≤ 45 €</button>
-          <button class="price-chip" data-price="60">≤ 60 €</button>
-          <button class="price-chip" data-price="80">≤ 80 €</button>
-          <button class="price-chip" data-price="100">≤ 100 €</button>
+      <!-- Subpanel 2: Checklist Inteligente -->
+      <div id="tripSubChecklist" class="trip-subpanel" style="display: none;">
+        <div class="checklist-card" id="tripChecklistContainer">
+          <!-- Inyectado dinámicamente -->
         </div>
-
-        <span class="meta-time" id="dealsCountBadge">Cargando...</span>
       </div>
-    </section>
 
-    <!-- Flight Deals Grid -->
-    <section class="deals-grid" id="dealsContainer" aria-label="Listado de Vuelos Chollo">
-      <!-- Inyectado dinámicamente por app.js -->
-    </section>
+      <!-- Subpanel 3: Guía de Supervivencia -->
+      <div id="tripSubTips" class="trip-subpanel" style="display: none;">
+        <div class="tips-grid" id="tripTipsContainer">
+          <!-- Inyectado dinámicamente -->
+        </div>
+      </div>
+    </div>
   </main>
 
-  <script src="js/app.js?v=3.1"></script>
+  <!-- BOTÓN FLOTANTE COPILOTO IA -->
+  <button id="openCopilotBtn" class="copilot-fab" title="Hablar con el Copiloto IA de Viajes">
+    <span class="fab-pulse"></span>
+    <span class="fab-icon">🤖</span>
+    <span class="fab-label">Copiloto IA</span>
+  </button>
+
+  <!-- DRAWER / MODAL DEL COPILOTO IA -->
+  <div id="copilotDrawerOverlay" class="copilot-drawer-overlay">
+    <div class="copilot-drawer">
+      <div class="copilot-header">
+        <div class="copilot-header-info">
+          <span class="copilot-avatar">🤖</span>
+          <div>
+            <h3 class="copilot-title">Copiloto de Viajes</h3>
+            <span class="copilot-status"><span class="live-dot"></span> Gemini Flash Multimodal</span>
+          </div>
+        </div>
+        <button id="closeCopilotBtn" class="copilot-close-btn" title="Cerrar chat">✕</button>
+      </div>
+
+      <div class="copilot-messages" id="copilotMessages">
+        <div class="copilot-msg bot">
+          <span class="msg-avatar">🤖</span>
+          <div class="msg-bubble">
+            ¡Buenas, Martín! Acá estoy con tu viaje a Fez en la cabeza. Podés charlarme lo que quieras: si contrataste un guía, si cambiaste de riad o si querés sumar una parada. O si tenés un billete o captura de Booking, ¡adjuntámela con el clip 📎 y te actualizo todo al instante!
+          </div>
+        </div>
+      </div>
+
+      <!-- Previsualización de Archivo Adjunto -->
+      <div id="copilotFilePreview" class="copilot-file-preview" style="display: none;">
+        <span class="file-preview-icon">📎</span>
+        <span class="file-preview-name" id="filePreviewName">archivo.png</span>
+        <button id="removeFileBtn" class="file-preview-remove" title="Quitar archivo">✕</button>
+      </div>
+
+      <!-- Input Bar -->
+      <form id="copilotForm" class="copilot-input-bar">
+        <input type="file" id="copilotFileInput" accept="image/*,application/pdf" style="display: none;">
+        <button type="button" id="copilotAttachBtn" class="copilot-attach-btn" title="Adjuntar captura de vuelo, hotel o PDF">
+          📎
+        </button>
+        <input type="text" id="copilotInput" class="copilot-text-input" placeholder="Escribile al copiloto o adjuntá captura..." autocomplete="off">
+        <button type="submit" id="copilotSendBtn" class="copilot-send-btn" title="Enviar mensaje">
+          ➤
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/app.js?v=4.0"></script>
 </body>
 </html>
