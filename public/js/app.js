@@ -1168,7 +1168,69 @@ class VuelosApp {
     this.showToast(`✨ ${validFiles.length} foto(s) limpiadas con éxito`);
   }
 
-  cleanSinglePhoto(file) {
+  async inspectFileForAiSignatures(file) {
+    try {
+      const buffer = await file.arrayBuffer();
+      // Leer primeros 2MB o el archivo entero para buscar bloques de metadatos C2PA/XMP/IPTC
+      const slice = buffer.slice(0, Math.min(buffer.byteLength, 2 * 1024 * 1024));
+      const text = new TextDecoder('iso-8859-1').decode(new Uint8Array(slice));
+
+      const signaturesFound = [];
+
+      // C2PA y JUMBF (Content Credentials)
+      if (text.includes('c2pa') || text.includes('c2pa.assertions') || text.includes('c2pa.claim')) {
+        signaturesFound.push('Manifiesto C2PA (Content Credentials)');
+      }
+      if (text.includes('jumbf')) {
+        signaturesFound.push('Caja JUMBF de IA');
+      }
+
+      // IPTC DigitalSourceType
+      if (text.includes('trainedAlgorithmicMedia')) {
+        signaturesFound.push('IPTC: Imagen Generada por IA');
+      }
+      if (text.includes('compositeWithTrainedAlgorithmicMedia')) {
+        signaturesFound.push('IPTC: Retoque Generativo de IA');
+      }
+
+      // Software y generadores de IA conocidos
+      const lower = text.toLowerCase();
+      if (lower.includes('firefly') || lower.includes('adobe firefly')) {
+        signaturesFound.push('Adobe Firefly AI');
+      }
+      if (lower.includes('generative fill') || lower.includes('relleno generativo')) {
+        signaturesFound.push('Photoshop Generative Fill');
+      }
+      if (lower.includes('midjourney')) {
+        signaturesFound.push('Midjourney');
+      }
+      if (lower.includes('dall-e') || lower.includes('dalle')) {
+        signaturesFound.push('OpenAI DALL-E');
+      }
+      if (lower.includes('stable diffusion') || lower.includes('comfyui') || lower.includes('automatic1111')) {
+        signaturesFound.push('Stable Diffusion / ComfyUI');
+      }
+      if (lower.includes('magic eraser') || lower.includes('magic editor') || lower.includes('synthid')) {
+        signaturesFound.push('Google Magic Eraser / SynthID');
+      }
+      if (lower.includes('galaxy ai')) {
+        signaturesFound.push('Samsung Galaxy AI');
+      }
+
+      return {
+        hasAi: signaturesFound.length > 0,
+        signatures: signaturesFound,
+      };
+    } catch (err) {
+      console.warn('Error escaneando firmas de IA:', err);
+      return { hasAi: false, signatures: [] };
+    }
+  }
+
+  async cleanSinglePhoto(file) {
+    // 1. Escaneo forense de firmas de IA
+    const aiAnalysis = await this.inspectFileForAiSignatures(file);
+
     return new Promise((resolve) => {
       const reader = new FileReader();
       reader.onload = (e) => {
@@ -1201,6 +1263,8 @@ class VuelosApp {
               cleanName: cleanFileName,
               blobUrl: cleanBlobUrl,
               blob: blob,
+              hasAi: aiAnalysis.hasAi,
+              signatures: aiAnalysis.signatures,
               originalSize: this.formatBytes(file.size),
               cleanSize: this.formatBytes(blob.size),
               width: canvas.width,
@@ -1221,21 +1285,34 @@ class VuelosApp {
   renderPhotoCard(photo) {
     if (!this.photoResultsGrid) return;
     const card = document.createElement('div');
-    card.className = 'photo-card';
+    card.className = `photo-card ${photo.hasAi ? 'has-ai' : 'is-pure'}`;
     card.id = `card_${photo.id}`;
+
+    const badgeHtml = photo.hasAi
+      ? `<span class="photo-card-badge ai-detected">⚠️ IA Detectada (${photo.signatures.length})</span>`
+      : `<span class="photo-card-badge pure">🟢 100% Pura</span>`;
+
+    const statusHtml = photo.hasAi
+      ? `<div style="color: #fbbf24; font-weight: 700; font-size: 0.8rem;">⚠️ Rastros de IA encontrados:</div>
+         <div class="photo-signatures-tag">${photo.signatures.join(' • ')}</div>
+         <div style="color: #34d399; font-size: 0.75rem; margin-top: 4px;">✅ Desinfectada para Instagram</div>`
+      : `<div style="color: #34d399; font-weight: 700; font-size: 0.8rem;">🟢 Foto Pura de Cámara</div>
+         <div style="color: var(--text-muted); font-size: 0.75rem;">Sin firmas C2PA ni metadatos de IA. Ya era segura para publicar.</div>`;
+
     card.innerHTML = `
       <div class="photo-card-preview">
         <img src="${photo.blobUrl}" alt="${photo.name}" loading="lazy">
-        <span class="photo-card-badge">🛡️ Píxeles Puros</span>
+        ${badgeHtml}
       </div>
       <div class="photo-card-body">
         <div class="photo-card-name" title="${photo.name}">${photo.name}</div>
         <div class="photo-card-meta">
           <span>${photo.width}x${photo.height}px</span>
-          <span style="color: #34d399;">✅ Sin rastro de IA</span>
+          <span>${photo.originalSize} ➔ ${photo.cleanSize}</span>
         </div>
-        <button class="photo-card-download-btn" onclick="window.app.downloadSinglePhoto('${photo.id}')">
-          <span>⬇️ Descargar Limpia</span>
+        ${statusHtml}
+        <button class="photo-card-download-btn ${photo.hasAi ? 'btn-ai' : 'btn-pure'}" onclick="window.app.downloadSinglePhoto('${photo.id}')">
+          <span>⬇️ ${photo.hasAi ? 'Descargar Desinfectada' : 'Descargar Copia Limpia'}</span>
         </button>
       </div>
     `;
@@ -1279,11 +1356,17 @@ class VuelosApp {
 
   updatePhotoActionsBar() {
     if (!this.photoActionsBar) return;
-    const count = this.cleanedPhotos.length;
-    if (count > 0) {
+    const total = this.cleanedPhotos.length;
+    if (total > 0) {
       this.photoActionsBar.style.display = 'flex';
+      const aiCount = this.cleanedPhotos.filter((p) => p.hasAi).length;
+      const pureCount = total - aiCount;
       if (this.photoProcessedCount) {
-        this.photoProcessedCount.innerText = `${count} foto${count > 1 ? 's' : ''} desinfectada${count > 1 ? 's' : ''} y lista${count > 1 ? 's' : ''}`;
+        this.photoProcessedCount.innerHTML = `
+          <span>${total} foto${total > 1 ? 's' : ''} analizada${total > 1 ? 's' : ''}:</span>
+          <span style="color: #fbbf24; margin-left: 6px;">⚠️ ${aiCount} con rastro de IA</span> • 
+          <span style="color: #34d399;">🟢 ${pureCount} pura${pureCount !== 1 ? 's' : ''}</span>
+        `;
       }
     } else {
       this.photoActionsBar.style.display = 'none';

@@ -1,8 +1,8 @@
-const CACHE_NAME = 'vuelos-martin-v6';
+const CACHE_NAME = 'vuelos-martin-v7';
 const STATIC_ASSETS = [
   './',
-  'css/style.css?v=4.4',
-  'js/app.js?v=4.4',
+  'css/style.css?v=4.5',
+  'js/app.js?v=4.5',
   'manifest.json',
   'data/trips.json',
   'assets/icon-192.png',

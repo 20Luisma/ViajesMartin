@@ -2198,6 +2198,24 @@ body {
   overflow: hidden;
 }
 
+.photo-card.has-ai {
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+.photo-card.has-ai:hover {
+  border-color: #f59e0b;
+  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.2);
+}
+
+.photo-card.is-pure {
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.photo-card.is-pure:hover {
+  border-color: #10b981;
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.2);
+}
+
 .photo-card-preview img {
   width: 100%;
   height: 100%;
@@ -2209,16 +2227,40 @@ body {
   position: absolute;
   top: 10px;
   left: 10px;
-  background: rgba(16, 185, 129, 0.9);
+  background: rgba(15, 23, 42, 0.85);
   color: #fff;
   font-size: 0.72rem;
   font-weight: 800;
-  padding: 3px 8px;
+  padding: 4px 8px;
   border-radius: 4px;
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(6px);
   display: inline-flex;
   align-items: center;
   gap: 4px;
+}
+
+.photo-card-badge.ai-detected {
+  background: rgba(245, 158, 11, 0.95);
+  color: #000;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+}
+
+.photo-card-badge.pure {
+  background: rgba(16, 185, 129, 0.95);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
+}
+
+.photo-signatures-tag {
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px dashed rgba(245, 158, 11, 0.4);
+  color: #fcd34d;
+  font-size: 0.73rem;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-top: 4px;
+  display: block;
+  line-height: 1.35;
 }
 
 .photo-card-body {
@@ -2247,10 +2289,7 @@ body {
 
 .photo-card-download-btn {
   margin-top: auto;
-  background: rgba(16, 185, 129, 0.15);
-  border: 1px solid rgba(16, 185, 129, 0.35);
-  color: #34d399;
-  padding: 8px 12px;
+  padding: 9px 12px;
   border-radius: 6px;
   font-size: 0.8rem;
   font-weight: 700;
@@ -2262,7 +2301,24 @@ body {
   transition: var(--transition);
 }
 
-.photo-card-download-btn:hover {
+.photo-card-download-btn.btn-ai {
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  color: #fbbf24;
+}
+
+.photo-card-download-btn.btn-ai:hover {
+  background: #f59e0b;
+  color: #000;
+}
+
+.photo-card-download-btn.btn-pure {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #34d399;
+}
+
+.photo-card-download-btn.btn-pure:hover {
   background: #10b981;
   color: #fff;
 }
