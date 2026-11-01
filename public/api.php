@@ -94,6 +94,7 @@ if ($action === 'trip_copilot') {
         . "- checklist: array de cosas esenciales para ese destino concreto con { id, text, checked: false }\n"
         . "- survivalTips: array de consejos reales y prácticos de ese destino específico con { title, icon, desc }\n"
         . "- REGLA DE FECHAS: Los billetes de aerolínea (como Ryanair) a menudo no muestran el año (ej: '25 NOV'). Debes asumir SIEMPRE el año 2026 (o el año futuro correspondiente), NUNCA fechas pasadas como 2024 o 2025.\n"
+        . "- REGLA DE PROTECCIÓN DE VUELOS CONFIRMADOS: Si ya existe un viaje activo con fechas y números de vuelo confirmados, TIENES TERMINANTEMENTE PROHIBIDO alterar, inventar o mover las fechas de vuelo o los números de vuelo (flights). Los vuelos son sagrados y solo se tocan si Martín adjunta un billete nuevo o dice explícitamente que cambió el vuelo.\n"
         . "- OPTIMIZACIÓN DE VELOCIDAD:\n"
         . "  * Si Martín hace una PREGUNTA CONVERSACIONAL, duda o pide tips (ej: sobre mapas, consejos, qué ver, comida, etc.) y NO requiere cambiar datos de vuelos ni paradas: responde al pie en 'reply' y pon \"updatedTrip\": null.\n"
         . "  * Solo incluye \"updatedTrip\" con el objeto completo si se está creando un viaje nuevo o modificando vuelos/hotel/itinerario.\n"
@@ -159,6 +160,9 @@ if ($action === 'trip_copilot') {
     // Persistir el viaje actualizado en disco
     if (!empty($parsed['updatedTrip'])) {
         $tripsFile = __DIR__ . '/data/trips.json';
+        if (file_exists($tripsFile)) {
+            @copy($tripsFile, __DIR__ . '/data/trips_backup.json');
+        }
         $allTrips = file_exists($tripsFile) ? (json_decode(file_get_contents($tripsFile), true) ?: ['activeTripId' => '', 'trips' => []]) : ['activeTripId' => '', 'trips' => []];
         $newTripId = $parsed['updatedTrip']['id'] ?? ('trip_' . time());
         $parsed['updatedTrip']['id'] = $newTripId;
