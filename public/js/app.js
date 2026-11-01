@@ -557,7 +557,31 @@ class VuelosApp {
   }
 
   renderTrips() {
-    if (!this.activeTrip) return;
+    const subnav = document.querySelector('.trip-subnav-container');
+    if (!this.activeTrip) {
+      if (this.tripHeroSection) {
+        this.tripHeroSection.innerHTML = `
+          <div class="empty-state" style="padding: 50px 20px; text-align: center;">
+            <div class="empty-icon" style="font-size: 3.5rem; margin-bottom: 14px;">🎒</div>
+            <h3 class="empty-title" style="font-size: 1.5rem; color: #fff; margin-bottom: 10px;">Todavía no tenés ningún viaje cargado</h3>
+            <p class="empty-desc" style="color: var(--text-secondary); max-width: 480px; margin: 0 auto 24px; font-size: 0.95rem; line-height: 1.5;">
+              Abrí el <strong>Copiloto IA 🤖</strong> abajo a la derecha y adjuntá la captura de tu reserva (Ryanair, Vueling, etc.) o escribile tus fechas para que te arme el itinerario inteligente al instante.
+            </p>
+            <button class="scan-now-btn" onclick="window.app.openCopilot()" style="margin: 0 auto; display: inline-flex; font-size: 0.95rem; padding: 12px 24px;">
+              <span class="btn-icon">📸</span> <span>Cargar mi primer viaje</span>
+            </button>
+          </div>
+        `;
+      }
+      if (this.tripBoardingPasses) this.tripBoardingPasses.innerHTML = '';
+      if (this.tripTimelineContainer) this.tripTimelineContainer.innerHTML = '';
+      if (this.tripChecklistContainer) this.tripChecklistContainer.innerHTML = '';
+      if (this.tripTipsContainer) this.tripTipsContainer.innerHTML = '';
+      if (subnav) subnav.style.display = 'none';
+      if (this.tripCountBadge) this.tripCountBadge.innerText = '0';
+      return;
+    }
+    if (subnav) subnav.style.display = 'block';
     this.renderTripHero();
     this.renderBoardingPasses();
     this.renderTimeline();

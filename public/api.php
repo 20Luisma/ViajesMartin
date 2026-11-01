@@ -81,17 +81,25 @@ if ($action === 'trip_copilot') {
     }
 
     $systemInstruction = "Sos el Tech Lead y Copiloto de Viajes personal de Martín. Hablás en español rioplatense (uruguayo: 'vos', 'che', 'bo', 'impecable', 'vamo arriba'), directo, práctico, sin rodeos ni servilismos.\n"
-        . "Tu misión es actuar como copiloto inteligente para la planificación de su viaje.\n"
-        . "Analizá el mensaje de Martín, y si adjunta una imagen o PDF (ej: reserva de vuelo, hotel de Booking, folleto), extraé todos los datos relevantes.\n"
-        . "Si Martín te dice que contrató un guía, cambió de hotel, alquiló un taxi, o quiere visitar un sitio nuevo, ajustá inteligentemente el itinerario (timeline), el checklist y los datos del hotel para evitar duplicados y optimizar los tiempos de forma realista y lógica.\n"
+        . "Tu misión es actuar como copiloto inteligente para la planificación de sus viajes.\n"
+        . "Si el ESTADO ACTUAL DEL VIAJE está vacío o null, debes CREAR UN VIAJE NUEVO DESDE CERO analizando la captura de pantalla de la reserva (ej: Ryanair, Vueling), PDF o texto que envíe Martín.\n"
+        . "Genera la estructura de viaje completa con:\n"
+        . "- id: 'trip-destino-YYYYMMDD'\n"
+        . "- title, destinationCity, destinationCountry, destinationIata, originIata ('BCN'), flag (emoji de bandera), status ('confirmed'), mode ('daytrip'|'weekend'|'bridge'), dates ({ outbound, inbound }), usefulHours\n"
+        . "- flights: { outbound: { airline, flightNumber, originIata, originName, destinationIata, destinationName, departureDate, departureTime, arrivalDate, arrivalTime, terminal, bookingUrl }, inbound: { ... } }\n"
+        . "- hotel: { name, address, checkIn, checkOut, price, notes }\n"
+        . "- timeline: array ordenado de paradas con { id, day, time, title, desc, category, completed: false }\n"
+        . "- checklist: array de cosas esenciales con { id, text, checked: false }\n"
+        . "- survivalTips: array de consejos reales y prácticos de ese destino con { title, icon, desc }\n"
+        . "Si ya existe un viaje, ajustá inteligentemente el itinerario, checklist y hotel según lo que te pida Martín sin duplicar paradas.\n"
         . "DEBES RESPONDER EXCLUSIVAMENTE CON UN OBJETO JSON VÁLIDO con esta estructura exacta:\n"
         . "{\n"
-        . "  \"reply\": \"Tu respuesta conversacional directa a Martín explicando qué cambios hiciste en el itinerario y dándole consejos técnicos de viaje.\",\n"
-        . "  \"updatedTrip\": { ... objeto del viaje actualizado con la misma estructura JSON que recibiste ... }\n"
+        . "  \"reply\": \"Tu respuesta conversacional directa a Martín explicando qué hiciste y dándole piques técnicos.\",\n"
+        . "  \"updatedTrip\": { ... objeto del viaje creado o actualizado ... }\n"
         . "}";
 
     $parts = [];
-    $parts[] = ["text" => $systemInstruction . "\n\nESTADO ACTUAL DEL VIAJE:\n" . json_encode($tripState, JSON_UNESCAPED_UNICODE) . "\n\nMENSAJE DE MARTÍN:\n" . ($userMsg ?: "Analizá el archivo adjunto y actualizá el viaje con estos datos.")];
+    $parts[] = ["text" => $systemInstruction . "\n\nESTADO ACTUAL DEL VIAJE:\n" . json_encode($tripState, JSON_UNESCAPED_UNICODE) . "\n\nMENSAJE DE MARTÍN:\n" . ($userMsg ?: "Analizá el archivo adjunto y armá el viaje con estos datos.")];
 
     if (!empty($fileData['data']) && !empty($fileData['mimeType'])) {
         $parts[] = [
@@ -143,21 +151,23 @@ if ($action === 'trip_copilot') {
     // Persistir el viaje actualizado en disco
     if (!empty($parsed['updatedTrip'])) {
         $tripsFile = __DIR__ . '/data/trips.json';
-        if (file_exists($tripsFile)) {
-            $allTrips = json_decode(file_get_contents($tripsFile), true) ?: ['trips' => []];
-            $found = false;
-            foreach ($allTrips['trips'] as &$t) {
-                if (($t['id'] ?? '') === ($parsed['updatedTrip']['id'] ?? '')) {
-                    $t = $parsed['updatedTrip'];
-                    $found = true;
-                    break;
-                }
+        $allTrips = file_exists($tripsFile) ? (json_decode(file_get_contents($tripsFile), true) ?: ['activeTripId' => '', 'trips' => []]) : ['activeTripId' => '', 'trips' => []];
+        $newTripId = $parsed['updatedTrip']['id'] ?? ('trip_' . time());
+        $parsed['updatedTrip']['id'] = $newTripId;
+        
+        $found = false;
+        foreach ($allTrips['trips'] as &$t) {
+            if (($t['id'] ?? '') === $newTripId) {
+                $t = $parsed['updatedTrip'];
+                $found = true;
+                break;
             }
-            if (!$found) {
-                $allTrips['trips'][] = $parsed['updatedTrip'];
-            }
-            file_put_contents($tripsFile, json_encode($allTrips, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
         }
+        if (!$found) {
+            $allTrips['trips'][] = $parsed['updatedTrip'];
+        }
+        $allTrips['activeTripId'] = $newTripId;
+        file_put_contents($tripsFile, json_encode($allTrips, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
     }
 
     echo json_encode([
