@@ -94,10 +94,13 @@ if ($action === 'trip_copilot') {
         . "- checklist: array de cosas esenciales para ese destino concreto con { id, text, checked: false }\n"
         . "- survivalTips: array de consejos reales y prácticos de ese destino específico con { title, icon, desc }\n"
         . "- REGLA DE FECHAS: Los billetes de aerolínea (como Ryanair) a menudo no muestran el año (ej: '25 NOV'). Debes asumir SIEMPRE el año 2026 (o el año futuro correspondiente), NUNCA fechas pasadas como 2024 o 2025.\n"
+        . "- OPTIMIZACIÓN DE VELOCIDAD:\n"
+        . "  * Si Martín hace una PREGUNTA CONVERSACIONAL, duda o pide tips (ej: sobre mapas, consejos, qué ver, comida, etc.) y NO requiere cambiar datos de vuelos ni paradas: responde al pie en 'reply' y pon \"updatedTrip\": null.\n"
+        . "  * Solo incluye \"updatedTrip\" con el objeto completo si se está creando un viaje nuevo o modificando vuelos/hotel/itinerario.\n"
         . "DEBES RESPONDER EXCLUSIVAMENTE CON UN OBJETO JSON VÁLIDO con esta estructura exacta:\n"
         . "{\n"
         . "  \"reply\": \"Tu respuesta conversacional directa a Martín explicando qué hiciste y dándole piques técnicos.\",\n"
-        . "  \"updatedTrip\": { ... objeto del viaje creado o actualizado ... }\n"
+        . "  \"updatedTrip\": null o { ... objeto del viaje creado o actualizado ... }\n"
         . "}";
 
     $parts = [];
@@ -121,13 +124,16 @@ if ($action === 'trip_copilot') {
             ["parts" => $parts]
         ],
         "generationConfig" => [
-            "temperature" => 0.2
+            "temperature" => 0.3,
+            "thinkingConfig" => [
+                "thinkingBudget" => 0
+            ]
         ]
     ]));
     curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 30);
     $response = curl_exec($ch);
     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     curl_close($ch);
@@ -175,7 +181,7 @@ if ($action === 'trip_copilot') {
     echo json_encode([
         'status' => true,
         'reply' => $parsed['reply'],
-        'updatedTrip' => $parsed['updatedTrip'] ?? $tripState
+        'updatedTrip' => !empty($parsed['updatedTrip']) ? $parsed['updatedTrip'] : null
     ]);
     exit;
 }
