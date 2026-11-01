@@ -110,6 +110,7 @@ class VuelosApp {
     this.filePreviewName = document.getElementById('filePreviewName');
     this.removeFileBtn = document.getElementById('removeFileBtn');
     this.copilotSendBtn = document.getElementById('copilotSendBtn');
+    this.copilotNewTripBtn = document.getElementById('copilotNewTripBtn');
   }
 
   setupPwa() {
@@ -211,6 +212,9 @@ class VuelosApp {
     }
     if (this.closeCopilotBtn) {
       this.closeCopilotBtn.addEventListener('click', () => this.closeCopilot());
+    }
+    if (this.copilotNewTripBtn) {
+      this.copilotNewTripBtn.addEventListener('click', () => this.startNewTripFlow());
     }
     if (this.copilotDrawerOverlay) {
       this.copilotDrawerOverlay.addEventListener('click', (e) => {
@@ -551,6 +555,7 @@ class VuelosApp {
       if (this.currentView === 'trips') {
         this.renderTrips();
       }
+      this.initCopilotWelcomeMessage();
     } catch (err) {
       console.warn('Error cargando trips.json:', err);
     }
@@ -905,6 +910,9 @@ class VuelosApp {
   openCopilot() {
     if (this.copilotDrawerOverlay) {
       this.copilotDrawerOverlay.classList.add('open');
+      if (!this.copilotMessages || this.copilotMessages.children.length === 0) {
+        this.initCopilotWelcomeMessage();
+      }
       if (this.copilotInput) this.copilotInput.focus();
     }
   }
@@ -913,6 +921,30 @@ class VuelosApp {
     if (this.copilotDrawerOverlay) {
       this.copilotDrawerOverlay.classList.remove('open');
     }
+  }
+
+  initCopilotWelcomeMessage(forceNeutral = false) {
+    if (!this.copilotMessages) return;
+    this.copilotMessages.innerHTML = '';
+
+    let welcomeText = '';
+    if (!this.activeTrip || forceNeutral) {
+      welcomeText = '¡Buenas, Martín! Soy tu Copiloto de Viajes con memoria neutra y lista para tu próximo destino.\n\nTodavía no tenés un viaje activo seleccionado. Podés pasarme la captura o PDF de tus billetes con el clip 📎 (sea a Roma, a Pekín o donde sea), o decirme a dónde viajás y tus fechas, y te armo el itinerario inteligente paso a paso desde cero.';
+    } else {
+      const dest = this.activeTrip.destinationCity || this.activeTrip.title || 'tu destino';
+      welcomeText = `¡Buenas, Martín! Acá estoy con tu viaje a ${dest} en la cabeza.\n\nPodés charlarme lo que quieras para ajustar paradas, horarios o alojamiento. Y si vas a cargar otro viaje nuevo a otro destino, tocá arriba en "✨ Nuevo Viaje" o subime los nuevos billetes con el clip 📎 y te armo el nuevo viaje sin mezclarlo.`;
+    }
+
+    this.appendMessage('bot', welcomeText);
+  }
+
+  startNewTripFlow() {
+    this.activeTrip = null;
+    this.clearAttachedFile();
+    this.renderTrips();
+    this.initCopilotWelcomeMessage(true);
+    this.showToast('✨ Modo Nuevo Viaje activado. Memoria limpia.');
+    if (this.copilotInput) this.copilotInput.focus();
   }
 
   handleFileAttach(e) {

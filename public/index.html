@@ -200,16 +200,14 @@
             <span class="copilot-status"><span class="live-dot"></span> Gemini Flash Multimodal</span>
           </div>
         </div>
-        <button id="closeCopilotBtn" class="copilot-close-btn" title="Cerrar chat">✕</button>
+        <div class="copilot-header-actions">
+          <button id="copilotNewTripBtn" class="copilot-action-btn" title="Empezar a planificar otro viaje nuevo desde cero">✨ Nuevo Viaje</button>
+          <button id="closeCopilotBtn" class="copilot-close-btn" title="Cerrar chat">✕</button>
+        </div>
       </div>
 
       <div class="copilot-messages" id="copilotMessages">
-        <div class="copilot-msg bot">
-          <span class="msg-avatar">🤖</span>
-          <div class="msg-bubble">
-            ¡Buenas, Martín! Acá estoy con tu viaje a Fez en la cabeza. Podés charlarme lo que quieras: si contrataste un guía, si cambiaste de riad o si querés sumar una parada. O si tenés un billete o captura de Booking, ¡adjuntámela con el clip 📎 y te actualizo todo al instante!
-          </div>
-        </div>
+        <!-- Saludo dinámico inyectado por app.js según el viaje activo o neutro -->
       </div>
 
       <!-- Previsualización de Archivo Adjunto -->
@@ -233,6 +231,6 @@
     </div>
   </div>
 
-  <script src="js/app.js?v=4.2"></script>
+  <script src="js/app.js?v=4.3"></script>
 </body>
 </html>
