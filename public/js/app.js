@@ -111,6 +111,18 @@ class VuelosApp {
     this.removeFileBtn = document.getElementById('removeFileBtn');
     this.copilotSendBtn = document.getElementById('copilotSendBtn');
     this.copilotNewTripBtn = document.getElementById('copilotNewTripBtn');
+
+    // Limpiador de Fotos Anti-IA
+    this.tripSubPhotos = document.getElementById('tripSubPhotos');
+    this.photoDropzone = document.getElementById('photoDropzone');
+    this.photoCleanerInput = document.getElementById('photoCleanerInput');
+    this.photoBrowseBtn = document.getElementById('photoBrowseBtn');
+    this.photoActionsBar = document.getElementById('photoActionsBar');
+    this.photoProcessedCount = document.getElementById('photoProcessedCount');
+    this.downloadAllPhotosBtn = document.getElementById('downloadAllPhotosBtn');
+    this.clearPhotosBtn = document.getElementById('clearPhotosBtn');
+    this.photoResultsGrid = document.getElementById('photoResultsGrid');
+    this.cleanedPhotos = [];
   }
 
   setupPwa() {
@@ -238,6 +250,41 @@ class VuelosApp {
         this.submitCopilotMessage();
       });
     }
+
+    // Limpiador de Fotos Anti-IA Events
+    if (this.photoBrowseBtn && this.photoCleanerInput) {
+      this.photoBrowseBtn.addEventListener('click', () => this.photoCleanerInput.click());
+    }
+    if (this.photoCleanerInput) {
+      this.photoCleanerInput.addEventListener('change', (e) => this.handlePhotoFiles(e.target.files));
+    }
+    if (this.photoDropzone) {
+      this.photoDropzone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        this.photoDropzone.classList.add('dragover');
+      });
+      this.photoDropzone.addEventListener('dragleave', () => {
+        this.photoDropzone.classList.remove('dragover');
+      });
+      this.photoDropzone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        this.photoDropzone.classList.remove('dragover');
+        if (e.dataTransfer && e.dataTransfer.files) {
+          this.handlePhotoFiles(e.dataTransfer.files);
+        }
+      });
+      this.photoDropzone.addEventListener('click', (e) => {
+        if (e.target !== this.photoBrowseBtn && this.photoCleanerInput) {
+          this.photoCleanerInput.click();
+        }
+      });
+    }
+    if (this.downloadAllPhotosBtn) {
+      this.downloadAllPhotosBtn.addEventListener('click', () => this.downloadAllCleanedPhotos());
+    }
+    if (this.clearPhotosBtn) {
+      this.clearPhotosBtn.addEventListener('click', () => this.clearCleanedPhotos());
+    }
   }
 
   // ==============================================================================
@@ -264,9 +311,10 @@ class VuelosApp {
 
   switchTripSubtab(subtab) {
     this.currentSubtab = subtab;
-    this.tripSubItinerary.style.display = subtab === 'itinerary' ? 'block' : 'none';
-    this.tripSubChecklist.style.display = subtab === 'checklist' ? 'block' : 'none';
-    this.tripSubTips.style.display = subtab === 'tips' ? 'block' : 'none';
+    if (this.tripSubItinerary) this.tripSubItinerary.style.display = subtab === 'itinerary' ? 'block' : 'none';
+    if (this.tripSubChecklist) this.tripSubChecklist.style.display = subtab === 'checklist' ? 'block' : 'none';
+    if (this.tripSubTips) this.tripSubTips.style.display = subtab === 'tips' ? 'block' : 'none';
+    if (this.tripSubPhotos) this.tripSubPhotos.style.display = subtab === 'photos' ? 'block' : 'none';
   }
 
   // ==============================================================================
@@ -1096,6 +1144,158 @@ class VuelosApp {
       toast.style.transform = 'translateX(-50%) translateY(100px)';
       toast.style.opacity = '0';
     }, 3500);
+  }
+
+  // ==============================================================================
+  // LIMPIADOR DE FOTOS (ANTI-DETECCIÓN IA / C2PA BYPASS)
+  // ==============================================================================
+  async handlePhotoFiles(files) {
+    if (!files || files.length === 0) return;
+    const validFiles = Array.from(files).filter((f) => f.type.startsWith('image/'));
+    if (validFiles.length === 0) {
+      this.showToast('⚠️ Seleccioná archivos de imagen válidos (JPG, PNG, WEBP)');
+      return;
+    }
+
+    this.showToast(`📸 Procesando y desinfectando ${validFiles.length} foto(s)...`);
+
+    for (const file of validFiles) {
+      await this.cleanSinglePhoto(file);
+    }
+
+    if (this.photoCleanerInput) this.photoCleanerInput.value = '';
+    this.updatePhotoActionsBar();
+    this.showToast(`✨ ${validFiles.length} foto(s) limpiadas con éxito`);
+  }
+
+  cleanSinglePhoto(file) {
+    return new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const img = new Image();
+        img.onload = () => {
+          // Re-dibujado en Canvas: destruye C2PA, XMP, IPTC y etiquetas IA
+          const canvas = document.createElement('canvas');
+          canvas.width = img.naturalWidth || img.width;
+          canvas.height = img.naturalHeight || img.height;
+          const ctx = canvas.getContext('2d');
+          
+          // Render de píxeles puros
+          ctx.drawImage(img, 0, 0);
+
+          // Exportar a Blob JPG de alta calidad (98%)
+          canvas.toBlob((blob) => {
+            if (!blob) {
+              resolve();
+              return;
+            }
+
+            const cleanBlobUrl = URL.createObjectURL(blob);
+            const originalName = file.name;
+            const baseName = originalName.substring(0, originalName.lastIndexOf('.')) || originalName;
+            const cleanFileName = `${baseName}_limpia.jpg`;
+
+            const photoItem = {
+              id: `photo_${Date.now()}_${Math.random().toString(36).substr(2, 5)}`,
+              name: originalName,
+              cleanName: cleanFileName,
+              blobUrl: cleanBlobUrl,
+              blob: blob,
+              originalSize: this.formatBytes(file.size),
+              cleanSize: this.formatBytes(blob.size),
+              width: canvas.width,
+              height: canvas.height,
+            };
+
+            this.cleanedPhotos.unshift(photoItem);
+            this.renderPhotoCard(photoItem);
+            resolve();
+          }, 'image/jpeg', 0.98);
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+
+  renderPhotoCard(photo) {
+    if (!this.photoResultsGrid) return;
+    const card = document.createElement('div');
+    card.className = 'photo-card';
+    card.id = `card_${photo.id}`;
+    card.innerHTML = `
+      <div class="photo-card-preview">
+        <img src="${photo.blobUrl}" alt="${photo.name}" loading="lazy">
+        <span class="photo-card-badge">🛡️ Píxeles Puros</span>
+      </div>
+      <div class="photo-card-body">
+        <div class="photo-card-name" title="${photo.name}">${photo.name}</div>
+        <div class="photo-card-meta">
+          <span>${photo.width}x${photo.height}px</span>
+          <span style="color: #34d399;">✅ Sin rastro de IA</span>
+        </div>
+        <button class="photo-card-download-btn" onclick="window.app.downloadSinglePhoto('${photo.id}')">
+          <span>⬇️ Descargar Limpia</span>
+        </button>
+      </div>
+    `;
+    this.photoResultsGrid.prepend(card);
+  }
+
+  downloadSinglePhoto(id) {
+    const item = this.cleanedPhotos.find((p) => p.id === id);
+    if (!item) return;
+    const link = document.createElement('a');
+    link.href = item.blobUrl;
+    link.download = item.cleanName;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    this.showToast(`⬇️ Descargando ${item.cleanName}`);
+  }
+
+  downloadAllCleanedPhotos() {
+    if (this.cleanedPhotos.length === 0) return;
+    this.showToast(`⬇️ Descargando ${this.cleanedPhotos.length} foto(s) limpias...`);
+    this.cleanedPhotos.forEach((item, index) => {
+      setTimeout(() => {
+        const link = document.createElement('a');
+        link.href = item.blobUrl;
+        link.download = item.cleanName;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }, index * 250);
+    });
+  }
+
+  clearCleanedPhotos() {
+    this.cleanedPhotos.forEach((p) => URL.revokeObjectURL(p.blobUrl));
+    this.cleanedPhotos = [];
+    if (this.photoResultsGrid) this.photoResultsGrid.innerHTML = '';
+    this.updatePhotoActionsBar();
+    this.showToast('🗑️ Lista de fotos limpiada');
+  }
+
+  updatePhotoActionsBar() {
+    if (!this.photoActionsBar) return;
+    const count = this.cleanedPhotos.length;
+    if (count > 0) {
+      this.photoActionsBar.style.display = 'flex';
+      if (this.photoProcessedCount) {
+        this.photoProcessedCount.innerText = `${count} foto${count > 1 ? 's' : ''} desinfectada${count > 1 ? 's' : ''} y lista${count > 1 ? 's' : ''}`;
+      }
+    } else {
+      this.photoActionsBar.style.display = 'none';
+    }
+  }
+
+  formatBytes(bytes) {
+    if (!bytes) return '0 B';
+    const k = 1024;
+    const sizes = ['B', 'KB', 'MB', 'GB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return `${parseFloat((bytes / Math.pow(k, i)).toFixed(1))} ${sizes[i]}`;
   }
 }
 

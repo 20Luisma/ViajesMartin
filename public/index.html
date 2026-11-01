@@ -13,7 +13,7 @@
   <link rel="icon" type="image/svg+xml" href="assets/icon.svg">
   <link rel="apple-touch-icon" href="assets/icon-192.png">
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="css/style.css?v=3.1">
+  <link rel="stylesheet" href="css/style.css?v=4.4">
 </head>
 <body>
   <!-- Header -->
@@ -156,6 +156,7 @@
           <button class="trip-subnav-pill active" data-subtab="itinerary">📅 Itinerario Paso a Paso</button>
           <button class="trip-subnav-pill" data-subtab="checklist">📋 Checklist Inteligente</button>
           <button class="trip-subnav-pill" data-subtab="tips">💡 Guía de Supervivencia</button>
+          <button class="trip-subnav-pill" data-subtab="photos">📸 Limpiador Fotos (Anti-IA)</button>
         </div>
       </section>
 
@@ -177,6 +178,47 @@
       <div id="tripSubTips" class="trip-subpanel" style="display: none;">
         <div class="tips-grid" id="tripTipsContainer">
           <!-- Inyectado dinámicamente -->
+        </div>
+      </div>
+
+      <!-- Subpanel 4: Limpiador de Fotos Anti-IA -->
+      <div id="tripSubPhotos" class="trip-subpanel" style="display: none;">
+        <div class="photo-cleaner-card">
+          <div class="photo-cleaner-header">
+            <span class="photo-cleaner-badge">🛡️ Bypass C2PA / Meta / Instagram</span>
+            <h3 class="photo-cleaner-title">Limpiador de Fotos de Viaje (Anti-Tag IA)</h3>
+            <p class="photo-cleaner-desc">
+              ¿Retocaste fotos con IA (Lightroom, Magic Eraser, Photoshop)? Al subirlas acá, la app redibuja los píxeles puros en un canvas local nativo en alta resolución, <strong>destruyendo al 100% las firmas invisibles C2PA y etiquetas digitales</strong> para que Instagram las publique como fotos naturales de cámara.
+            </p>
+          </div>
+
+          <div class="photo-dropzone" id="photoDropzone">
+            <input type="file" id="photoCleanerInput" multiple accept="image/*" style="display: none;">
+            <div class="dropzone-content">
+              <span class="dropzone-icon">📸</span>
+              <div class="dropzone-text">
+                <strong>Arrastrá acá tus fotos</strong> o <button type="button" class="dropzone-btn" id="photoBrowseBtn">Seleccionar del carrete</button>
+              </div>
+              <span class="dropzone-hint">Soporta JPG, PNG, WEBP, HEIC • Procesamiento local seguro e instantáneo en tu dispositivo</span>
+            </div>
+          </div>
+
+          <!-- Acciones de Descarga Masiva -->
+          <div id="photoActionsBar" class="photo-actions-bar" style="display: none;">
+            <div class="photo-actions-info">
+              <span class="photo-count-badge">✅</span>
+              <span id="photoProcessedCount" class="photo-processed-count">0 fotos desinfectadas</span>
+            </div>
+            <div class="photo-actions-btns">
+              <button id="downloadAllPhotosBtn" class="photo-action-btn primary">⬇️ Descargar Todas Limpias</button>
+              <button id="clearPhotosBtn" class="photo-action-btn secondary">🗑️ Limpiar Lista</button>
+            </div>
+          </div>
+
+          <!-- Galería de Resultados -->
+          <div class="photo-results-grid" id="photoResultsGrid">
+            <!-- Inyectado dinámicamente -->
+          </div>
         </div>
       </div>
     </div>
@@ -231,6 +273,6 @@
     </div>
   </div>
 
-  <script src="js/app.js?v=4.3"></script>
+  <script src="js/app.js?v=4.4"></script>
 </body>
 </html>
