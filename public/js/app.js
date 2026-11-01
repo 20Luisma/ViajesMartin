@@ -640,12 +640,22 @@ class VuelosApp {
     if (this.countdownTimer) clearInterval(this.countdownTimer);
     if (!this.activeTrip || !this.activeTrip.flights?.outbound?.departureDate) return;
 
-    const depDateStr = `${this.activeTrip.flights.outbound.departureDate}T${this.activeTrip.flights.outbound.departureTime || '10:30'}:00`;
-    const targetTime = new Date(depDateStr).getTime();
+    let depDateStr = `${this.activeTrip.flights.outbound.departureDate}T${this.activeTrip.flights.outbound.departureTime || '10:30'}:00`;
+    let targetDate = new Date(depDateStr);
+    const now = new Date();
+
+    // Auto-ajuste de año si la fecha parseada quedó en el pasado
+    if (targetDate.getTime() < now.getTime()) {
+      targetDate.setFullYear(now.getFullYear());
+      if (targetDate.getTime() < now.getTime()) {
+        targetDate.setFullYear(now.getFullYear() + 1);
+      }
+    }
+    const targetTime = targetDate.getTime();
 
     const tick = () => {
-      const now = Date.now();
-      const diff = targetTime - now;
+      const nowMs = Date.now();
+      const diff = targetTime - nowMs;
 
       const cdDays = document.getElementById('cdDays');
       const cdHours = document.getElementById('cdHours');
@@ -706,7 +716,7 @@ class VuelosApp {
         </div>
         <div class="boarding-footer">
           <span>📅 ${outb.departureDate} • ${outb.terminal || 'Terminal T2B'}</span>
-          <span class="boarding-barcode">||||| | ||||</span>
+          <span class="boarding-tag" style="background: rgba(16, 185, 129, 0.15); color: #34d399; font-size: 0.78rem;">🎒 Mochila 40x20x25cm</span>
         </div>
       </div>
 
@@ -731,7 +741,7 @@ class VuelosApp {
         </div>
         <div class="boarding-footer">
           <span>📅 ${inb.departureDate} • ${inb.terminal || 'Mostrador Saïss'}</span>
-          <span class="boarding-barcode">|||| | |||||</span>
+          <span class="boarding-tag" style="background: rgba(16, 185, 129, 0.15); color: #34d399; font-size: 0.78rem;">🎒 Mochila 40x20x25cm</span>
         </div>
       </div>
 

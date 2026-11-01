@@ -91,6 +91,7 @@ if ($action === 'trip_copilot') {
         . "- timeline: array ordenado de paradas con { id, day, time, title, desc, category, completed: false }\n"
         . "- checklist: array de cosas esenciales con { id, text, checked: false }\n"
         . "- survivalTips: array de consejos reales y prácticos de ese destino con { title, icon, desc }\n"
+        . "- REGLA DE FECHAS: Los billetes de aerolínea (como Ryanair) a menudo no muestran el año (ej: '25 NOV'). Debes asumir SIEMPRE el año 2026 (o el año futuro correspondiente), NUNCA fechas pasadas como 2024 o 2025.\n"
         . "Si ya existe un viaje, ajustá inteligentemente el itinerario, checklist y hotel según lo que te pida Martín sin duplicar paradas.\n"
         . "DEBES RESPONDER EXCLUSIVAMENTE CON UN OBJETO JSON VÁLIDO con esta estructura exacta:\n"
         . "{\n"
