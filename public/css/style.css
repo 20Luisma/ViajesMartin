@@ -1229,6 +1229,9 @@ body {
   backdrop-filter: blur(12px);
   box-shadow: var(--shadow-card);
   transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .boarding-pass-card:hover {
@@ -1252,6 +1255,7 @@ body {
   letter-spacing: 0.05em;
   padding: 4px 10px;
   border-radius: 6px;
+  white-space: nowrap;
 }
 
 .boarding-tag.outbound {
@@ -1315,19 +1319,42 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 8px;
   background: rgba(0, 0, 0, 0.25);
   border-radius: var(--radius-sm);
-  padding: 10px 14px;
-  font-size: 0.85rem;
+  padding: 8px 12px;
+  font-size: 0.8rem;
   color: var(--text-secondary);
+  min-height: 42px;
 }
 
-.boarding-barcode {
-  letter-spacing: 3px;
-  font-family: monospace;
-  font-weight: 900;
-  color: var(--text-muted);
-  font-size: 0.9rem;
+.boarding-footer-date {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.boarding-tag-luggage {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 6px;
+  white-space: nowrap !important;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
 }
 
 /* Tarjeta Hotel */
@@ -1337,6 +1364,9 @@ body {
   border-radius: var(--radius-lg);
   padding: 20px;
   backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .hotel-header {

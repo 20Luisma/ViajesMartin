@@ -715,8 +715,8 @@ class VuelosApp {
           </div>
         </div>
         <div class="boarding-footer">
-          <span>📅 ${outb.departureDate} • ${outb.terminal || 'Terminal T2B'}</span>
-          <span class="boarding-tag" style="background: rgba(16, 185, 129, 0.15); color: #34d399; font-size: 0.78rem;">🎒 Mochila 40x20x25cm</span>
+          <span class="boarding-footer-date" title="${outb.departureDate} • ${outb.terminal || 'T2'}">📅 ${outb.departureDate} • ${outb.terminal || 'T2'}</span>
+          <span class="boarding-tag-luggage">🎒 Mochila 40x20x25cm</span>
         </div>
       </div>
 
@@ -740,8 +740,8 @@ class VuelosApp {
           </div>
         </div>
         <div class="boarding-footer">
-          <span>📅 ${inb.departureDate} • ${inb.terminal || 'Mostrador Saïss'}</span>
-          <span class="boarding-tag" style="background: rgba(16, 185, 129, 0.15); color: #34d399; font-size: 0.78rem;">🎒 Mochila 40x20x25cm</span>
+          <span class="boarding-footer-date" title="${inb.departureDate} • ${inb.terminal || 'T2'}">📅 ${inb.departureDate} • ${inb.terminal || 'T2'}</span>
+          <span class="boarding-tag-luggage">🎒 Mochila 40x20x25cm</span>
         </div>
       </div>
 
