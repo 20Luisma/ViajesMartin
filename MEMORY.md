@@ -119,8 +119,8 @@ Aplicación autónoma de monitorización, rastreo y alerta en tiempo real de **v
   - Se añadieron estilos de marca para `.airline-tag` con colores distintivos: Vueling (amarillo ámbar `#fbbf24`), easyJet (naranja `#fb923c`), Wizz Air (fucsia `#f472b6`), Ryanair (azul `#38bdf8`), Iberia (rojo `#f87171`) y Volotea.
   - El buscador ahora permite filtrar por nombre de aerolínea (ej: "vueling").
 - **Cascada Continua:**
-  - Local (Mac): Lint de PHP limpio. Escáner optimizado con ventana dinámica de 45 días (`nights_in_dst_from: 0`, `nights_in_dst_to: 2`), saltando de 76 a **132 chollos totales** con 42 vuelos directos de Vueling y combinaciones Volotea/Vueling, Air Europa/Ryanair, etc.
+  - Local (Mac): Lint de PHP limpio. Escáner ampliado a 6 meses vista (180 días) con estancias de 0 a 2 noches (`nights_in_dst`), alcanzando un récord de **181 chollos activos** (91 de Vueling, 76 de Ryanair y combinaciones cruzadas).
   - Producción (Hostinger VPS): Desplegado vía `bin/deploy.sh` y validado HTTP 200 en `https://contenido.creawebes.com/VuelosMartin/`.
-  - GitHub (Nube): Commits `098fbaf`, `eb533f3` y `a900022` en rama `main`.
+  - GitHub (Nube): Commits `098fbaf`, `eb533f3`, `a900022` y `f3bae61` en rama `main`.
 
 
