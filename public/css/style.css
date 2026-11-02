@@ -695,15 +695,63 @@ body {
   margin-bottom: 0;
 }
 
-.deal-carrier-badge {
+.deal-carrier-badge,
+.airline-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   font-size: 0.72rem;
   font-weight: 700;
-  color: #38bdf8;
-  background: rgba(56, 189, 248, 0.12);
-  border: 1px solid rgba(56, 189, 248, 0.25);
-  padding: 4px 10px;
+  color: #94a3b8;
+  background: rgba(148, 163, 184, 0.12);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  padding: 3px 9px;
   border-radius: 9999px;
   letter-spacing: 0.02em;
+  transition: all 0.2s ease;
+}
+
+.airline-tag.airline-ryanair,
+[class*="airline-tag"][class*="ryanair"] {
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.12);
+  border-color: rgba(56, 189, 248, 0.35);
+}
+
+.airline-tag.airline-vueling,
+[class*="airline-tag"][class*="vueling"] {
+  color: #fbbf24;
+  background: rgba(251, 191, 36, 0.14);
+  border-color: rgba(251, 191, 36, 0.4);
+}
+
+.airline-tag.airline-easyjet,
+[class*="airline-tag"][class*="easyjet"] {
+  color: #fb923c;
+  background: rgba(249, 115, 22, 0.14);
+  border-color: rgba(249, 115, 22, 0.4);
+}
+
+.airline-tag.airline-wizz-air,
+.airline-tag.airline-wizz,
+[class*="airline-tag"][class*="wizz"] {
+  color: #f472b6;
+  background: rgba(236, 72, 153, 0.14);
+  border-color: rgba(236, 72, 153, 0.4);
+}
+
+.airline-tag.airline-iberia,
+[class*="airline-tag"][class*="iberia"] {
+  color: #f87171;
+  background: rgba(239, 68, 68, 0.14);
+  border-color: rgba(239, 68, 68, 0.4);
+}
+
+.airline-tag.airline-volotea,
+[class*="airline-tag"][class*="volotea"] {
+  color: #fca5a5;
+  background: rgba(185, 28, 28, 0.14);
+  border-color: rgba(185, 28, 28, 0.4);
 }
 
 .deal-actions {

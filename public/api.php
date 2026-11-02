@@ -379,106 +379,193 @@ if ($action === 'scan') {
         ];
     }
 
-    // Escaneo de Google Flights (Vueling, Air Europa, etc.) si hay claves disponibles
-    $rapidApiKeys = array_values(array_filter(array_map('trim', explode(',', $rapidApiKey))));
-    $currentKeyIndex = 0;
+    // =========================================================================
+    // ESCANEO MULTI-AEROLÍNEA NATIVO VÍA KIWI MCP (Vueling, easyJet, Wizz Air, Iberia, etc.)
+    // =========================================================================
+    $mcpTargets = ['IBZ', 'PMI', 'MAH', 'SVQ', 'AGP', 'OPO', 'GVA', 'MXP', 'LIS', 'NCE', 'BUD', 'BIO', 'SCQ'];
+    shuffle($mcpTargets);
+    $selectedTargets = array_slice($mcpTargets, 0, 5); // 5 destinos clave por escaneo para respuesta instantánea
 
-    if (!empty($rapidApiKeys)) {
-        $gfTargets = ['IBZ', 'PMI', 'SVQ', 'MAH', 'OPO'];
-        $gfDates = [
-            ['out' => '2026-11-13', 'ret' => '2026-11-15'],
-            ['out' => '2026-11-20', 'ret' => '2026-11-22'],
-            ['out' => '2026-11-27', 'ret' => '2026-11-29'],
+    // Generar fechas para los próximos 3 fines de semana (viernes a domingo y sábados a domingo)
+    $mcpDates = [];
+    for ($w = 1; $w <= 4; $w++) {
+        $friday = (clone $today)->modify("+{$w} week")->modify('next friday')->format('Y-m-d');
+        $sunday = (clone $today)->modify("+{$w} week")->modify('next sunday')->format('Y-m-d');
+        $saturday = (clone $today)->modify("+{$w} week")->modify('next saturday')->format('Y-m-d');
+
+        $mcpDates[] = ['out' => $friday, 'ret' => $sunday, 'type' => 'bridge'];
+        $mcpDates[] = ['out' => $saturday, 'ret' => $sunday, 'type' => 'weekend'];
+        // Day-trip express los sábados
+        $mcpDates[] = ['out' => $saturday, 'ret' => $saturday, 'type' => 'daytrip'];
+    }
+    shuffle($mcpDates);
+    $selectedDatePairs = array_slice($mcpDates, 0, 2);
+
+    // Preparar peticiones en paralelo con curl_multi a Kiwi MCP
+    $kiwiRequests = [];
+    foreach ($selectedTargets as $dstIata) {
+        foreach ($selectedDatePairs as $dp) {
+            $kiwiRequests[] = [
+                'dest' => $dstIata,
+                'out' => $dp['out'],
+                'ret' => $dp['ret'],
+                'expectedMode' => $dp['type']
+            ];
+        }
+    }
+    // Limitar a máximo 6 peticiones en paralelo para garantizar latencia ultra-rápida (< 3s)
+    $kiwiRequests = array_slice($kiwiRequests, 0, 6);
+
+    $mhKiwi = curl_multi_init();
+    $kiwiHandles = [];
+
+    foreach ($kiwiRequests as $idx => $req) {
+        $args = [
+            'flyFrom' => 'BCN',
+            'flyTo' => $req['dest'],
+            'departureDate' => $req['out'],
+            'returnDate' => $req['ret'],
+            'max_sector_stopovers' => 0, // Regla de Martín: sólo vuelos directos
+            'currency' => 'EUR',
+            'price_to' => intval($customMaxPrice),
+            'sort' => 'price'
         ];
 
-        $metaDict = [
-            'IBZ' => ['city' => 'Ibiza', 'country' => 'España'],
-            'PMI' => ['city' => 'Palma de Mallorca', 'country' => 'España'],
-            'SVQ' => ['city' => 'Sevilla', 'country' => 'España'],
-            'MAH' => ['city' => 'Menorca', 'country' => 'España'],
-            'OPO' => ['city' => 'Oporto', 'country' => 'Portugal'],
+        $payload = json_encode([
+            'jsonrpc' => '2.0',
+            'id' => 1000 + $idx,
+            'method' => 'tools/call',
+            'params' => [
+                'name' => 'search-flight',
+                'arguments' => $args
+            ]
+        ]);
+
+        $chK = curl_init('https://mcp.kiwi.com');
+        curl_setopt($chK, CURLOPT_POST, true);
+        curl_setopt($chK, CURLOPT_POSTFIELDS, $payload);
+        curl_setopt($chK, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($chK, CURLOPT_TIMEOUT, 6);
+        curl_setopt($chK, CURLOPT_HTTPHEADER, [
+            'Content-Type: application/json',
+            'Accept: text/event-stream, application/json'
+        ]);
+        curl_multi_add_handle($mhKiwi, $chK);
+        $kiwiHandles[$idx] = [
+            'handle' => $chK,
+            'meta' => $req
         ];
+    }
 
-        foreach ($gfTargets as $targetIata) {
-            foreach ($gfDates as $dates) {
-                if ($currentKeyIndex >= count($rapidApiKeys)) {
-                    break 2; // Todas las claves del pool agotaron su cuota
-                }
+    $runningKiwi = null;
+    do {
+        curl_multi_exec($mhKiwi, $runningKiwi);
+        curl_multi_select($mhKiwi);
+    } while ($runningKiwi > 0);
 
-                $activeKey = $rapidApiKeys[$currentKeyIndex];
-                $gfUrl = "https://google-flights4.p.rapidapi.com/flights/search-roundtrip?departureId=BCN&arrivalId={$targetIata}&departureDate={$dates['out']}&arrivalDate={$dates['ret']}&currency=EUR";
-                
-                $chGf = curl_init($gfUrl);
-                curl_setopt($chGf, CURLOPT_RETURNTRANSFER, true);
-                curl_setopt($chGf, CURLOPT_TIMEOUT, 6);
-                curl_setopt($chGf, CURLOPT_HTTPHEADER, [
-                    "x-rapidapi-host: google-flights4.p.rapidapi.com",
-                    "x-rapidapi-key: " . $activeKey
-                ]);
-                $gfRes = curl_exec($chGf);
-                $gfCode = curl_getinfo($chGf, CURLINFO_HTTP_CODE);
-                curl_close($chGf);
+    foreach ($kiwiHandles as $kItem) {
+        $chK = $kItem['handle'];
+        $meta = $kItem['meta'];
+        $rawResponse = curl_multi_getcontent($chK);
+        curl_multi_remove_handle($mhKiwi, $chK);
+        curl_close($chK);
 
-                // Si esta clave agotó cuota (429) o falló, rotamos a la siguiente del pool de inmediato
-                if ($gfCode === 429 || $gfCode === 403) {
-                    $currentKeyIndex++;
-                    continue;
-                }
+        if (!$rawResponse) continue;
 
-                if ($gfCode === 200 && $gfRes) {
-                    $gfJson = json_decode($gfRes, true);
-                    $gfList = array_merge($gfJson['data']['topFlights'] ?? [], $gfJson['data']['otherFlights'] ?? []);
-
-                    foreach ($gfList as $f) {
-                        $price = floatval($f['price'] ?? 0);
-                        if ($price <= 0 || $price > $customMaxPrice) continue;
-
-                        $airlineName = ($f['airlineNames'][0] ?? '') ?: ($f['airlineCode'] ?? 'Aerolínea');
-                        $segOut = $f['segments'][0] ?? null;
-                        if (!$segOut) continue;
-
-                        $flightNum = ($f['airlineCode'] ?? '') . ($segOut['flightNumber'] ?? '');
-                        $outDepTime = "{$dates['out']}T" . ($segOut['departureTime'] ?? '08:00') . ":00";
-                        $outArrTime = "{$dates['out']}T" . ($segOut['arrivalTime'] ?? '09:00') . ":00";
-                        $inDepTime = "{$dates['ret']}T20:30:00";
-                        $inArrTime = "{$dates['ret']}T22:15:00";
-
-                        $diffHours = (strtotime($inDepTime) - strtotime($outArrTime)) / 3600;
-                        if ($diffHours <= 0) continue;
-
-                        $info = $metaDict[$targetIata] ?? ['city' => $targetIata, 'country' => ''];
-                        $bUrl = "https://www.google.com/travel/flights?q=Flights%20to%20{$targetIata}%20from%20BCN%20on%20{$dates['out']}%20through%20{$dates['ret']}";
-
-                        $deals[] = [
-                            'mode' => 'bridge',
-                            'airline' => $airlineName,
-                            'destinationIata' => $targetIata,
-                            'destinationCity' => $info['city'],
-                            'destinationCountry' => $info['country'],
-                            'originIata' => 'BCN',
-                            'totalPrice' => $price,
-                            'usefulHours' => $diffHours,
-                            'ratio' => $diffHours / $price,
-                            'isPriority' => true,
-                            'bookingUrl' => $bUrl,
-                            'outbound' => [
-                                'flightNumber' => $flightNum ?: $airlineName,
-                                'departureDate' => $outDepTime,
-                                'arrivalDate' => $outArrTime,
-                                'price' => round($price / 2, 2)
-                            ],
-                            'inbound' => [
-                                'flightNumber' => $airlineName,
-                                'departureDate' => $inDepTime,
-                                'arrivalDate' => $inArrTime,
-                                'price' => round($price / 2, 2)
-                            ]
-                        ];
+        // Parsear flujo SSE de JSON-RPC
+        $lines = explode("\n", $rawResponse);
+        $itineraries = [];
+        foreach ($lines as $line) {
+            $trimmed = trim($line);
+            if (str_starts_with($trimmed, 'data:')) {
+                $jsonStr = trim(substr($trimmed, 5));
+                $parsedRpc = json_decode($jsonStr, true);
+                $contentArr = $parsedRpc['result']['content'] ?? [];
+                foreach ($contentArr as $c) {
+                    if (!empty($c['text'])) {
+                        $parsedData = json_decode($c['text'], true);
+                        if (!empty($parsedData['itineraries'])) {
+                            $itineraries = $parsedData['itineraries'];
+                            break 2;
+                        }
                     }
                 }
             }
         }
+
+        foreach ($itineraries as $it) {
+            $price = floatval($it['price'] ?? 0);
+            if ($price <= 0 || $price > $customMaxPrice) continue;
+
+            $outSeg = $it['outbound']['segments'][0] ?? null;
+            $inSeg = $it['inbound']['segments'][0] ?? null;
+            if (!$outSeg || !$inSeg) continue;
+
+            // Descartar si tuviera escalas intermedias
+            if (($it['outbound']['stops'] ?? 0) > 0 || ($it['inbound']['stops'] ?? 0) > 0) continue;
+
+            $carrierOut = $outSeg['carrierName'] ?? ($outSeg['carrier'] ?? 'Aerolínea');
+            $carrierIn = $inSeg['carrierName'] ?? ($inSeg['carrier'] ?? 'Aerolínea');
+            $displayCarrier = ($carrierOut === $carrierIn) ? $carrierOut : "{$carrierOut} / {$carrierIn}";
+
+            $outDep = $outSeg['departureTime'] ?? '';
+            $outArr = $outSeg['arrivalTime'] ?? '';
+            $inDep = $inSeg['departureTime'] ?? '';
+            $inArr = $inSeg['arrivalTime'] ?? '';
+            if (!$outDep || !$outArr || !$inDep || !$inArr) continue;
+
+            $diffHours = (strtotime($inDep) - strtotime($outArr)) / 3600;
+            if ($diffHours <= 0) continue;
+
+            $outDateOnly = substr($outDep, 0, 10);
+            $inDateOnly = substr($inDep, 0, 10);
+
+            $mode = 'bridge';
+            if ($outDateOnly === $inDateOnly) {
+                if ($price > $daytripCap || $diffHours < 8.0) continue;
+                $mode = 'daytrip';
+            } else {
+                $nights = (strtotime($inDateOnly) - strtotime($outDateOnly)) / 86400;
+                if ($nights <= 1) {
+                    $mode = 'weekend';
+                } else {
+                    $mode = 'bridge';
+                }
+            }
+
+            $destIata = $meta['dest'];
+            $destCity = $outSeg['toCity'] ?? ($outSeg['toName'] ?? $destIata);
+            $destCountry = $outSeg['toCountry'] ?? '';
+            $bookingUrl = $it['bookingUrl'] ?? "https://www.google.com/travel/flights?q=Flights%20to%20{$destIata}%20from%20BCN%20on%20{$outDateOnly}%20through%20{$inDateOnly}";
+
+            $deals[] = [
+                'mode' => $mode,
+                'airline' => $displayCarrier,
+                'destinationIata' => $destIata,
+                'destinationCity' => $destCity,
+                'destinationCountry' => $destCountry,
+                'originIata' => 'BCN',
+                'totalPrice' => $price,
+                'usefulHours' => $diffHours,
+                'ratio' => $diffHours / $price,
+                'isPriority' => in_array($destIata, $priority),
+                'bookingUrl' => $bookingUrl,
+                'outbound' => [
+                    'flightNumber' => $outSeg['flightNumber'] ?? $carrierOut,
+                    'departureDate' => $outDep,
+                    'arrivalDate' => $outArr,
+                    'price' => round($price / 2, 2)
+                ],
+                'inbound' => [
+                    'flightNumber' => $inSeg['flightNumber'] ?? $carrierIn,
+                    'departureDate' => $inDep,
+                    'arrivalDate' => $inArr,
+                    'price' => round($price / 2, 2)
+                ]
+            ];
+        }
     }
+    curl_multi_close($mhKiwi);
 
     // Deduplicación y fusión acumulativa con chollos previamente descubiertos
     $dataPath = __DIR__ . '/data/deals.json';

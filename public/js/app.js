@@ -477,7 +477,7 @@ class VuelosApp {
             <span class="mode-badge ${modeBadgeClass}">${modeText}</span>
             <div class="badge-group-right">
               ${newBadgeHtml}
-              <span class="airline-tag">${deal.airline || 'Aerolínea'}</span>
+              <span class="airline-tag airline-${(deal.airline || '').toLowerCase().replace(/[^a-z0-9]/g, '-')}">${deal.airline || 'Aerolínea'}</span>
             </div>
           </div>
           <span class="deal-date">${dateFormatted}</span>
