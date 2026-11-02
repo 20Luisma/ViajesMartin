@@ -389,7 +389,7 @@ if ($action === 'scan') {
     $selectedTargets = array_slice($mcpTargetsPool, 0, 7); // 7 destinos en paralelo por tanda
 
     $rangeStart = (clone $today)->modify('+2 days')->format('d/m/Y');
-    $rangeEnd = (clone $today)->modify('+45 days')->format('d/m/Y');
+    $rangeEnd = (clone $today)->modify('+180 days')->format('d/m/Y');
 
     $mhKiwi = curl_multi_init();
     $kiwiHandles = [];

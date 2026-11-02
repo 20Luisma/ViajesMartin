@@ -1,14 +1,14 @@
 {
-    "updatedAt": "2026-11-02T20:16:48+00:00",
+    "updatedAt": "2026-11-02T20:27:18+00:00",
     "origin": "BCN",
-    "totalDeals": 132,
+    "totalDeals": 181,
     "stats": {
         "cheapestPrice": 29.98,
         "maxUsefulHours": 68.75,
-        "daytripsCount": 15,
-        "weekendsCount": 40,
-        "bridgesCount": 77,
-        "destinationsCount": 37
+        "daytripsCount": 20,
+        "weekendsCount": 61,
+        "bridgesCount": 100,
+        "destinationsCount": 39
     },
     "deals": [
         {
@@ -576,7 +576,7 @@
                 "price": 19
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "daytrip",
@@ -603,7 +603,7 @@
                 "price": 21.5
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "weekend",
@@ -630,7 +630,7 @@
                 "price": 19.5
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "bridge",
@@ -1170,7 +1170,7 @@
                 "price": 22
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "weekend",
@@ -1197,7 +1197,7 @@
                 "price": 19.5
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "bridge",
@@ -1305,7 +1305,7 @@
                 "price": 21.5
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "weekend",
@@ -1332,7 +1332,7 @@
                 "price": 22
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "weekend",
@@ -1359,7 +1359,7 @@
                 "price": 28.5
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "bridge",
@@ -1386,7 +1386,7 @@
                 "price": 21
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "weekend",
@@ -1413,7 +1413,7 @@
                 "price": 21.5
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "daytrip",
@@ -1440,7 +1440,7 @@
                 "price": 22
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "weekend",
@@ -1467,7 +1467,7 @@
                 "price": 32.5
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "bridge",
@@ -1494,7 +1494,7 @@
                 "price": 33
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "weekend",
@@ -1548,7 +1548,7 @@
                 "price": 21.5
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "weekend",
@@ -1575,7 +1575,7 @@
                 "price": 21.5
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "weekend",
@@ -1602,7 +1602,7 @@
                 "price": 23.5
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "bridge",
@@ -1656,7 +1656,7 @@
                 "price": 21.5
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "bridge",
@@ -1683,6 +1683,33 @@
                 "price": 15.5
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
+            "isNew": false
+        },
+        {
+            "mode": "daytrip",
+            "airline": "Vueling",
+            "destinationIata": "IBZ",
+            "destinationCity": "Ibiza",
+            "destinationCountry": "España",
+            "originIata": "BCN",
+            "totalPrice": 31,
+            "usefulHours": 11.333333333333334,
+            "ratio": 0.3655913978494624,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/5ffj6t",
+            "outbound": {
+                "flightNumber": "VY3500",
+                "departureDate": "2026-12-03T07:45:00",
+                "arrivalDate": "2026-12-03T08:50:00",
+                "price": 15.5
+            },
+            "inbound": {
+                "flightNumber": "VY3515",
+                "departureDate": "2026-12-03T20:10:00",
+                "arrivalDate": "2026-12-03T21:10:00",
+                "price": 15.5
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
             "isNew": true
         },
         {
@@ -1710,7 +1737,7 @@
                 "price": 15.5
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "weekend",
@@ -1737,7 +1764,7 @@
                 "price": 15.5
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "bridge",
@@ -1791,7 +1818,7 @@
                 "price": 16
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "bridge",
@@ -1818,7 +1845,7 @@
                 "price": 16
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "weekend",
@@ -1846,6 +1873,33 @@
             },
             "firstSeen": "2026-10-30T20:52:21+00:00",
             "isNew": false
+        },
+        {
+            "mode": "bridge",
+            "airline": "Vueling",
+            "destinationIata": "GVA",
+            "destinationCity": "Ginebra",
+            "destinationCountry": "Suiza",
+            "originIata": "BCN",
+            "totalPrice": 60,
+            "usefulHours": 48.666666666666664,
+            "ratio": 0.8111111111111111,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/62m2yjs",
+            "outbound": {
+                "flightNumber": "VY1122",
+                "departureDate": "2026-12-08T06:40:00",
+                "arrivalDate": "2026-12-08T08:15:00",
+                "price": 30
+            },
+            "inbound": {
+                "flightNumber": "VY1123",
+                "departureDate": "2026-12-10T08:55:00",
+                "arrivalDate": "2026-12-10T10:30:00",
+                "price": 30
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
         },
         {
             "mode": "weekend",
@@ -1953,7 +2007,7 @@
                 "price": 22
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "weekend",
@@ -1980,7 +2034,7 @@
                 "price": 33.5
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "bridge",
@@ -2007,7 +2061,7 @@
                 "price": 33.5
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "weekend",
@@ -2034,7 +2088,7 @@
                 "price": 33
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "weekend",
@@ -2142,7 +2196,7 @@
                 "price": 16
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "bridge",
@@ -2199,6 +2253,33 @@
             "isNew": false
         },
         {
+            "mode": "weekend",
+            "airline": "Vueling",
+            "destinationIata": "GVA",
+            "destinationCity": "Ginebra",
+            "destinationCountry": "Suiza",
+            "originIata": "BCN",
+            "totalPrice": 64,
+            "usefulHours": 24.916666666666668,
+            "ratio": 0.3893229166666667,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/qh4g26",
+            "outbound": {
+                "flightNumber": "VY1122",
+                "departureDate": "2026-12-12T06:40:00",
+                "arrivalDate": "2026-12-12T08:15:00",
+                "price": 32
+            },
+            "inbound": {
+                "flightNumber": "VY1123",
+                "departureDate": "2026-12-13T09:10:00",
+                "arrivalDate": "2026-12-13T10:40:00",
+                "price": 32
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
+        },
+        {
             "mode": "bridge",
             "airline": "Ryanair",
             "destinationIata": "BRS",
@@ -2250,7 +2331,7 @@
                 "price": 16
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "bridge",
@@ -2277,7 +2358,7 @@
                 "price": 31.5
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "bridge",
@@ -2331,7 +2412,7 @@
                 "price": 24
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "weekend",
@@ -2358,7 +2439,7 @@
                 "price": 24.5
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "bridge",
@@ -2385,7 +2466,7 @@
                 "price": 24.5
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "weekend",
@@ -2412,7 +2493,7 @@
                 "price": 26
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "weekend",
@@ -2439,7 +2520,7 @@
                 "price": 32
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "weekend",
@@ -2493,7 +2574,7 @@
                 "price": 33
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "weekend",
@@ -2520,7 +2601,7 @@
                 "price": 29.5
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "weekend",
@@ -2547,7 +2628,7 @@
                 "price": 29.5
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "bridge",
@@ -2574,7 +2655,7 @@
                 "price": 15.5
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "weekend",
@@ -2601,7 +2682,7 @@
                 "price": 25.5
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "weekend",
@@ -2628,7 +2709,7 @@
                 "price": 26
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "bridge",
@@ -2655,7 +2736,7 @@
                 "price": 30.5
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "bridge",
@@ -2682,7 +2763,7 @@
                 "price": 33.5
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "bridge",
@@ -2790,7 +2871,7 @@
                 "price": 23
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "weekend",
@@ -2817,7 +2898,7 @@
                 "price": 23
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "daytrip",
@@ -2844,7 +2925,7 @@
                 "price": 20
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "bridge",
@@ -2871,7 +2952,7 @@
                 "price": 16
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "bridge",
@@ -2898,7 +2979,7 @@
                 "price": 34.5
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "weekend",
@@ -2952,7 +3033,7 @@
                 "price": 23
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "daytrip",
@@ -2979,6 +3060,33 @@
                 "price": 23.5
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
+            "isNew": false
+        },
+        {
+            "mode": "bridge",
+            "airline": "Vueling",
+            "destinationIata": "MAH",
+            "destinationCity": "Menorca",
+            "destinationCountry": "España",
+            "originIata": "BCN",
+            "totalPrice": 36,
+            "usefulHours": 56.416666666666664,
+            "ratio": 1.5671296296296295,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/s9vuy7",
+            "outbound": {
+                "flightNumber": "VY3606",
+                "departureDate": "2026-12-16T12:10:00",
+                "arrivalDate": "2026-12-16T13:05:00",
+                "price": 18
+            },
+            "inbound": {
+                "flightNumber": "VY3619",
+                "departureDate": "2026-12-18T21:30:00",
+                "arrivalDate": "2026-12-18T22:20:00",
+                "price": 18
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
             "isNew": true
         },
         {
@@ -3006,7 +3114,7 @@
                 "price": 34.5
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "weekend",
@@ -3033,7 +3141,7 @@
                 "price": 34.5
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "bridge",
@@ -3087,7 +3195,7 @@
                 "price": 16.5
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "bridge",
@@ -3114,6 +3222,33 @@
                 "price": 16.5
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
+            "isNew": false
+        },
+        {
+            "mode": "weekend",
+            "airline": "Vueling",
+            "destinationIata": "MAH",
+            "destinationCity": "Menorca",
+            "destinationCountry": "España",
+            "originIata": "BCN",
+            "totalPrice": 36,
+            "usefulHours": 32.333333333333336,
+            "ratio": 0.8981481481481483,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/mmuny5z",
+            "outbound": {
+                "flightNumber": "VY3606",
+                "departureDate": "2026-12-17T12:15:00",
+                "arrivalDate": "2026-12-17T13:10:00",
+                "price": 18
+            },
+            "inbound": {
+                "flightNumber": "VY3619",
+                "departureDate": "2026-12-18T21:30:00",
+                "arrivalDate": "2026-12-18T22:20:00",
+                "price": 18
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
             "isNew": true
         },
         {
@@ -3141,7 +3276,7 @@
                 "price": 29.5
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "weekend",
@@ -3168,7 +3303,7 @@
                 "price": 36.5
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
-            "isNew": true
+            "isNew": false
         },
         {
             "mode": "bridge",
@@ -3195,6 +3330,60 @@
                 "price": 36.5
             },
             "firstSeen": "2026-11-02T20:16:48+00:00",
+            "isNew": false
+        },
+        {
+            "mode": "bridge",
+            "airline": "Vueling",
+            "destinationIata": "MAH",
+            "destinationCity": "Menorca",
+            "destinationCountry": "España",
+            "originIata": "BCN",
+            "totalPrice": 36,
+            "usefulHours": 59,
+            "ratio": 1.6388888888888888,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/2k7urrf",
+            "outbound": {
+                "flightNumber": "VY3612",
+                "departureDate": "2026-12-18T09:35:00",
+                "arrivalDate": "2026-12-18T10:30:00",
+                "price": 18
+            },
+            "inbound": {
+                "flightNumber": "VY3619",
+                "departureDate": "2026-12-20T21:30:00",
+                "arrivalDate": "2026-12-20T22:20:00",
+                "price": 18
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
+        },
+        {
+            "mode": "daytrip",
+            "airline": "Vueling",
+            "destinationIata": "MAH",
+            "destinationCity": "Menorca",
+            "destinationCountry": "España",
+            "originIata": "BCN",
+            "totalPrice": 36,
+            "usefulHours": 11,
+            "ratio": 0.3055555555555556,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/p28xbt",
+            "outbound": {
+                "flightNumber": "VY3612",
+                "departureDate": "2026-12-18T09:35:00",
+                "arrivalDate": "2026-12-18T10:30:00",
+                "price": 18
+            },
+            "inbound": {
+                "flightNumber": "VY3619",
+                "departureDate": "2026-12-18T21:30:00",
+                "arrivalDate": "2026-12-18T22:20:00",
+                "price": 18
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
             "isNew": true
         },
         {
@@ -3279,6 +3468,195 @@
             "isNew": false
         },
         {
+            "mode": "bridge",
+            "airline": "Vueling",
+            "destinationIata": "LGW",
+            "destinationCity": "Londres Gatwick",
+            "destinationCountry": "Reino Unido",
+            "originIata": "BCN",
+            "totalPrice": 58,
+            "usefulHours": 55.083333333333336,
+            "ratio": 0.949712643678161,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/w929bmj",
+            "outbound": {
+                "flightNumber": "VY7600",
+                "departureDate": "2027-01-11T06:55:00",
+                "arrivalDate": "2027-01-11T08:20:00",
+                "price": 29
+            },
+            "inbound": {
+                "flightNumber": "VY7613",
+                "departureDate": "2027-01-13T15:25:00",
+                "arrivalDate": "2027-01-13T18:30:00",
+                "price": 29
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
+        },
+        {
+            "mode": "weekend",
+            "airline": "Vueling",
+            "destinationIata": "LGW",
+            "destinationCity": "Londres Gatwick",
+            "destinationCountry": "Reino Unido",
+            "originIata": "BCN",
+            "totalPrice": 59,
+            "usefulHours": 35.25,
+            "ratio": 0.597457627118644,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/n4ps5r",
+            "outbound": {
+                "flightNumber": "VY7600",
+                "departureDate": "2027-01-11T06:55:00",
+                "arrivalDate": "2027-01-11T08:20:00",
+                "price": 29.5
+            },
+            "inbound": {
+                "flightNumber": "VY7621",
+                "departureDate": "2027-01-12T19:35:00",
+                "arrivalDate": "2027-01-12T22:45:00",
+                "price": 29.5
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
+        },
+        {
+            "mode": "bridge",
+            "airline": "Vueling",
+            "destinationIata": "BIO",
+            "destinationCity": "Bilbao",
+            "destinationCountry": "España",
+            "originIata": "BCN",
+            "totalPrice": 46,
+            "usefulHours": 59.333333333333336,
+            "ratio": 1.289855072463768,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/j8p9s3",
+            "outbound": {
+                "flightNumber": "VY1460",
+                "departureDate": "2027-01-11T07:00:00",
+                "arrivalDate": "2027-01-11T08:20:00",
+                "price": 23
+            },
+            "inbound": {
+                "flightNumber": "VY1481",
+                "departureDate": "2027-01-13T19:40:00",
+                "arrivalDate": "2027-01-13T20:50:00",
+                "price": 23
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
+        },
+        {
+            "mode": "bridge",
+            "airline": "Vueling",
+            "destinationIata": "SCQ",
+            "destinationCity": "Santiago de Compostela",
+            "destinationCountry": "España",
+            "originIata": "BCN",
+            "totalPrice": 47,
+            "usefulHours": 55.916666666666664,
+            "ratio": 1.1897163120567376,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/dmb22tu",
+            "outbound": {
+                "flightNumber": "VY1620",
+                "departureDate": "2027-01-11T09:10:00",
+                "arrivalDate": "2027-01-11T10:55:00",
+                "price": 23.5
+            },
+            "inbound": {
+                "flightNumber": "VY1633",
+                "departureDate": "2027-01-13T18:50:00",
+                "arrivalDate": "2027-01-13T20:30:00",
+                "price": 23.5
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
+        },
+        {
+            "mode": "bridge",
+            "airline": "Vueling",
+            "destinationIata": "MAH",
+            "destinationCity": "Menorca",
+            "destinationCountry": "España",
+            "originIata": "BCN",
+            "totalPrice": 35,
+            "usefulHours": 55.5,
+            "ratio": 1.5857142857142856,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/xzry3p9",
+            "outbound": {
+                "flightNumber": "VY3604",
+                "departureDate": "2027-01-11T09:40:00",
+                "arrivalDate": "2027-01-11T10:35:00",
+                "price": 17.5
+            },
+            "inbound": {
+                "flightNumber": "VY3613",
+                "departureDate": "2027-01-13T18:05:00",
+                "arrivalDate": "2027-01-13T18:55:00",
+                "price": 17.5
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
+        },
+        {
+            "mode": "bridge",
+            "airline": "Vueling",
+            "destinationIata": "PMI",
+            "destinationCity": "Palma de Mallorca",
+            "destinationCountry": "España",
+            "originIata": "BCN",
+            "totalPrice": 32,
+            "usefulHours": 54.833333333333336,
+            "ratio": 1.7135416666666667,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/nujudx",
+            "outbound": {
+                "flightNumber": "VY3902",
+                "departureDate": "2027-01-12T06:55:00",
+                "arrivalDate": "2027-01-12T07:45:00",
+                "price": 16
+            },
+            "inbound": {
+                "flightNumber": "VY3933",
+                "departureDate": "2027-01-14T14:35:00",
+                "arrivalDate": "2027-01-14T15:25:00",
+                "price": 16
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
+        },
+        {
+            "mode": "weekend",
+            "airline": "Vueling",
+            "destinationIata": "MAH",
+            "destinationCity": "Menorca",
+            "destinationCountry": "España",
+            "originIata": "BCN",
+            "totalPrice": 36,
+            "usefulHours": 33.333333333333336,
+            "ratio": 0.925925925925926,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/9y54t4",
+            "outbound": {
+                "flightNumber": "VY3602",
+                "departureDate": "2027-01-12T07:45:00",
+                "arrivalDate": "2027-01-12T08:45:00",
+                "price": 18
+            },
+            "inbound": {
+                "flightNumber": "VY3613",
+                "departureDate": "2027-01-13T18:05:00",
+                "arrivalDate": "2027-01-13T18:55:00",
+                "price": 18
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
+        },
+        {
             "mode": "weekend",
             "airline": "Ryanair",
             "destinationIata": "BUD",
@@ -3304,6 +3682,60 @@
             },
             "firstSeen": "2026-10-30T20:52:21+00:00",
             "isNew": false
+        },
+        {
+            "mode": "weekend",
+            "airline": "Vueling",
+            "destinationIata": "PMI",
+            "destinationCity": "Palma de Mallorca",
+            "destinationCountry": "España",
+            "originIata": "BCN",
+            "totalPrice": 32,
+            "usefulHours": 19.75,
+            "ratio": 0.6171875,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/g5cqnm",
+            "outbound": {
+                "flightNumber": "VY3940",
+                "departureDate": "2027-01-12T20:35:00",
+                "arrivalDate": "2027-01-12T21:25:00",
+                "price": 16
+            },
+            "inbound": {
+                "flightNumber": "VY3935",
+                "departureDate": "2027-01-13T17:10:00",
+                "arrivalDate": "2027-01-13T18:05:00",
+                "price": 16
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
+        },
+        {
+            "mode": "weekend",
+            "airline": "Vueling",
+            "destinationIata": "BIO",
+            "destinationCity": "Bilbao",
+            "destinationCountry": "España",
+            "originIata": "BCN",
+            "totalPrice": 46,
+            "usefulHours": 21.333333333333332,
+            "ratio": 0.46376811594202894,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/t5j4dr",
+            "outbound": {
+                "flightNumber": "VY1478",
+                "departureDate": "2027-01-12T21:05:00",
+                "arrivalDate": "2027-01-12T22:20:00",
+                "price": 23
+            },
+            "inbound": {
+                "flightNumber": "VY1481",
+                "departureDate": "2027-01-13T19:40:00",
+                "arrivalDate": "2027-01-13T20:50:00",
+                "price": 23
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
         },
         {
             "mode": "bridge",
@@ -3358,6 +3790,33 @@
             },
             "firstSeen": "2026-11-02T19:58:08+00:00",
             "isNew": false
+        },
+        {
+            "mode": "bridge",
+            "airline": "Vueling",
+            "destinationIata": "BIO",
+            "destinationCity": "Bilbao",
+            "destinationCountry": "España",
+            "originIata": "BCN",
+            "totalPrice": 46,
+            "usefulHours": 49.583333333333336,
+            "ratio": 1.0778985507246377,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/gm4hqt",
+            "outbound": {
+                "flightNumber": "VY1468",
+                "departureDate": "2027-01-14T14:50:00",
+                "arrivalDate": "2027-01-14T16:05:00",
+                "price": 23
+            },
+            "inbound": {
+                "flightNumber": "VY1471",
+                "departureDate": "2027-01-16T17:40:00",
+                "arrivalDate": "2027-01-16T18:50:00",
+                "price": 23
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
         },
         {
             "mode": "bridge",
@@ -3442,6 +3901,60 @@
         },
         {
             "mode": "weekend",
+            "airline": "Vueling",
+            "destinationIata": "BIO",
+            "destinationCity": "Bilbao",
+            "destinationCountry": "España",
+            "originIata": "BCN",
+            "totalPrice": 46,
+            "usefulHours": 30.166666666666668,
+            "ratio": 0.6557971014492754,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/txgb4fq",
+            "outbound": {
+                "flightNumber": "VY1470",
+                "departureDate": "2027-01-18T15:35:00",
+                "arrivalDate": "2027-01-18T16:50:00",
+                "price": 23
+            },
+            "inbound": {
+                "flightNumber": "VY1479",
+                "departureDate": "2027-01-19T23:00:00",
+                "arrivalDate": "2027-01-20T00:10:00",
+                "price": 23
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
+        },
+        {
+            "mode": "bridge",
+            "airline": "Vueling",
+            "destinationIata": "SCQ",
+            "destinationCity": "Santiago de Compostela",
+            "destinationCountry": "España",
+            "originIata": "BCN",
+            "totalPrice": 46,
+            "usefulHours": 43,
+            "ratio": 0.9347826086956522,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/f5zjx44",
+            "outbound": {
+                "flightNumber": "VY1620",
+                "departureDate": "2027-01-19T10:00:00",
+                "arrivalDate": "2027-01-19T11:45:00",
+                "price": 23
+            },
+            "inbound": {
+                "flightNumber": "VY1621",
+                "departureDate": "2027-01-21T06:45:00",
+                "arrivalDate": "2027-01-21T08:25:00",
+                "price": 23
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
+        },
+        {
+            "mode": "weekend",
             "airline": "Ryanair",
             "destinationIata": "BUD",
             "destinationCity": "Budapest",
@@ -3466,6 +3979,33 @@
             },
             "firstSeen": "2026-10-30T20:52:21+00:00",
             "isNew": false
+        },
+        {
+            "mode": "weekend",
+            "airline": "Vueling",
+            "destinationIata": "SCQ",
+            "destinationCity": "Santiago de Compostela",
+            "destinationCountry": "España",
+            "originIata": "BCN",
+            "totalPrice": 45,
+            "usefulHours": 12.166666666666666,
+            "ratio": 0.27037037037037037,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/kpqv9s",
+            "outbound": {
+                "flightNumber": "VY1632",
+                "departureDate": "2027-01-26T21:15:00",
+                "arrivalDate": "2027-01-26T23:00:00",
+                "price": 22.5
+            },
+            "inbound": {
+                "flightNumber": "VY1629",
+                "departureDate": "2027-01-27T11:10:00",
+                "arrivalDate": "2027-01-27T12:50:00",
+                "price": 22.5
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
         },
         {
             "mode": "bridge",
@@ -3496,6 +4036,519 @@
         },
         {
             "mode": "bridge",
+            "airline": "Vueling",
+            "destinationIata": "LGW",
+            "destinationCity": "Londres Gatwick",
+            "destinationCountry": "Reino Unido",
+            "originIata": "BCN",
+            "totalPrice": 59,
+            "usefulHours": 48.666666666666664,
+            "ratio": 0.8248587570621468,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/nyq6f8",
+            "outbound": {
+                "flightNumber": "VY7612",
+                "departureDate": "2027-02-03T13:25:00",
+                "arrivalDate": "2027-02-03T14:45:00",
+                "price": 29.5
+            },
+            "inbound": {
+                "flightNumber": "VY7613",
+                "departureDate": "2027-02-05T15:25:00",
+                "arrivalDate": "2027-02-05T18:30:00",
+                "price": 29.5
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
+        },
+        {
+            "mode": "bridge",
+            "airline": "Vueling",
+            "destinationIata": "MAH",
+            "destinationCity": "Menorca",
+            "destinationCountry": "España",
+            "originIata": "BCN",
+            "totalPrice": 36,
+            "usefulHours": 56.416666666666664,
+            "ratio": 1.5671296296296295,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/2v6vftr",
+            "outbound": {
+                "flightNumber": "VY3606",
+                "departureDate": "2027-02-10T12:10:00",
+                "arrivalDate": "2027-02-10T13:05:00",
+                "price": 18
+            },
+            "inbound": {
+                "flightNumber": "VY3619",
+                "departureDate": "2027-02-12T21:30:00",
+                "arrivalDate": "2027-02-12T22:20:00",
+                "price": 18
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
+        },
+        {
+            "mode": "daytrip",
+            "airline": "Vueling",
+            "destinationIata": "MAH",
+            "destinationCity": "Menorca",
+            "destinationCountry": "España",
+            "originIata": "BCN",
+            "totalPrice": 36,
+            "usefulHours": 8.416666666666666,
+            "ratio": 0.23379629629629628,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/4r45dr",
+            "outbound": {
+                "flightNumber": "VY3606",
+                "departureDate": "2027-02-12T12:10:00",
+                "arrivalDate": "2027-02-12T13:05:00",
+                "price": 18
+            },
+            "inbound": {
+                "flightNumber": "VY3619",
+                "departureDate": "2027-02-12T21:30:00",
+                "arrivalDate": "2027-02-12T22:20:00",
+                "price": 18
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
+        },
+        {
+            "mode": "bridge",
+            "airline": "Vueling",
+            "destinationIata": "MAH",
+            "destinationCity": "Menorca",
+            "destinationCountry": "España",
+            "originIata": "BCN",
+            "totalPrice": 36,
+            "usefulHours": 56.416666666666664,
+            "ratio": 1.5671296296296295,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/qdq2pn",
+            "outbound": {
+                "flightNumber": "VY3606",
+                "departureDate": "2027-02-12T12:10:00",
+                "arrivalDate": "2027-02-12T13:05:00",
+                "price": 18
+            },
+            "inbound": {
+                "flightNumber": "VY3619",
+                "departureDate": "2027-02-14T21:30:00",
+                "arrivalDate": "2027-02-14T22:20:00",
+                "price": 18
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
+        },
+        {
+            "mode": "weekend",
+            "airline": "Vueling",
+            "destinationIata": "MAH",
+            "destinationCity": "Menorca",
+            "destinationCountry": "España",
+            "originIata": "BCN",
+            "totalPrice": 36,
+            "usefulHours": 34.583333333333336,
+            "ratio": 0.9606481481481483,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/q6hpbus",
+            "outbound": {
+                "flightNumber": "VY3602",
+                "departureDate": "2027-02-17T07:45:00",
+                "arrivalDate": "2027-02-17T08:45:00",
+                "price": 18
+            },
+            "inbound": {
+                "flightNumber": "VY3615",
+                "departureDate": "2027-02-18T19:20:00",
+                "arrivalDate": "2027-02-18T20:10:00",
+                "price": 18
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
+        },
+        {
+            "mode": "bridge",
+            "airline": "Vueling",
+            "destinationIata": "MAH",
+            "destinationCity": "Menorca",
+            "destinationCountry": "España",
+            "originIata": "BCN",
+            "totalPrice": 36,
+            "usefulHours": 60.75,
+            "ratio": 1.6875,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/bb2bpp",
+            "outbound": {
+                "flightNumber": "VY3602",
+                "departureDate": "2027-02-17T07:45:00",
+                "arrivalDate": "2027-02-17T08:45:00",
+                "price": 18
+            },
+            "inbound": {
+                "flightNumber": "VY3619",
+                "departureDate": "2027-02-19T21:30:00",
+                "arrivalDate": "2027-02-19T22:20:00",
+                "price": 18
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
+        },
+        {
+            "mode": "weekend",
+            "airline": "Vueling",
+            "destinationIata": "MAH",
+            "destinationCity": "Menorca",
+            "destinationCountry": "España",
+            "originIata": "BCN",
+            "totalPrice": 35,
+            "usefulHours": 26.833333333333332,
+            "ratio": 0.7666666666666666,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/hbhxygk",
+            "outbound": {
+                "flightNumber": "VY3614",
+                "departureDate": "2027-02-18T17:45:00",
+                "arrivalDate": "2027-02-18T18:40:00",
+                "price": 17.5
+            },
+            "inbound": {
+                "flightNumber": "VY3619",
+                "departureDate": "2027-02-19T21:30:00",
+                "arrivalDate": "2027-02-19T22:20:00",
+                "price": 17.5
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
+        },
+        {
+            "mode": "daytrip",
+            "airline": "Vueling",
+            "destinationIata": "MAH",
+            "destinationCity": "Menorca",
+            "destinationCountry": "España",
+            "originIata": "BCN",
+            "totalPrice": 36,
+            "usefulHours": 13.5,
+            "ratio": 0.375,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/77yk2vj",
+            "outbound": {
+                "flightNumber": "VY3618",
+                "departureDate": "2027-02-19T07:00:00",
+                "arrivalDate": "2027-02-19T08:00:00",
+                "price": 18
+            },
+            "inbound": {
+                "flightNumber": "VY3619",
+                "departureDate": "2027-02-19T21:30:00",
+                "arrivalDate": "2027-02-19T22:20:00",
+                "price": 18
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
+        },
+        {
+            "mode": "weekend",
+            "airline": "Vueling",
+            "destinationIata": "PMI",
+            "destinationCity": "Palma de Mallorca",
+            "destinationCountry": "España",
+            "originIata": "BCN",
+            "totalPrice": 32,
+            "usefulHours": 36.75,
+            "ratio": 1.1484375,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/p6ntqb6",
+            "outbound": {
+                "flightNumber": "VY3914",
+                "departureDate": "2027-02-21T08:20:00",
+                "arrivalDate": "2027-02-21T09:10:00",
+                "price": 16
+            },
+            "inbound": {
+                "flightNumber": "VY3941",
+                "departureDate": "2027-02-22T21:55:00",
+                "arrivalDate": "2027-02-22T22:50:00",
+                "price": 16
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
+        },
+        {
+            "mode": "bridge",
+            "airline": "Vueling",
+            "destinationIata": "PMI",
+            "destinationCity": "Palma de Mallorca",
+            "destinationCountry": "España",
+            "originIata": "BCN",
+            "totalPrice": 32,
+            "usefulHours": 60.916666666666664,
+            "ratio": 1.9036458333333333,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/b87g55w",
+            "outbound": {
+                "flightNumber": "VY3914",
+                "departureDate": "2027-02-21T08:20:00",
+                "arrivalDate": "2027-02-21T09:10:00",
+                "price": 16
+            },
+            "inbound": {
+                "flightNumber": "VY3941",
+                "departureDate": "2027-02-23T22:05:00",
+                "arrivalDate": "2027-02-23T23:00:00",
+                "price": 16
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
+        },
+        {
+            "mode": "bridge",
+            "airline": "Vueling",
+            "destinationIata": "SCQ",
+            "destinationCity": "Santiago de Compostela",
+            "destinationCountry": "España",
+            "originIata": "BCN",
+            "totalPrice": 42,
+            "usefulHours": 42.5,
+            "ratio": 1.0119047619047619,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/gw8pzw",
+            "outbound": {
+                "flightNumber": "VY1626",
+                "departureDate": "2027-02-22T10:30:00",
+                "arrivalDate": "2027-02-22T12:15:00",
+                "price": 21
+            },
+            "inbound": {
+                "flightNumber": "VY1621",
+                "departureDate": "2027-02-24T06:45:00",
+                "arrivalDate": "2027-02-24T08:25:00",
+                "price": 21
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
+        },
+        {
+            "mode": "weekend",
+            "airline": "Vueling",
+            "destinationIata": "IBZ",
+            "destinationCity": "Ibiza",
+            "destinationCountry": "España",
+            "originIata": "BCN",
+            "totalPrice": 32,
+            "usefulHours": 24.666666666666668,
+            "ratio": 0.7708333333333334,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/7vszb3w",
+            "outbound": {
+                "flightNumber": "VY3508",
+                "departureDate": "2027-02-22T14:55:00",
+                "arrivalDate": "2027-02-22T15:55:00",
+                "price": 16
+            },
+            "inbound": {
+                "flightNumber": "VY3509",
+                "departureDate": "2027-02-23T16:35:00",
+                "arrivalDate": "2027-02-23T17:30:00",
+                "price": 16
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
+        },
+        {
+            "mode": "weekend",
+            "airline": "Vueling",
+            "destinationIata": "PMI",
+            "destinationCity": "Palma de Mallorca",
+            "destinationCountry": "España",
+            "originIata": "BCN",
+            "totalPrice": 32,
+            "usefulHours": 16.333333333333332,
+            "ratio": 0.5104166666666666,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/sn42vf",
+            "outbound": {
+                "flightNumber": "VY3908",
+                "departureDate": "2027-02-22T21:25:00",
+                "arrivalDate": "2027-02-22T22:15:00",
+                "price": 16
+            },
+            "inbound": {
+                "flightNumber": "VY3933",
+                "departureDate": "2027-02-23T14:35:00",
+                "arrivalDate": "2027-02-23T15:25:00",
+                "price": 16
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
+        },
+        {
+            "mode": "weekend",
+            "airline": "Vueling",
+            "destinationIata": "BIO",
+            "destinationCity": "Bilbao",
+            "destinationCountry": "España",
+            "originIata": "BCN",
+            "totalPrice": 46,
+            "usefulHours": 24.166666666666668,
+            "ratio": 0.5253623188405797,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/s64umr",
+            "outbound": {
+                "flightNumber": "VY1480",
+                "departureDate": "2027-02-22T21:35:00",
+                "arrivalDate": "2027-02-22T22:50:00",
+                "price": 23
+            },
+            "inbound": {
+                "flightNumber": "VY1479",
+                "departureDate": "2027-02-23T23:00:00",
+                "arrivalDate": "2027-02-24T00:10:00",
+                "price": 23
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
+        },
+        {
+            "mode": "bridge",
+            "airline": "Vueling",
+            "destinationIata": "BIO",
+            "destinationCity": "Bilbao",
+            "destinationCountry": "España",
+            "originIata": "BCN",
+            "totalPrice": 46,
+            "usefulHours": 48.166666666666664,
+            "ratio": 1.0471014492753623,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/c56c79",
+            "outbound": {
+                "flightNumber": "VY1480",
+                "departureDate": "2027-02-22T21:35:00",
+                "arrivalDate": "2027-02-22T22:50:00",
+                "price": 23
+            },
+            "inbound": {
+                "flightNumber": "VY1479",
+                "departureDate": "2027-02-24T23:00:00",
+                "arrivalDate": "2027-02-25T00:10:00",
+                "price": 23
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
+        },
+        {
+            "mode": "bridge",
+            "airline": "Vueling",
+            "destinationIata": "GVA",
+            "destinationCity": "Ginebra",
+            "destinationCountry": "Suiza",
+            "originIata": "BCN",
+            "totalPrice": 57,
+            "usefulHours": 48.666666666666664,
+            "ratio": 0.8538011695906432,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/5gpcq8",
+            "outbound": {
+                "flightNumber": "VY1122",
+                "departureDate": "2027-02-23T06:40:00",
+                "arrivalDate": "2027-02-23T08:15:00",
+                "price": 28.5
+            },
+            "inbound": {
+                "flightNumber": "VY1123",
+                "departureDate": "2027-02-25T08:55:00",
+                "arrivalDate": "2027-02-25T10:30:00",
+                "price": 28.5
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
+        },
+        {
+            "mode": "daytrip",
+            "airline": "Vueling",
+            "destinationIata": "BIO",
+            "destinationCity": "Bilbao",
+            "destinationCountry": "España",
+            "originIata": "BCN",
+            "totalPrice": 46,
+            "usefulHours": 12.75,
+            "ratio": 0.27717391304347827,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/db776h5",
+            "outbound": {
+                "flightNumber": "VY1462",
+                "departureDate": "2027-02-23T08:55:00",
+                "arrivalDate": "2027-02-23T10:15:00",
+                "price": 23
+            },
+            "inbound": {
+                "flightNumber": "VY1479",
+                "departureDate": "2027-02-23T23:00:00",
+                "arrivalDate": "2027-02-24T00:10:00",
+                "price": 23
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
+        },
+        {
+            "mode": "weekend",
+            "airline": "Vueling",
+            "destinationIata": "BIO",
+            "destinationCity": "Bilbao",
+            "destinationCountry": "España",
+            "originIata": "BCN",
+            "totalPrice": 46,
+            "usefulHours": 36.75,
+            "ratio": 0.7989130434782609,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/6p3gyb",
+            "outbound": {
+                "flightNumber": "VY1462",
+                "departureDate": "2027-02-23T08:55:00",
+                "arrivalDate": "2027-02-23T10:15:00",
+                "price": 23
+            },
+            "inbound": {
+                "flightNumber": "VY1479",
+                "departureDate": "2027-02-24T23:00:00",
+                "arrivalDate": "2027-02-25T00:10:00",
+                "price": 23
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
+        },
+        {
+            "mode": "weekend",
+            "airline": "Vueling",
+            "destinationIata": "SCQ",
+            "destinationCity": "Santiago de Compostela",
+            "destinationCountry": "España",
+            "originIata": "BCN",
+            "totalPrice": 42,
+            "usefulHours": 7.75,
+            "ratio": 0.18452380952380953,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/wvm8dby",
+            "outbound": {
+                "flightNumber": "VY1632",
+                "departureDate": "2027-02-23T21:15:00",
+                "arrivalDate": "2027-02-23T23:00:00",
+                "price": 21
+            },
+            "inbound": {
+                "flightNumber": "VY1621",
+                "departureDate": "2027-02-24T06:45:00",
+                "arrivalDate": "2027-02-24T08:25:00",
+                "price": 21
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
+        },
+        {
+            "mode": "bridge",
             "airline": "Ryanair",
             "destinationIata": "NDR",
             "destinationCity": "Nador",
@@ -3520,6 +4573,276 @@
             },
             "firstSeen": "2026-11-02T19:58:08+00:00",
             "isNew": false
+        },
+        {
+            "mode": "bridge",
+            "airline": "Vueling",
+            "destinationIata": "LGW",
+            "destinationCity": "Londres Gatwick",
+            "destinationCountry": "Reino Unido",
+            "originIata": "BCN",
+            "totalPrice": 58,
+            "usefulHours": 52.583333333333336,
+            "ratio": 0.9066091954022989,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/jj4n2ub",
+            "outbound": {
+                "flightNumber": "VY7612",
+                "departureDate": "2027-02-27T13:25:00",
+                "arrivalDate": "2027-02-27T14:45:00",
+                "price": 29
+            },
+            "inbound": {
+                "flightNumber": "VY7621",
+                "departureDate": "2027-03-01T19:20:00",
+                "arrivalDate": "2027-03-01T22:30:00",
+                "price": 29
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
+        },
+        {
+            "mode": "weekend",
+            "airline": "Vueling",
+            "destinationIata": "GVA",
+            "destinationCity": "Ginebra",
+            "destinationCountry": "Suiza",
+            "originIata": "BCN",
+            "totalPrice": 54,
+            "usefulHours": 24.666666666666668,
+            "ratio": 0.45679012345679015,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/423sp3",
+            "outbound": {
+                "flightNumber": "VY1122",
+                "departureDate": "2027-03-02T06:40:00",
+                "arrivalDate": "2027-03-02T08:15:00",
+                "price": 27
+            },
+            "inbound": {
+                "flightNumber": "VY1123",
+                "departureDate": "2027-03-03T08:55:00",
+                "arrivalDate": "2027-03-03T10:30:00",
+                "price": 27
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
+        },
+        {
+            "mode": "bridge",
+            "airline": "Vueling",
+            "destinationIata": "GVA",
+            "destinationCity": "Ginebra",
+            "destinationCountry": "Suiza",
+            "originIata": "BCN",
+            "totalPrice": 55,
+            "usefulHours": 48.666666666666664,
+            "ratio": 0.8848484848484848,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/hsj438",
+            "outbound": {
+                "flightNumber": "VY1122",
+                "departureDate": "2027-03-02T06:40:00",
+                "arrivalDate": "2027-03-02T08:15:00",
+                "price": 27.5
+            },
+            "inbound": {
+                "flightNumber": "VY1123",
+                "departureDate": "2027-03-04T08:55:00",
+                "arrivalDate": "2027-03-04T10:30:00",
+                "price": 27.5
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
+        },
+        {
+            "mode": "bridge",
+            "airline": "Vueling",
+            "destinationIata": "SCQ",
+            "destinationCity": "Santiago de Compostela",
+            "destinationCountry": "España",
+            "originIata": "BCN",
+            "totalPrice": 47,
+            "usefulHours": 43,
+            "ratio": 0.9148936170212766,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/y4zy9f",
+            "outbound": {
+                "flightNumber": "VY1620",
+                "departureDate": "2027-03-02T10:00:00",
+                "arrivalDate": "2027-03-02T11:45:00",
+                "price": 23.5
+            },
+            "inbound": {
+                "flightNumber": "VY1621",
+                "departureDate": "2027-03-04T06:45:00",
+                "arrivalDate": "2027-03-04T08:25:00",
+                "price": 23.5
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
+        },
+        {
+            "mode": "weekend",
+            "airline": "Vueling",
+            "destinationIata": "SCQ",
+            "destinationCity": "Santiago de Compostela",
+            "destinationCountry": "España",
+            "originIata": "BCN",
+            "totalPrice": 47,
+            "usefulHours": 26.166666666666668,
+            "ratio": 0.5567375886524822,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/rj7zcrd",
+            "outbound": {
+                "flightNumber": "VY1628",
+                "departureDate": "2027-03-02T13:35:00",
+                "arrivalDate": "2027-03-02T15:20:00",
+                "price": 23.5
+            },
+            "inbound": {
+                "flightNumber": "VY1631",
+                "departureDate": "2027-03-03T17:30:00",
+                "arrivalDate": "2027-03-03T19:10:00",
+                "price": 23.5
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
+        },
+        {
+            "mode": "weekend",
+            "airline": "Vueling",
+            "destinationIata": "GVA",
+            "destinationCity": "Ginebra",
+            "destinationCountry": "Suiza",
+            "originIata": "BCN",
+            "totalPrice": 54,
+            "usefulHours": 24.666666666666668,
+            "ratio": 0.45679012345679015,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/nstjx3",
+            "outbound": {
+                "flightNumber": "VY1122",
+                "departureDate": "2027-03-03T06:40:00",
+                "arrivalDate": "2027-03-03T08:15:00",
+                "price": 27
+            },
+            "inbound": {
+                "flightNumber": "VY1123",
+                "departureDate": "2027-03-04T08:55:00",
+                "arrivalDate": "2027-03-04T10:30:00",
+                "price": 27
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
+        },
+        {
+            "mode": "weekend",
+            "airline": "Vueling",
+            "destinationIata": "SCQ",
+            "destinationCity": "Santiago de Compostela",
+            "destinationCountry": "España",
+            "originIata": "BCN",
+            "totalPrice": 47,
+            "usefulHours": 19.833333333333332,
+            "ratio": 0.4219858156028369,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/9nsg844",
+            "outbound": {
+                "flightNumber": "VY1620",
+                "departureDate": "2027-03-03T09:10:00",
+                "arrivalDate": "2027-03-03T10:55:00",
+                "price": 23.5
+            },
+            "inbound": {
+                "flightNumber": "VY1621",
+                "departureDate": "2027-03-04T06:45:00",
+                "arrivalDate": "2027-03-04T08:25:00",
+                "price": 23.5
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
+        },
+        {
+            "mode": "bridge",
+            "airline": "Vueling",
+            "destinationIata": "GVA",
+            "destinationCity": "Ginebra",
+            "destinationCountry": "Suiza",
+            "originIata": "BCN",
+            "totalPrice": 54,
+            "usefulHours": 48.666666666666664,
+            "ratio": 0.9012345679012346,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/sh346g",
+            "outbound": {
+                "flightNumber": "VY1122",
+                "departureDate": "2027-03-04T06:40:00",
+                "arrivalDate": "2027-03-04T08:15:00",
+                "price": 27
+            },
+            "inbound": {
+                "flightNumber": "VY1123",
+                "departureDate": "2027-03-06T08:55:00",
+                "arrivalDate": "2027-03-06T10:30:00",
+                "price": 27
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
+        },
+        {
+            "mode": "weekend",
+            "airline": "Vueling",
+            "destinationIata": "GVA",
+            "destinationCity": "Ginebra",
+            "destinationCountry": "Suiza",
+            "originIata": "BCN",
+            "totalPrice": 54,
+            "usefulHours": 24.916666666666668,
+            "ratio": 0.46141975308641975,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/zqq6d7p",
+            "outbound": {
+                "flightNumber": "VY1122",
+                "departureDate": "2027-03-06T06:40:00",
+                "arrivalDate": "2027-03-06T08:15:00",
+                "price": 27
+            },
+            "inbound": {
+                "flightNumber": "VY1123",
+                "departureDate": "2027-03-07T09:10:00",
+                "arrivalDate": "2027-03-07T10:40:00",
+                "price": 27
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
+        },
+        {
+            "mode": "bridge",
+            "airline": "Vueling",
+            "destinationIata": "GVA",
+            "destinationCity": "Ginebra",
+            "destinationCountry": "Suiza",
+            "originIata": "BCN",
+            "totalPrice": 55,
+            "usefulHours": 57.25,
+            "ratio": 1.040909090909091,
+            "isPriority": true,
+            "bookingUrl": "https:\/\/kiwi.com\/u\/xhwvvvn",
+            "outbound": {
+                "flightNumber": "VY1122",
+                "departureDate": "2027-03-06T06:40:00",
+                "arrivalDate": "2027-03-06T08:15:00",
+                "price": 27.5
+            },
+            "inbound": {
+                "flightNumber": "VY1125",
+                "departureDate": "2027-03-08T17:30:00",
+                "arrivalDate": "2027-03-08T19:00:00",
+                "price": 27.5
+            },
+            "firstSeen": "2026-11-02T20:27:18+00:00",
+            "isNew": true
         },
         {
             "mode": "bridge",
