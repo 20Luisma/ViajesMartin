@@ -98,17 +98,15 @@ Aplicación autónoma de monitorización, rastreo y alerta en tiempo real de **v
 - [x] Pool rotativo multi-cuenta de RapidAPI con 7 claves activas (~700 consultas/mes de Google Flights) y fallback transparente ante 429/403.
 - [x] Motor de persistencia y fusión acumulativa de chollos para que los escaneos en vivo sumen vuelos sin perder los anteriores.
 - [x] Tarea programada (Cron) en Hostinger configurada para ejecución desatendida diaria a las 00:00 h.
-- [x] Checkpoint de seguridad creado: Git Tag `v-estable-2026-10-25`.
-- [x] Conector oficial **Kiwi MCP** (`https://mcp.kiwi.com`) integrado nativamente en `public/api.php` vía cURL multi paralelo (cero API keys, sin cuotas ni bloqueos 429).
-- [x] Soporte Multi-Aerolínea activo en el Radar: ofertas reales de **Vueling**, **easyJet**, **Wizz Air**, **Air Europa** e itinerarios combinados.
-- [x] Identidad visual de aerolíneas en frontend con badges específicos por color y buscador con filtrado por nombre de compañía.
-- [x] PWA actualizada a Service Worker `vuelos-martin-v9` con asset versioning `?v=4.7`.
+- [x] Checkpoint de seguridad creado: Git Tag `v-estable-2026-11-02` (Kiwi MCP multi-aerolínea + Protocolo AGENTS.md v2.1).
+- [x] Protocolo Master de Ingeniería y Seguridad (`AGENTS.md` v2.1) ubicado en la raíz del repositorio y publicado en `public/god-mode.md` y `public/god-mode.txt`.
+- [x] Reglas maestras en Antigravity Global (`/Users/admin/.gemini/GEMINI.md`) actualizadas a 20 reglas con cobertura de edge cases y rigor senior.
 
 ---
 
 ## 📝 Historial de Sesiones
 
-### Sesión 2026-11-02 (Integración Multi-Aerolínea Kiwi MCP & Copiloto Inteligente)
+### Sesión 2026-11-02 (Integración Multi-Aerolínea Kiwi MCP & Protocolo AGENTS.md v2.1)
 - **Problema Detectado:** El Radar de Chollos arrojaba 100% vuelos de Ryanair porque las claves de RapidAPI estaban bloqueadas con HTTP 429 (límite de cuota mensual agotado) y Amadeus descartado por pasar a modelo de cobro obligatorio.
 - **Solución Arquitectónica:** Se integró el servidor oficial de **Kiwi MCP** (`https://mcp.kiwi.com`) mediante llamadas JSON-RPC paralelas en `public/api.php`. Permite consultar tarifas en tiempo real de Vueling, easyJet, Wizz Air y Air Europa sin restricciones de cuotas ni coste.
 - **Filtros Aplicados:** 
@@ -118,9 +116,16 @@ Aplicación autónoma de monitorización, rastreo y alerta en tiempo real de **v
 - **Frontend & Estilos:**
   - Se añadieron estilos de marca para `.airline-tag` con colores distintivos: Vueling (amarillo ámbar `#fbbf24`), easyJet (naranja `#fb923c`), Wizz Air (fucsia `#f472b6`), Ryanair (azul `#38bdf8`), Iberia (rojo `#f87171`) y Volotea.
   - El buscador ahora permite filtrar por nombre de aerolínea (ej: "vueling").
-- **Cascada Continua:**
-  - Local (Mac): Lint de PHP limpio. Escáner ampliado a 6 meses vista (180 días) con estancias de 0 a 2 noches (`nights_in_dst`), alcanzando un récord de **181 chollos activos** (91 de Vueling, 76 de Ryanair y combinaciones cruzadas).
-  - Producción (Hostinger VPS): Desplegado vía `bin/deploy.sh` y validado HTTP 200 en `https://contenido.creawebes.com/VuelosMartin/`.
-  - GitHub (Nube): Commits `098fbaf`, `eb533f3`, `a900022` y `f3bae61` en rama `main`.
+  - Normalización de metadatos de aeropuertos (`$canonicalDict` y alias de países en inglés) para evitar fallbacks de bandera `✈️`.
+- **Protocolo Master de Ingeniería y Seguridad (AGENTS.md v2.1):**
+  - Se creó y pulió el protocolo en la raíz del repositorio (`/AGENTS.md`), resolviendo contradicciones de producción vs staging, eliminando `git reset --hard` ciego en favor de ramas de rollback o `git revert`, y definiendo claramente la autorización explícita.
+  - Se expuso en web pública sin referencias personales (`public/god-mode.md` y `public/god-mode.txt`).
+  - Se actualizaron las reglas globales de Antigravity (`/Users/admin/.gemini/GEMINI.md`).
+- **Cascada Continua & Checkpoint:**
+  - Local (Mac): Lint de PHP limpio. 181 chollos activos generados y validados.
+  - Producción (Hostinger VPS): Desplegado vía `bin/deploy.sh` y validado HTTP 200 en `https://contenido.creawebes.com/VuelosMartin/` y `god-mode.txt`.
+  - GitHub (Nube): Commits sincronizados en rama `main` hasta `53dfbe3`.
+  - Checkpoint Tag: `git tag -a v-estable-2026-11-02` creado y sincronizado con `origin`.
+
 
 
