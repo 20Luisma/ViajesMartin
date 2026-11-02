@@ -382,49 +382,26 @@ if ($action === 'scan') {
     // =========================================================================
     // ESCANEO MULTI-AEROLÍNEA NATIVO VÍA KIWI MCP (Vueling, easyJet, Wizz Air, Iberia, etc.)
     // =========================================================================
-    $mcpTargets = ['IBZ', 'PMI', 'MAH', 'SVQ', 'AGP', 'OPO', 'GVA', 'MXP', 'LIS', 'NCE', 'BUD', 'BIO', 'SCQ'];
-    shuffle($mcpTargets);
-    $selectedTargets = array_slice($mcpTargets, 0, 5); // 5 destinos clave por escaneo para respuesta instantánea
+    $mcpTargetsPool = [
+        'MAH', 'GVA', 'MXP', 'NCE', 'SVQ', 'OPO', 'BIO', 'AGP', 'IBZ', 'PMI', 'BUD', 'LTN', 'LGW', 'SCQ', 'OVD'
+    ];
+    shuffle($mcpTargetsPool);
+    $selectedTargets = array_slice($mcpTargetsPool, 0, 7); // 7 destinos en paralelo por tanda
 
-    // Generar fechas para los próximos 3 fines de semana (viernes a domingo y sábados a domingo)
-    $mcpDates = [];
-    for ($w = 1; $w <= 4; $w++) {
-        $friday = (clone $today)->modify("+{$w} week")->modify('next friday')->format('Y-m-d');
-        $sunday = (clone $today)->modify("+{$w} week")->modify('next sunday')->format('Y-m-d');
-        $saturday = (clone $today)->modify("+{$w} week")->modify('next saturday')->format('Y-m-d');
-
-        $mcpDates[] = ['out' => $friday, 'ret' => $sunday, 'type' => 'bridge'];
-        $mcpDates[] = ['out' => $saturday, 'ret' => $sunday, 'type' => 'weekend'];
-        // Day-trip express los sábados
-        $mcpDates[] = ['out' => $saturday, 'ret' => $saturday, 'type' => 'daytrip'];
-    }
-    shuffle($mcpDates);
-    $selectedDatePairs = array_slice($mcpDates, 0, 2);
-
-    // Preparar peticiones en paralelo con curl_multi a Kiwi MCP
-    $kiwiRequests = [];
-    foreach ($selectedTargets as $dstIata) {
-        foreach ($selectedDatePairs as $dp) {
-            $kiwiRequests[] = [
-                'dest' => $dstIata,
-                'out' => $dp['out'],
-                'ret' => $dp['ret'],
-                'expectedMode' => $dp['type']
-            ];
-        }
-    }
-    // Limitar a máximo 6 peticiones en paralelo para garantizar latencia ultra-rápida (< 3s)
-    $kiwiRequests = array_slice($kiwiRequests, 0, 6);
+    $rangeStart = (clone $today)->modify('+2 days')->format('d/m/Y');
+    $rangeEnd = (clone $today)->modify('+45 days')->format('d/m/Y');
 
     $mhKiwi = curl_multi_init();
     $kiwiHandles = [];
 
-    foreach ($kiwiRequests as $idx => $req) {
+    foreach ($selectedTargets as $idx => $targetIata) {
         $args = [
             'flyFrom' => 'BCN',
-            'flyTo' => $req['dest'],
-            'departureDate' => $req['out'],
-            'returnDate' => $req['ret'],
+            'flyTo' => $targetIata,
+            'departureDate' => $rangeStart,
+            'departureDateTo' => $rangeEnd,
+            'nights_in_dst_from' => 0, // Day-trips (0 noches)
+            'nights_in_dst_to' => 2,   // Findes y puentes (1 a 2 noches)
             'max_sector_stopovers' => 0, // Regla de Martín: sólo vuelos directos
             'currency' => 'EUR',
             'price_to' => intval($customMaxPrice),
@@ -453,7 +430,7 @@ if ($action === 'scan') {
         curl_multi_add_handle($mhKiwi, $chK);
         $kiwiHandles[$idx] = [
             'handle' => $chK,
-            'meta' => $req
+            'meta' => ['dest' => $targetIata]
         ];
     }
 
