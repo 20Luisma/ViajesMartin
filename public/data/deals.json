@@ -15,14 +15,14 @@
             "mode": "bridge",
             "airline": "Ryanair",
             "destinationIata": "PMI",
-            "destinationCity": "Palma",
+            "destinationCity": "Palma de Mallorca",
             "destinationCountry": "España",
             "originIata": "BCN",
             "totalPrice": 35.98,
             "usefulHours": 64.08333333333333,
             "ratio": 1.781082082638503,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=PMI&isReturn=true&dateOut=2026-11-02&dateIn=2026-11-04&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=PMI&isReturn=true&dateOut=2026-11-02&dateIn=2026-11-04&adults=1",
             "outbound": {
                 "flightNumber": "FR1342",
                 "departureDate": "2026-11-02T05:45:00",
@@ -49,7 +49,7 @@
             "usefulHours": 14,
             "ratio": 0.3891050583657588,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=IBZ&isReturn=true&dateOut=2026-11-02&dateIn=2026-11-02&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=IBZ&isReturn=true&dateOut=2026-11-02&dateIn=2026-11-02&adults=1",
             "outbound": {
                 "flightNumber": "FR3174",
                 "departureDate": "2026-11-02T07:45:00",
@@ -69,14 +69,14 @@
             "mode": "daytrip",
             "airline": "Ryanair",
             "destinationIata": "PMI",
-            "destinationCity": "Palma",
+            "destinationCity": "Palma de Mallorca",
             "destinationCountry": "España",
             "originIata": "BCN",
             "totalPrice": 35.98,
             "usefulHours": 12.333333333333334,
             "ratio": 0.3427830276079304,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=PMI&isReturn=true&dateOut=2026-11-04&dateIn=2026-11-04&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=PMI&isReturn=true&dateOut=2026-11-04&dateIn=2026-11-04&adults=1",
             "outbound": {
                 "flightNumber": "FR2495",
                 "departureDate": "2026-11-04T09:30:00",
@@ -103,7 +103,7 @@
             "usefulHours": 51.75,
             "ratio": 1.4382990550305728,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=IBZ&isReturn=true&dateOut=2026-11-04&dateIn=2026-11-06&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=IBZ&isReturn=true&dateOut=2026-11-04&dateIn=2026-11-06&adults=1",
             "outbound": {
                 "flightNumber": "FR3129",
                 "departureDate": "2026-11-04T18:00:00",
@@ -130,7 +130,7 @@
             "usefulHours": 61.583333333333336,
             "ratio": 1.7115990365017604,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=IBZ&isReturn=true&dateOut=2026-11-05&dateIn=2026-11-07&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=IBZ&isReturn=true&dateOut=2026-11-05&dateIn=2026-11-07&adults=1",
             "outbound": {
                 "flightNumber": "FR3028",
                 "departureDate": "2026-11-05T07:25:00",
@@ -157,7 +157,7 @@
             "usefulHours": 14.416666666666666,
             "ratio": 0.4006855660552159,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=IBZ&isReturn=true&dateOut=2026-11-06&dateIn=2026-11-06&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=IBZ&isReturn=true&dateOut=2026-11-06&dateIn=2026-11-06&adults=1",
             "outbound": {
                 "flightNumber": "FR3129",
                 "departureDate": "2026-11-06T07:20:00",
@@ -177,14 +177,14 @@
             "mode": "bridge",
             "airline": "Ryanair",
             "destinationIata": "PMI",
-            "destinationCity": "Palma",
+            "destinationCity": "Palma de Mallorca",
             "destinationCountry": "España",
             "originIata": "BCN",
             "totalPrice": 35.98,
             "usefulHours": 64.08333333333333,
             "ratio": 1.781082082638503,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=PMI&isReturn=true&dateOut=2026-11-09&dateIn=2026-11-11&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=PMI&isReturn=true&dateOut=2026-11-09&dateIn=2026-11-11&adults=1",
             "outbound": {
                 "flightNumber": "FR1342",
                 "departureDate": "2026-11-09T05:45:00",
@@ -211,7 +211,7 @@
             "usefulHours": 14.5,
             "ratio": 0.48365577051367575,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=BGY&isReturn=true&dateOut=2026-11-11&dateIn=2026-11-11&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=BGY&isReturn=true&dateOut=2026-11-11&dateIn=2026-11-11&adults=1",
             "outbound": {
                 "flightNumber": "FR3143",
                 "departureDate": "2026-11-11T06:05:00",
@@ -238,7 +238,7 @@
             "usefulHours": 54.5,
             "ratio": 1.8178785857238158,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=TRN&isReturn=true&dateOut=2026-11-11&dateIn=2026-11-13&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=TRN&isReturn=true&dateOut=2026-11-11&dateIn=2026-11-13&adults=1",
             "outbound": {
                 "flightNumber": "FR774",
                 "departureDate": "2026-11-11T07:50:00",
@@ -265,7 +265,7 @@
             "usefulHours": 30.75,
             "ratio": 0.9262048192771084,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=PMO&isReturn=true&dateOut=2026-11-11&dateIn=2026-11-12&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=PMO&isReturn=true&dateOut=2026-11-11&dateIn=2026-11-12&adults=1",
             "outbound": {
                 "flightNumber": "FR3166",
                 "departureDate": "2026-11-11T11:10:00",
@@ -292,7 +292,7 @@
             "usefulHours": 61.25,
             "ratio": 0.9879032258064516,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.google.com\/travel\/flights?q=Flights%20to%20PMI%20from%20BCN%20on%202026-11-13%20through%202026-11-15",
+            "bookingUrl": "https://www.google.com/travel/flights?q=Flights%20to%20PMI%20from%20BCN%20on%202026-11-13%20through%202026-11-15",
             "outbound": {
                 "flightNumber": "FR",
                 "departureDate": "2026-11-13T06:15:00",
@@ -319,7 +319,7 @@
             "usefulHours": 60.083333333333336,
             "ratio": 1.6689814814814816,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.google.com\/travel\/flights?q=Flights%20to%20IBZ%20from%20BCN%20on%202026-11-13%20through%202026-11-15",
+            "bookingUrl": "https://www.google.com/travel/flights?q=Flights%20to%20IBZ%20from%20BCN%20on%202026-11-13%20through%202026-11-15",
             "outbound": {
                 "flightNumber": "FR",
                 "departureDate": "2026-11-13T07:20:00",
@@ -337,16 +337,16 @@
         },
         {
             "mode": "bridge",
-            "airline": "Ryanair \/ Vueling",
+            "airline": "Ryanair / Vueling",
             "destinationIata": "IBZ",
             "destinationCity": "Ibiza",
-            "destinationCountry": "Spain",
+            "destinationCountry": "España",
             "originIata": "BCN",
             "totalPrice": 41,
             "usefulHours": 49.166666666666664,
             "ratio": 1.1991869918699187,
             "isPriority": true,
-            "bookingUrl": "https:\/\/kiwi.com\/u\/pv2uut",
+            "bookingUrl": "https://kiwi.com/u/pv2uut",
             "outbound": {
                 "flightNumber": "FR3129",
                 "departureDate": "2026-11-13T07:20:00",
@@ -373,7 +373,7 @@
             "usefulHours": 59.583333333333336,
             "ratio": 1.7023809523809526,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.google.com\/travel\/flights?q=Flights%20to%20IBZ%20from%20BCN%20on%202026-11-13%20through%202026-11-15",
+            "bookingUrl": "https://www.google.com/travel/flights?q=Flights%20to%20IBZ%20from%20BCN%20on%202026-11-13%20through%202026-11-15",
             "outbound": {
                 "flightNumber": "VY",
                 "departureDate": "2026-11-13T07:50:00",
@@ -391,16 +391,16 @@
         },
         {
             "mode": "bridge",
-            "airline": "Vueling \/ Ryanair",
+            "airline": "Vueling / Ryanair",
             "destinationIata": "IBZ",
             "destinationCity": "Ibiza",
-            "destinationCountry": "Spain",
+            "destinationCountry": "España",
             "originIata": "BCN",
             "totalPrice": 38,
             "usefulHours": 49.083333333333336,
             "ratio": 1.2916666666666667,
             "isPriority": true,
-            "bookingUrl": "https:\/\/kiwi.com\/u\/bws42mz",
+            "bookingUrl": "https://kiwi.com/u/bws42mz",
             "outbound": {
                 "flightNumber": "VY3500",
                 "departureDate": "2026-11-13T07:50:00",
@@ -427,7 +427,7 @@
             "usefulHours": 45.75,
             "ratio": 0.8026315789473685,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.google.com\/travel\/flights?q=Flights%20to%20OPO%20from%20BCN%20on%202026-11-13%20through%202026-11-15",
+            "bookingUrl": "https://www.google.com/travel/flights?q=Flights%20to%20OPO%20from%20BCN%20on%202026-11-13%20through%202026-11-15",
             "outbound": {
                 "flightNumber": "FR",
                 "departureDate": "2026-11-13T21:45:00",
@@ -454,7 +454,7 @@
             "usefulHours": 47.416666666666664,
             "ratio": 1.475316324414022,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=TRS&isReturn=true&dateOut=2026-11-19&dateIn=2026-11-21&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=TRS&isReturn=true&dateOut=2026-11-19&dateIn=2026-11-21&adults=1",
             "outbound": {
                 "flightNumber": "FR3928",
                 "departureDate": "2026-11-19T13:45:00",
@@ -481,7 +481,7 @@
             "usefulHours": 60.5,
             "ratio": 0.9918032786885246,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.google.com\/travel\/flights?q=Flights%20to%20MAH%20from%20BCN%20on%202026-11-20%20through%202026-11-22",
+            "bookingUrl": "https://www.google.com/travel/flights?q=Flights%20to%20MAH%20from%20BCN%20on%202026-11-20%20through%202026-11-22",
             "outbound": {
                 "flightNumber": "VY",
                 "departureDate": "2026-11-20T07:00:00",
@@ -508,7 +508,7 @@
             "usefulHours": 45.583333333333336,
             "ratio": 0.7472677595628415,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.google.com\/travel\/flights?q=Flights%20to%20IBZ%20from%20BCN%20on%202026-11-20%20through%202026-11-22",
+            "bookingUrl": "https://www.google.com/travel/flights?q=Flights%20to%20IBZ%20from%20BCN%20on%202026-11-20%20through%202026-11-22",
             "outbound": {
                 "flightNumber": "VY",
                 "departureDate": "2026-11-20T22:00:00",
@@ -535,7 +535,7 @@
             "usefulHours": 37,
             "ratio": 0.977284733227681,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=NDR&isReturn=true&dateOut=2026-11-22&dateIn=2026-11-23&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=NDR&isReturn=true&dateOut=2026-11-22&dateIn=2026-11-23&adults=1",
             "outbound": {
                 "flightNumber": "FR2233",
                 "departureDate": "2026-11-22T06:00:00",
@@ -562,7 +562,7 @@
             "usefulHours": 58.833333333333336,
             "ratio": 1.9624193907049143,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=BGY&isReturn=true&dateOut=2026-11-26&dateIn=2026-11-28&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=BGY&isReturn=true&dateOut=2026-11-26&dateIn=2026-11-28&adults=1",
             "outbound": {
                 "flightNumber": "FR846",
                 "departureDate": "2026-11-26T06:05:00",
@@ -589,7 +589,7 @@
             "usefulHours": 61.5,
             "ratio": 1.2058823529411764,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.google.com\/travel\/flights?q=Flights%20to%20OPO%20from%20BCN%20on%202026-11-27%20through%202026-11-29",
+            "bookingUrl": "https://www.google.com/travel/flights?q=Flights%20to%20OPO%20from%20BCN%20on%202026-11-27%20through%202026-11-29",
             "outbound": {
                 "flightNumber": "FR",
                 "departureDate": "2026-11-27T06:00:00",
@@ -616,7 +616,7 @@
             "usefulHours": 61.25,
             "ratio": 1.7013888888888888,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.google.com\/travel\/flights?q=Flights%20to%20PMI%20from%20BCN%20on%202026-11-27%20through%202026-11-29",
+            "bookingUrl": "https://www.google.com/travel/flights?q=Flights%20to%20PMI%20from%20BCN%20on%202026-11-27%20through%202026-11-29",
             "outbound": {
                 "flightNumber": "FR",
                 "departureDate": "2026-11-27T06:15:00",
@@ -634,16 +634,16 @@
         },
         {
             "mode": "bridge",
-            "airline": "Ryanair \/ Vueling",
+            "airline": "Ryanair / Vueling",
             "destinationIata": "PMI",
-            "destinationCity": "Palma, Majorca",
-            "destinationCountry": "Spain",
+            "destinationCity": "Palma de Mallorca",
+            "destinationCountry": "España",
             "originIata": "BCN",
             "totalPrice": 60,
             "usefulHours": 51.083333333333336,
             "ratio": 0.851388888888889,
             "isPriority": true,
-            "bookingUrl": "https:\/\/kiwi.com\/u\/vdpptz",
+            "bookingUrl": "https://kiwi.com/u/vdpptz",
             "outbound": {
                 "flightNumber": "FR1342",
                 "departureDate": "2026-11-27T06:15:00",
@@ -670,7 +670,7 @@
             "usefulHours": 60.083333333333336,
             "ratio": 1.6689814814814816,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.google.com\/travel\/flights?q=Flights%20to%20IBZ%20from%20BCN%20on%202026-11-27%20through%202026-11-29",
+            "bookingUrl": "https://www.google.com/travel/flights?q=Flights%20to%20IBZ%20from%20BCN%20on%202026-11-27%20through%202026-11-29",
             "outbound": {
                 "flightNumber": "FR",
                 "departureDate": "2026-11-27T07:20:00",
@@ -688,16 +688,16 @@
         },
         {
             "mode": "bridge",
-            "airline": "Vueling \/ Ryanair",
+            "airline": "Vueling / Ryanair",
             "destinationIata": "PMI",
-            "destinationCity": "Palma, Majorca",
-            "destinationCountry": "Spain",
+            "destinationCity": "Palma de Mallorca",
+            "destinationCountry": "España",
             "originIata": "BCN",
             "totalPrice": 47,
             "usefulHours": 45.583333333333336,
             "ratio": 0.9698581560283689,
             "isPriority": true,
-            "bookingUrl": "https:\/\/kiwi.com\/u\/pm7dbp",
+            "bookingUrl": "https://kiwi.com/u/pm7dbp",
             "outbound": {
                 "flightNumber": "VY3904",
                 "departureDate": "2026-11-27T07:35:00",
@@ -724,7 +724,7 @@
             "usefulHours": 60.083333333333336,
             "ratio": 1.1126543209876543,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.google.com\/travel\/flights?q=Flights%20to%20PMI%20from%20BCN%20on%202026-11-27%20through%202026-11-29",
+            "bookingUrl": "https://www.google.com/travel/flights?q=Flights%20to%20PMI%20from%20BCN%20on%202026-11-27%20through%202026-11-29",
             "outbound": {
                 "flightNumber": "VY",
                 "departureDate": "2026-11-27T07:35:00",
@@ -751,7 +751,7 @@
             "usefulHours": 59.583333333333336,
             "ratio": 1.6550925925925926,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.google.com\/travel\/flights?q=Flights%20to%20IBZ%20from%20BCN%20on%202026-11-27%20through%202026-11-29",
+            "bookingUrl": "https://www.google.com/travel/flights?q=Flights%20to%20IBZ%20from%20BCN%20on%202026-11-27%20through%202026-11-29",
             "outbound": {
                 "flightNumber": "VY",
                 "departureDate": "2026-11-27T07:50:00",
@@ -769,16 +769,16 @@
         },
         {
             "mode": "bridge",
-            "airline": "Air Europa \/ Ryanair",
+            "airline": "Air Europa / Ryanair",
             "destinationIata": "PMI",
-            "destinationCity": "Palma, Majorca",
-            "destinationCountry": "Spain",
+            "destinationCity": "Palma de Mallorca",
+            "destinationCountry": "España",
             "originIata": "BCN",
             "totalPrice": 57,
             "usefulHours": 44.583333333333336,
             "ratio": 0.7821637426900585,
             "isPriority": true,
-            "bookingUrl": "https:\/\/kiwi.com\/u\/mcpfz4x",
+            "bookingUrl": "https://kiwi.com/u/mcpfz4x",
             "outbound": {
                 "flightNumber": "UX6007",
                 "departureDate": "2026-11-27T08:40:00",
@@ -805,7 +805,7 @@
             "usefulHours": 53.25,
             "ratio": 1.1838594931080482,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=BHX&isReturn=true&dateOut=2026-11-27&dateIn=2026-11-29&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=BHX&isReturn=true&dateOut=2026-11-27&dateIn=2026-11-29&adults=1",
             "outbound": {
                 "flightNumber": "FR3800",
                 "departureDate": "2026-11-27T11:00:00",
@@ -832,7 +832,7 @@
             "usefulHours": 43.083333333333336,
             "ratio": 1.2679026878556015,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=REG&isReturn=true&dateOut=2026-11-27&dateIn=2026-11-29&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=REG&isReturn=true&dateOut=2026-11-27&dateIn=2026-11-29&adults=1",
             "outbound": {
                 "flightNumber": "FR8598",
                 "departureDate": "2026-11-27T19:40:00",
@@ -859,7 +859,7 @@
             "usefulHours": 56.916666666666664,
             "ratio": 1.8984878808094283,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=TRN&isReturn=true&dateOut=2026-11-28&dateIn=2026-11-30&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=TRN&isReturn=true&dateOut=2026-11-28&dateIn=2026-11-30&adults=1",
             "outbound": {
                 "flightNumber": "FR774",
                 "departureDate": "2026-11-28T05:50:00",
@@ -886,7 +886,7 @@
             "usefulHours": 50.916666666666664,
             "ratio": 1.0837945224918406,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=LUX&isReturn=true&dateOut=2026-11-28&dateIn=2026-11-30&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=LUX&isReturn=true&dateOut=2026-11-28&dateIn=2026-11-30&adults=1",
             "outbound": {
                 "flightNumber": "FR3108",
                 "departureDate": "2026-11-28T06:25:00",
@@ -907,13 +907,13 @@
             "airline": "Vueling",
             "destinationIata": "IBZ",
             "destinationCity": "Ibiza",
-            "destinationCountry": "Spain",
+            "destinationCountry": "España",
             "originIata": "BCN",
             "totalPrice": 36,
             "usefulHours": 9.166666666666666,
             "ratio": 0.2546296296296296,
             "isPriority": true,
-            "bookingUrl": "https:\/\/kiwi.com\/u\/gwqruq",
+            "bookingUrl": "https://kiwi.com/u/gwqruq",
             "outbound": {
                 "flightNumber": "VY3500",
                 "departureDate": "2026-11-28T07:25:00",
@@ -931,16 +931,16 @@
         },
         {
             "mode": "daytrip",
-            "airline": "Vueling \/ Ryanair",
+            "airline": "Vueling / Ryanair",
             "destinationIata": "IBZ",
             "destinationCity": "Ibiza",
-            "destinationCountry": "Spain",
+            "destinationCountry": "España",
             "originIata": "BCN",
             "totalPrice": 38,
             "usefulHours": 13.583333333333334,
             "ratio": 0.3574561403508772,
             "isPriority": true,
-            "bookingUrl": "https:\/\/kiwi.com\/u\/m9zkdsk",
+            "bookingUrl": "https://kiwi.com/u/m9zkdsk",
             "outbound": {
                 "flightNumber": "VY3500",
                 "departureDate": "2026-11-28T07:25:00",
@@ -961,13 +961,13 @@
             "airline": "Ryanair",
             "destinationIata": "IBZ",
             "destinationCity": "Ibiza",
-            "destinationCountry": "Spain",
+            "destinationCountry": "España",
             "originIata": "BCN",
             "totalPrice": 39,
             "usefulHours": 11.666666666666666,
             "ratio": 0.29914529914529914,
             "isPriority": true,
-            "bookingUrl": "https:\/\/kiwi.com\/u\/5uqhvb",
+            "bookingUrl": "https://kiwi.com/u/5uqhvb",
             "outbound": {
                 "flightNumber": "FR3028",
                 "departureDate": "2026-11-28T09:20:00",
@@ -994,7 +994,7 @@
             "usefulHours": 44.75,
             "ratio": 1.3568829593693148,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=MAN&isReturn=true&dateOut=2026-11-28&dateIn=2026-11-30&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=MAN&isReturn=true&dateOut=2026-11-28&dateIn=2026-11-30&adults=1",
             "outbound": {
                 "flightNumber": "FR6597",
                 "departureDate": "2026-11-28T10:25:00",
@@ -1021,7 +1021,7 @@
             "usefulHours": 47.916666666666664,
             "ratio": 1.1341222879684418,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=BHX&isReturn=true&dateOut=2026-11-28&dateIn=2026-11-30&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=BHX&isReturn=true&dateOut=2026-11-28&dateIn=2026-11-30&adults=1",
             "outbound": {
                 "flightNumber": "FR3800",
                 "departureDate": "2026-11-28T11:05:00",
@@ -1048,7 +1048,7 @@
             "usefulHours": 47.75,
             "ratio": 0.7830436208592981,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=SOF&isReturn=true&dateOut=2026-11-28&dateIn=2026-11-30&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=SOF&isReturn=true&dateOut=2026-11-28&dateIn=2026-11-30&adults=1",
             "outbound": {
                 "flightNumber": "FR6330",
                 "departureDate": "2026-11-28T17:50:00",
@@ -1075,7 +1075,7 @@
             "usefulHours": 46.083333333333336,
             "ratio": 0.76195987654321,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=GDN&isReturn=true&dateOut=2026-11-29&dateIn=2026-12-01&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=GDN&isReturn=true&dateOut=2026-11-29&dateIn=2026-12-01&adults=1",
             "outbound": {
                 "flightNumber": "FR333",
                 "departureDate": "2026-11-29T09:50:00",
@@ -1102,7 +1102,7 @@
             "usefulHours": 55.083333333333336,
             "ratio": 0.9905292813043218,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=SVQ&isReturn=true&dateOut=2026-11-30&dateIn=2026-12-02&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=SVQ&isReturn=true&dateOut=2026-11-30&dateIn=2026-12-02&adults=1",
             "outbound": {
                 "flightNumber": "FR2402",
                 "departureDate": "2026-11-30T06:10:00",
@@ -1129,7 +1129,7 @@
             "usefulHours": 49.583333333333336,
             "ratio": 1.6538803646875695,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=TRN&isReturn=true&dateOut=2026-11-30&dateIn=2026-12-02&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=TRN&isReturn=true&dateOut=2026-11-30&dateIn=2026-12-02&adults=1",
             "outbound": {
                 "flightNumber": "FR774",
                 "departureDate": "2026-11-30T06:40:00",
@@ -1156,7 +1156,7 @@
             "usefulHours": 27.333333333333332,
             "ratio": 0.8043947420051011,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=RAK&isReturn=true&dateOut=2026-12-02&dateIn=2026-12-03&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=RAK&isReturn=true&dateOut=2026-12-02&dateIn=2026-12-03&adults=1",
             "outbound": {
                 "flightNumber": "FR2239",
                 "departureDate": "2026-12-02T06:40:00",
@@ -1183,7 +1183,7 @@
             "usefulHours": 48.75,
             "ratio": 1.1612672701286328,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=LUX&isReturn=true&dateOut=2026-12-03&dateIn=2026-12-05&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=LUX&isReturn=true&dateOut=2026-12-03&dateIn=2026-12-05&adults=1",
             "outbound": {
                 "flightNumber": "FR3108",
                 "departureDate": "2026-12-03T06:15:00",
@@ -1210,7 +1210,7 @@
             "usefulHours": 43.083333333333336,
             "ratio": 1.2679026878556015,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=REG&isReturn=true&dateOut=2026-12-04&dateIn=2026-12-06&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=REG&isReturn=true&dateOut=2026-12-04&dateIn=2026-12-06&adults=1",
             "outbound": {
                 "flightNumber": "FR8598",
                 "departureDate": "2026-12-04T19:40:00",
@@ -1237,7 +1237,7 @@
             "usefulHours": 37,
             "ratio": 0.8813720819437828,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=NDR&isReturn=true&dateOut=2026-12-06&dateIn=2026-12-07&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=NDR&isReturn=true&dateOut=2026-12-06&dateIn=2026-12-07&adults=1",
             "outbound": {
                 "flightNumber": "FR2233",
                 "departureDate": "2026-12-06T06:00:00",
@@ -1264,7 +1264,7 @@
             "usefulHours": 24.75,
             "ratio": 0.5758492322010238,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=LUX&isReturn=true&dateOut=2026-12-10&dateIn=2026-12-11&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=LUX&isReturn=true&dateOut=2026-12-10&dateIn=2026-12-11&adults=1",
             "outbound": {
                 "flightNumber": "FR3108",
                 "departureDate": "2026-12-10T06:15:00",
@@ -1291,7 +1291,7 @@
             "usefulHours": 12.666666666666666,
             "ratio": 0.34252749233820085,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=BLQ&isReturn=true&dateOut=2026-12-10&dateIn=2026-12-10&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=BLQ&isReturn=true&dateOut=2026-12-10&dateIn=2026-12-10&adults=1",
             "outbound": {
                 "flightNumber": "FR575",
                 "departureDate": "2026-12-10T06:30:00",
@@ -1318,7 +1318,7 @@
             "usefulHours": 57.416666666666664,
             "ratio": 1.552641067243555,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=BLQ&isReturn=true&dateOut=2026-12-10&dateIn=2026-12-12&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=BLQ&isReturn=true&dateOut=2026-12-10&dateIn=2026-12-12&adults=1",
             "outbound": {
                 "flightNumber": "FR575",
                 "departureDate": "2026-12-10T06:30:00",
@@ -1345,7 +1345,7 @@
             "usefulHours": 30.416666666666668,
             "ratio": 0.9222761269456238,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=BGY&isReturn=true&dateOut=2026-12-11&dateIn=2026-12-12&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=BGY&isReturn=true&dateOut=2026-12-11&dateIn=2026-12-12&adults=1",
             "outbound": {
                 "flightNumber": "FR6305",
                 "departureDate": "2026-12-11T06:35:00",
@@ -1372,7 +1372,7 @@
             "usefulHours": 55.833333333333336,
             "ratio": 1.5517880303872524,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=MLA&isReturn=true&dateOut=2026-12-11&dateIn=2026-12-13&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=MLA&isReturn=true&dateOut=2026-12-11&dateIn=2026-12-13&adults=1",
             "outbound": {
                 "flightNumber": "FR1527",
                 "departureDate": "2026-12-11T09:45:00",
@@ -1399,7 +1399,7 @@
             "usefulHours": 47.583333333333336,
             "ratio": 1.360301124452068,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=PMO&isReturn=true&dateOut=2026-12-11&dateIn=2026-12-13&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=PMO&isReturn=true&dateOut=2026-12-11&dateIn=2026-12-13&adults=1",
             "outbound": {
                 "flightNumber": "FR3166",
                 "departureDate": "2026-12-11T11:30:00",
@@ -1426,7 +1426,7 @@
             "usefulHours": 43.083333333333336,
             "ratio": 1.3063472811805137,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=REG&isReturn=true&dateOut=2026-12-11&dateIn=2026-12-13&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=REG&isReturn=true&dateOut=2026-12-11&dateIn=2026-12-13&adults=1",
             "outbound": {
                 "flightNumber": "FR8598",
                 "departureDate": "2026-12-11T19:40:00",
@@ -1453,7 +1453,7 @@
             "usefulHours": 59.416666666666664,
             "ratio": 1.3209574625759597,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=ORK&isReturn=true&dateOut=2026-12-12&dateIn=2026-12-14&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=ORK&isReturn=true&dateOut=2026-12-12&dateIn=2026-12-14&adults=1",
             "outbound": {
                 "flightNumber": "FR7959",
                 "departureDate": "2026-12-12T06:30:00",
@@ -1480,7 +1480,7 @@
             "usefulHours": 43.916666666666664,
             "ratio": 1.4648654658661329,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=BRS&isReturn=true&dateOut=2026-12-12&dateIn=2026-12-14&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=BRS&isReturn=true&dateOut=2026-12-12&dateIn=2026-12-14&adults=1",
             "outbound": {
                 "flightNumber": "FR3160",
                 "departureDate": "2026-12-12T09:55:00",
@@ -1507,7 +1507,7 @@
             "usefulHours": 48.25,
             "ratio": 1.419952913478517,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=STN&isReturn=true&dateOut=2026-12-13&dateIn=2026-12-15&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=STN&isReturn=true&dateOut=2026-12-13&dateIn=2026-12-15&adults=1",
             "outbound": {
                 "flightNumber": "FR9045",
                 "departureDate": "2026-12-13T06:30:00",
@@ -1534,7 +1534,7 @@
             "usefulHours": 26.583333333333332,
             "ratio": 0.8867022459417389,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=VCE&isReturn=true&dateOut=2026-12-13&dateIn=2026-12-14&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=VCE&isReturn=true&dateOut=2026-12-13&dateIn=2026-12-14&adults=1",
             "outbound": {
                 "flightNumber": "FR878",
                 "departureDate": "2026-12-13T08:30:00",
@@ -1561,7 +1561,7 @@
             "usefulHours": 55.666666666666664,
             "ratio": 1.79685818807833,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=FCO&isReturn=true&dateOut=2026-12-15&dateIn=2026-12-17&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=FCO&isReturn=true&dateOut=2026-12-15&dateIn=2026-12-17&adults=1",
             "outbound": {
                 "flightNumber": "FR3180",
                 "departureDate": "2026-12-15T06:00:00",
@@ -1588,7 +1588,7 @@
             "usefulHours": 59.833333333333336,
             "ratio": 1.4965816241454062,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=LIS&isReturn=true&dateOut=2026-12-15&dateIn=2026-12-17&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=LIS&isReturn=true&dateOut=2026-12-15&dateIn=2026-12-17&adults=1",
             "outbound": {
                 "flightNumber": "FR3078",
                 "departureDate": "2026-12-15T06:35:00",
@@ -1615,7 +1615,7 @@
             "usefulHours": 34.666666666666664,
             "ratio": 0.8065767023421747,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=LIS&isReturn=true&dateOut=2026-12-15&dateIn=2026-12-16&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=LIS&isReturn=true&dateOut=2026-12-15&dateIn=2026-12-16&adults=1",
             "outbound": {
                 "flightNumber": "FR3078",
                 "departureDate": "2026-12-15T06:35:00",
@@ -1642,7 +1642,7 @@
             "usefulHours": 31.583333333333332,
             "ratio": 0.8778024828608486,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=FCO&isReturn=true&dateOut=2026-12-16&dateIn=2026-12-17&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=FCO&isReturn=true&dateOut=2026-12-16&dateIn=2026-12-17&adults=1",
             "outbound": {
                 "flightNumber": "FR3180",
                 "departureDate": "2026-12-16T06:05:00",
@@ -1669,7 +1669,7 @@
             "usefulHours": 62,
             "ratio": 1.5905592611595691,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=FCO&isReturn=true&dateOut=2026-12-17&dateIn=2026-12-19&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=FCO&isReturn=true&dateOut=2026-12-17&dateIn=2026-12-19&adults=1",
             "outbound": {
                 "flightNumber": "FR3180",
                 "departureDate": "2026-12-17T05:55:00",
@@ -1696,7 +1696,7 @@
             "usefulHours": 25.666666666666668,
             "ratio": 0.7553462821267414,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=MXP&isReturn=true&dateOut=2026-12-18&dateIn=2026-12-19&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=MXP&isReturn=true&dateOut=2026-12-18&dateIn=2026-12-19&adults=1",
             "outbound": {
                 "flightNumber": "FR269",
                 "departureDate": "2026-12-18T12:45:00",
@@ -1723,7 +1723,7 @@
             "usefulHours": 43.25,
             "ratio": 1.081790895447724,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=MLA&isReturn=true&dateOut=2026-12-20&dateIn=2026-12-22&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=MLA&isReturn=true&dateOut=2026-12-20&dateIn=2026-12-22&adults=1",
             "outbound": {
                 "flightNumber": "FR1527",
                 "departureDate": "2026-12-20T22:40:00",
@@ -1750,7 +1750,7 @@
             "usefulHours": 55.416666666666664,
             "ratio": 1.131414182659589,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=LPL&isReturn=true&dateOut=2026-12-22&dateIn=2026-12-24&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=LPL&isReturn=true&dateOut=2026-12-22&dateIn=2026-12-24&adults=1",
             "outbound": {
                 "flightNumber": "FR6559",
                 "departureDate": "2026-12-22T05:50:00",
@@ -1777,7 +1777,7 @@
             "usefulHours": 28.75,
             "ratio": 0.47932644214738246,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=BUD&isReturn=true&dateOut=2027-01-12&dateIn=2027-01-13&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=BUD&isReturn=true&dateOut=2027-01-12&dateIn=2027-01-13&adults=1",
             "outbound": {
                 "flightNumber": "FR1421",
                 "departureDate": "2027-01-12T10:10:00",
@@ -1804,7 +1804,7 @@
             "usefulHours": 61.833333333333336,
             "ratio": 1.5466066366516593,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=NAP&isReturn=true&dateOut=2027-01-13&dateIn=2027-01-15&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=NAP&isReturn=true&dateOut=2027-01-13&dateIn=2027-01-15&adults=1",
             "outbound": {
                 "flightNumber": "FR5710",
                 "departureDate": "2027-01-13T06:00:00",
@@ -1831,7 +1831,7 @@
             "usefulHours": 48.166666666666664,
             "ratio": 0.7866514235940988,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=PRG&isReturn=true&dateOut=2027-01-14&dateIn=2027-01-16&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=PRG&isReturn=true&dateOut=2027-01-14&dateIn=2027-01-16&adults=1",
             "outbound": {
                 "flightNumber": "FR3039",
                 "departureDate": "2027-01-14T11:55:00",
@@ -1858,7 +1858,7 @@
             "usefulHours": 59.666666666666664,
             "ratio": 1.1703936184124493,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=SOF&isReturn=true&dateOut=2027-01-16&dateIn=2027-01-18&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=SOF&isReturn=true&dateOut=2027-01-16&dateIn=2027-01-18&adults=1",
             "outbound": {
                 "flightNumber": "FR6300",
                 "departureDate": "2027-01-16T05:55:00",
@@ -1885,7 +1885,7 @@
             "usefulHours": 50.916666666666664,
             "ratio": 1.2735534433883609,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=LTN&isReturn=true&dateOut=2027-01-16&dateIn=2027-01-18&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=LTN&isReturn=true&dateOut=2027-01-16&dateIn=2027-01-18&adults=1",
             "outbound": {
                 "flightNumber": "FR7808",
                 "departureDate": "2027-01-16T10:15:00",
@@ -1912,7 +1912,7 @@
             "usefulHours": 43.666666666666664,
             "ratio": 1.0922127730531932,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=TNG&isReturn=true&dateOut=2027-01-16&dateIn=2027-01-18&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=TNG&isReturn=true&dateOut=2027-01-16&dateIn=2027-01-18&adults=1",
             "outbound": {
                 "flightNumber": "FR8631",
                 "departureDate": "2027-01-16T15:45:00",
@@ -1939,7 +1939,7 @@
             "usefulHours": 35.5,
             "ratio": 0.6018989487962021,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=BUD&isReturn=true&dateOut=2027-01-21&dateIn=2027-01-22&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=BUD&isReturn=true&dateOut=2027-01-21&dateIn=2027-01-22&adults=1",
             "outbound": {
                 "flightNumber": "FR8384",
                 "departureDate": "2027-01-21T05:55:00",
@@ -1966,7 +1966,7 @@
             "usefulHours": 53.166666666666664,
             "ratio": 1.3639473234137165,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=NAP&isReturn=true&dateOut=2027-01-27&dateIn=2027-01-29&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=NAP&isReturn=true&dateOut=2027-01-27&dateIn=2027-01-29&adults=1",
             "outbound": {
                 "flightNumber": "FR5710",
                 "departureDate": "2027-01-27T06:00:00",
@@ -1993,7 +1993,7 @@
             "usefulHours": 55.25,
             "ratio": 1.3994427558257347,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=NDR&isReturn=true&dateOut=2027-02-27&dateIn=2027-03-01&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=NDR&isReturn=true&dateOut=2027-02-27&dateIn=2027-03-01&adults=1",
             "outbound": {
                 "flightNumber": "FR2233",
                 "departureDate": "2027-02-27T11:45:00",
@@ -2020,7 +2020,7 @@
             "usefulHours": 63.5,
             "ratio": 0.9965473948524796,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=MAH&isReturn=true&dateOut=2027-04-01&dateIn=2027-04-03&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=MAH&isReturn=true&dateOut=2027-04-01&dateIn=2027-04-03&adults=1",
             "outbound": {
                 "flightNumber": "FR6881",
                 "departureDate": "2027-04-01T06:25:00",
@@ -2047,7 +2047,7 @@
             "usefulHours": 29.416666666666668,
             "ratio": 0.4904412581971769,
             "isPriority": true,
-            "bookingUrl": "https:\/\/www.ryanair.com\/es\/es\/trip\/flights\/select?originIata=BCN&destinationIata=AHO&isReturn=true&dateOut=2027-04-12&dateIn=2027-04-13&adults=1",
+            "bookingUrl": "https://www.ryanair.com/es/es/trip/flights/select?originIata=BCN&destinationIata=AHO&isReturn=true&dateOut=2027-04-12&dateIn=2027-04-13&adults=1",
             "outbound": {
                 "flightNumber": "FR6803",
                 "departureDate": "2027-04-12T05:50:00",

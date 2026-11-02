@@ -534,8 +534,59 @@ if ($action === 'scan') {
             }
 
             $destIata = $meta['dest'];
-            $destCity = $outSeg['toCity'] ?? ($outSeg['toName'] ?? $destIata);
-            $destCountry = $outSeg['toCountry'] ?? '';
+            $canonicalDict = [
+                'PMI' => ['city' => 'Palma de Mallorca', 'country' => 'España'],
+                'IBZ' => ['city' => 'Ibiza', 'country' => 'España'],
+                'MAH' => ['city' => 'Menorca', 'country' => 'España'],
+                'SVQ' => ['city' => 'Sevilla', 'country' => 'España'],
+                'AGP' => ['city' => 'Málaga', 'country' => 'España'],
+                'BIO' => ['city' => 'Bilbao', 'country' => 'España'],
+                'SCQ' => ['city' => 'Santiago de Compostela', 'country' => 'España'],
+                'OVD' => ['city' => 'Asturias', 'country' => 'España'],
+                'ALC' => ['city' => 'Alicante', 'country' => 'España'],
+                'VLC' => ['city' => 'Valencia', 'country' => 'España'],
+                'OPO' => ['city' => 'Oporto', 'country' => 'Portugal'],
+                'LIS' => ['city' => 'Lisboa', 'country' => 'Portugal'],
+                'FAO' => ['city' => 'Faro', 'country' => 'Portugal'],
+                'MXP' => ['city' => 'Milán Malpensa', 'country' => 'Italia'],
+                'BGY' => ['city' => 'Milán Bérgamo', 'country' => 'Italia'],
+                'FCO' => ['city' => 'Roma Fiumicino', 'country' => 'Italia'],
+                'CIA' => ['city' => 'Roma Ciampino', 'country' => 'Italia'],
+                'NAP' => ['city' => 'Nápoles', 'country' => 'Italia'],
+                'BLQ' => ['city' => 'Bolonia', 'country' => 'Italia'],
+                'PSA' => ['city' => 'Pisa', 'country' => 'Italia'],
+                'VCE' => ['city' => 'Venecia', 'country' => 'Italia'],
+                'NCE' => ['city' => 'Niza', 'country' => 'Francia'],
+                'MRS' => ['city' => 'Marsella', 'country' => 'Francia'],
+                'TLS' => ['city' => 'Toulouse', 'country' => 'Francia'],
+                'LYS' => ['city' => 'Lyon', 'country' => 'Francia'],
+                'BOD' => ['city' => 'Burdeos', 'country' => 'Francia'],
+                'GVA' => ['city' => 'Ginebra', 'country' => 'Suiza'],
+                'BSL' => ['city' => 'Basilea', 'country' => 'Suiza'],
+                'LGW' => ['city' => 'Londres Gatwick', 'country' => 'Reino Unido'],
+                'LTN' => ['city' => 'Londres Luton', 'country' => 'Reino Unido'],
+                'MAN' => ['city' => 'Mánchester', 'country' => 'Reino Unido'],
+                'EDI' => ['city' => 'Edimburgo', 'country' => 'Reino Unido'],
+                'DUB' => ['city' => 'Dublín', 'country' => 'Irlanda'],
+                'BUD' => ['city' => 'Budapest', 'country' => 'Hungría'],
+                'PRG' => ['city' => 'Praga', 'country' => 'República Checa'],
+                'VIE' => ['city' => 'Viena', 'country' => 'Austria'],
+                'SOF' => ['city' => 'Sofía', 'country' => 'Bulgaria'],
+                'FEZ' => ['city' => 'Fez', 'country' => 'Marruecos'],
+                'RAK' => ['city' => 'Marrakech', 'country' => 'Marruecos'],
+                'TNG' => ['city' => 'Tánger', 'country' => 'Marruecos'],
+            ];
+
+            if (isset($canonicalDict[$destIata])) {
+                $destCity = $canonicalDict[$destIata]['city'];
+                $destCountry = $canonicalDict[$destIata]['country'];
+            } else {
+                $destCity = $outSeg['toCity'] ?? ($outSeg['toName'] ?? $destIata);
+                // Si viene en inglés 'Spain', traducir a 'España'
+                $rawCountry = $outSeg['toCountry'] ?? '';
+                $countryMap = ['Spain' => 'España', 'Italy' => 'Italia', 'France' => 'Francia', 'United Kingdom' => 'Reino Unido', 'Morocco' => 'Marruecos', 'Switzerland' => 'Suiza', 'Germany' => 'Alemania', 'Hungary' => 'Hungría'];
+                $destCountry = $countryMap[$rawCountry] ?? $rawCountry;
+            }
             $bookingUrl = $it['bookingUrl'] ?? "https://www.google.com/travel/flights?q=Flights%20to%20{$destIata}%20from%20BCN%20on%20{$outDateOnly}%20through%20{$inDateOnly}";
 
             $deals[] = [
