@@ -99,25 +99,28 @@ Aplicación autónoma de monitorización, rastreo y alerta en tiempo real de **v
 - [x] Motor de persistencia y fusión acumulativa de chollos para que los escaneos en vivo sumen vuelos sin perder los anteriores.
 - [x] Tarea programada (Cron) en Hostinger configurada para ejecución desatendida diaria a las 00:00 h.
 - [x] Checkpoint de seguridad creado: Git Tag `v-estable-2026-10-25`.
+- [x] Conector oficial **Kiwi MCP** (`https://mcp.kiwi.com`) integrado nativamente en `public/api.php` vía cURL multi paralelo (cero API keys, sin cuotas ni bloqueos 429).
+- [x] Soporte Multi-Aerolínea activo en el Radar: ofertas reales de **Vueling**, **easyJet**, **Wizz Air**, **Air Europa** e itinerarios combinados.
+- [x] Identidad visual de aerolíneas en frontend con badges específicos por color y buscador con filtrado por nombre de compañía.
+- [x] PWA actualizada a Service Worker `vuelos-martin-v9` con asset versioning `?v=4.7`.
 
 ---
 
 ## 📝 Historial de Sesiones
 
-### Sesión 2026-10-25 (Core, Multi-Aerolínea, PWA, Dashboard Web y Despliegue en Vivo)
-- **Telegram Bot:** Conexión validada con `@miasistente_alfred_bot` y chat personal de Martín (`1871392012`) vía `.env`.
-- **Scanners:** `RyanairScanner.js` (gratuito, sin límites) + `GoogleFlightsScanner.js` (multi-aerolínea con Vueling y Air Europa).
-- **Filtros & Persistencia:** `FlightFilter.js` (filtra horas útiles y descarta vuelos basura) y `AlertHistory.js` (anti-spam con umbral de 4 € de bajada).
-- **Dashboard Web & PWA:** Interfaz en `public/` con diseño fintech dark mode, soporte offline/network-first (`sw.js`) e instalación nativa como PWA.
-- **Mobile Responsive:** Adaptación completa para smartphones con navegación horizontal por chips y acciones táctiles de 44px+.
-- **Pool de Claves RapidAPI:** Soporte en cascada de claves separadas por coma en `RAPIDAPI_KEY` con rotación transparente ante códigos 429/403 (7 claves activas).
-- **Cron Autónomo:** Configurado en Hostinger hPanel con ejecución directa `/usr/bin/php .../api.php` cada día a las 00:00.
-- **Acciones Interactivas:** 
-  - Botón "🔄 Rastrear Ahora" en el header para ejecutar rastreos en vivo al instante.
-  - Botón "📲 Telegram" en cada tarjeta para enviar alertas individuales al teléfono.
-  - Botón "📲 Instalar App" para agregar al inicio en Android/Chrome.
-- **Despliegue Producción:** Desplegado y verificado HTTP 200 en `https://contenido.creawebes.com/VuelosMartin/`.
-- **Blindaje y GitHub:** Saneamiento exhaustivo de secretos y subida limpia al repositorio público `https://github.com/20Luisma/ViajesMartin.git`.
-- **Tag Git:** Sellado `v-estable-2026-10-25`.
+### Sesión 2026-11-02 (Integración Multi-Aerolínea Kiwi MCP & Copiloto Inteligente)
+- **Problema Detectado:** El Radar de Chollos arrojaba 100% vuelos de Ryanair porque las claves de RapidAPI estaban bloqueadas con HTTP 429 (límite de cuota mensual agotado) y Amadeus descartado por pasar a modelo de cobro obligatorio.
+- **Solución Arquitectónica:** Se integró el servidor oficial de **Kiwi MCP** (`https://mcp.kiwi.com`) mediante llamadas JSON-RPC paralelas en `public/api.php`. Permite consultar tarifas en tiempo real de Vueling, easyJet, Wizz Air y Air Europa sin restricciones de cuotas ni coste.
+- **Filtros Aplicados:** 
+  - Vuelos 100% directos (`max_sector_stopovers: 0`).
+  - Categorización estricta por modalidades de Martín (Day-Trip, Finde 1 noche, Puente 2 noches).
+  - Cálculo de horas útiles y enlaces directos de compra.
+- **Frontend & Estilos:**
+  - Se añadieron estilos de marca para `.airline-tag` con colores distintivos: Vueling (amarillo ámbar `#fbbf24`), easyJet (naranja `#fb923c`), Wizz Air (fucsia `#f472b6`), Ryanair (azul `#38bdf8`), Iberia (rojo `#f87171`) y Volotea.
+  - El buscador ahora permite filtrar por nombre de aerolínea (ej: "vueling").
+- **Cascada Continua:**
+  - Local (Mac): Lint de PHP limpio y 76 chollos cazados en prueba local.
+  - Producción (Hostinger VPS): Desplegado vía `bin/deploy.sh` y validado HTTP 200 en `https://contenido.creawebes.com/VuelosMartin/`.
+  - GitHub (Nube): Commit `098fbaf` pusheado a rama `main`.
 
 
