@@ -101,6 +101,9 @@ Aplicación autónoma de monitorización, rastreo y alerta en tiempo real de **v
 - [x] Checkpoint de seguridad creado: Git Tag `v-estable-2026-11-02` (Kiwi MCP multi-aerolínea + Protocolo AGENTS.md v2.1).
 - [x] Protocolo Master de Ingeniería y Seguridad (`AGENTS.md` v2.1) ubicado en la raíz del repositorio y publicado en `public/god-mode.md` y `public/god-mode.txt`.
 - [x] Reglas maestras en Antigravity Global (`/Users/admin/.gemini/GEMINI.md`) actualizadas a 20 reglas con cobertura de edge cases y rigor senior.
+- [x] **Sistema de Autenticación por Sesión PHP** (`public/auth.php`, `public/login.php`, `public/logout.php`): acceso protegido con clave vía `.env` (`APP_PASSWORD`). Protege tokens de Telegram, Gemini y RapidAPI de uso no autorizado.
+- [x] Botón de cierre de sesión 🔒 en el header de la app (redirige a `login.php`).
+- [x] Cascada completa: commit `40cb54a` en `main` y desplegado en VPS. Estado HTTP producción: 302 (login activo ✅).
 
 ---
 
@@ -127,5 +130,32 @@ Aplicación autónoma de monitorización, rastreo y alerta en tiempo real de **v
   - GitHub (Nube): Commits sincronizados en rama `main` hasta `53dfbe3`.
   - Checkpoint Tag: `git tag -a v-estable-2026-11-02` creado y sincronizado con `origin`.
 
+### Sesión 2026-11-03 (Sistema de Autenticación por Sesión PHP)
+- **Motivación:** El repositorio fue compartido públicamente y alguien podía acceder a la URL del VPS y gastar los tokens de Telegram, Gemini y RapidAPI.
+- **Solución Arquitectónica:** Login por sesión PHP con password leído del `.env` (nunca hardcodeado).
+  - `public/auth.php`: módulo de sesión seguro con `session_regenerate_id()` (anti session-fixation), cookie `httponly/samesite`, delay anti-brute-force. Para APIs devuelve `401 JSON`; para páginas web redirige a `login.php`.
+  - `public/login.php`: página de login premium (glassmorphism, dark mode, toggle show/hide password, animaciones).
+  - `public/logout.php`: destruye sesión y redirige al login.
+  - `public/index.php` y `public/api.php`: protegidos con `auth_require()`.
+  - `public/.htaccess`: bloquea acceso directo a `auth.php` (módulo interno).
+  - `bin/deploy.sh`: incluye `APP_PASSWORD` en el `.env` del VPS.
+- **Fix aplicado:** Se eliminó `-webkit-text-security: disc` del CSS que impedía el toggle show/hide password.
+- **Botón de logout 🔒** añadido en el header de la app con confirmación antes de cerrar sesión.
+- **Cascada Continua:**
+  - Local (Mac): Lint PHP limpio en los 4 archivos PHP.
+  - Producción (Hostinger VPS): Desplegado vía `bin/deploy.sh`. HTTP 302 (redirect al login) confirmado ✅.
+  - GitHub (Nube): Commits sincronizados en rama `main` hasta `40cb54a`.
+- **Backup de memoria:** `memory_backups/MEMORY_2026-11-03_20-35.md`.
+- [x] **AGENTS.md actualizado a v2.2** (commit `a0d7a0d`): Design System real §6, protocolo prueba no ejecutable §8, pipeline honesto §13, §20 Observabilidad nueva.
+- [x] **GEMINI.md expandido a 23 reglas**: Regla 2 separada, Regla 5 dividida 5a/5b, Regla 8 por capacidades, Regla 18 pipeline real, Regla 21 Observabilidad, Regla 22 Bootstrap proyecto nuevo, Regla 23 Seguridad 5 capas + checklist.
+- [x] **README.md ViajesMartin profesional** (commit `8b6ef66`): stack real, Ratio Chollo, demo alerta Telegram, sección agentes IA.
+- [x] **Perfil GitHub `20Luisma`** (commit `3187d10`): "AI Agent Architecture", badge GOD-MODE violeta, descripción agentes IA, tabla ViajesMartin actualizada.
 
+### Sesión 2026-11-03 PM (God-Mode v2.2 + Perfil GitHub)
+- **AGENTS.md v2.2** (commit `a0d7a0d`): Design System real §6, protocolo prueba no ejecutable §8 (riesgo bajo/medio/alto + `[TEST-PENDING]`), pipeline honesto §13 (Local→GitHub→VPS), §20 Observabilidad con comandos curl y señales de alerta específicas.
+- **GEMINI.md → 23 reglas**: Regla 2 (tono/comportamiento separados), Regla 5 (5a MEMORY + 5b backups), Regla 8 (capacidades no nombres), Regla 18 (pipeline real), Regla 21 (Observabilidad global), Regla 22 (Bootstrap proyecto: entrevista 5 preguntas + AGENTS.md personalizado + estructura completa + primer commit), Regla 23 (Seguridad 5 capas: auth web, API endpoints, archivos sensibles, headers HTTP, validación inputs + checklist pre-deploy).
+- **README.md ViajesMartin profesional**: Ratio Chollo con fórmula, 3 modalidades en tabla, stack real, Kiwi MCP, demo alerta Telegram, sección agentes IA, comandos deploy y verificación.
+- **Perfil GitHub `20Luisma`**: header "PHP · Flutter · Vue.js · AI Agent Architecture", badge GOD-MODE violeta, "Construyendo sistemas de agentes IA con memoria persistente", tabla ViajesMartin con Kiwi MCP + seguridad + AGENTS.md v2.2.
+- **Commits:** ViajesMartin `main → 8b6ef66` | Perfil `20Luisma main → 3187d10`.
+- **Backup de memoria:** `memory_backups/MEMORY_2026-11-03_21-30.md`.
 
