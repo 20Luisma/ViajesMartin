@@ -193,7 +193,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             font-family: 'Inter', sans-serif;
             letter-spacing: 0.15em;
             transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
-            -webkit-text-security: disc;
             outline: none;
         }
         .form-input:focus {
