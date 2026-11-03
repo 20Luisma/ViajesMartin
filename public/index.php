@@ -3,6 +3,9 @@
  * Vuelos Martín — Front Controller para Hostinger
  * Sirve la interfaz con cache busting dinámico
  */
+require_once __DIR__ . '/auth.php';
+auth_require(); // Redirige a login.php si no hay sesión activa
+
 header('X-Frame-Options: SAMEORIGIN');
 header('X-Content-Type-Options: nosniff');
 header('Cache-Control: no-cache, no-store, must-revalidate');

@@ -16,8 +16,14 @@ Options -Indexes
         Header set Pragma "no-cache"
         Header set Expires "Wed, 11 Jan 1984 05:00:00 GMT"
     </IfModule>
+
 # Bloquear acceso a archivos sensibles
 <FilesMatch "^\.env">
+    Require all denied
+</FilesMatch>
+
+# Bloquear acceso directo al módulo de autenticación (es interno, no un endpoint público)
+<FilesMatch "^auth\.php$">
     Require all denied
 </FilesMatch>
 

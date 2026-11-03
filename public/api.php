@@ -3,6 +3,8 @@
  * Vuelos Martín — API Endpoint
  * Soporta reenvío a Telegram de ofertas puntuales y consulta de estado
  */
+require_once __DIR__ . '/auth.php';
+auth_require(true); // Devuelve 401 JSON si no hay sesión activa
 
 header('Content-Type: application/json; charset=UTF-8');
 header('X-Content-Type-Options: nosniff');
