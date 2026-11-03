@@ -1,6 +1,6 @@
-# AGENTS.md — PROTOCOLO MASTER DE INGENIERÍA Y SEGURIDAD
 
-**Versión:** 2.1  
+
+**Versión:** 2.2  
 **Objetivo:** Desarrollo autónomo, seguro, verificable y mantenible mediante agentes de código.
 
 Este protocolo establece las reglas de actuación para cualquier agente de desarrollo que trabaje en este repositorio. Se aplica a la inspección, modificación, ejecución, pruebas, documentación, Git, bases de datos y despliegues.
@@ -85,8 +85,12 @@ Todo código nuevo debe seguir las convenciones del proyecto.
 - No exponer información confidencial en logs o respuestas.
 - Mantener la compatibilidad con las interfaces existentes, salvo que se autorice un cambio contractual.
 
-Las interfaces de usuario deben ser modernas, limpias, coherentes y adaptables a distintos dispositivos.
-No introducir animaciones, dependencias o complejidad visual innecesarias.
+**Design System del proyecto (respetar en toda interfaz nueva):**
+- Fuente principal: `Plus Jakarta Sans` (Google Fonts).
+- Paleta base: `--bg-dark: #070b14`, `--accent-cyan: #38bdf8`, `--accent-daytrip: #fbbf24`, `--accent-bridge: #a855f7`.
+- Modo oscuro obligatorio con glassmorphism (`backdrop-filter: blur`) y micro-animaciones de transición.
+- Estilos exclusivamente en `public/css/style.css` con las variables CSS definidas en `:root`. Cero estilos inline en HTML.
+- Responsive obligatorio: breakpoints en 768 px y 480 px ya definidos en el CSS existente.
 
 ## 7. PROTOCOLO INTEGRAL DE CONTROL DE VERSIONES (GIT) 🛡️
 
@@ -109,13 +113,19 @@ Verificar la rama activa, los cambios pendientes y el estado del árbol de traba
 
 Toda modificación debe verificarse mediante las pruebas adecuadas a su alcance:
 - Compilación o comprobación de tipos estáticos.
-- Linters y análisis estático.
+- Linters y análisis estático (`php -l` para PHP; ESLint para JS cuando aplique).
 - Pruebas unitarias, de integración o de regresión según corresponda.
 - Verificación de contratos y compatibilidad de APIs.
 - Pruebas de seguridad y casos límite.
 
 No exigir pruebas de compilación cuando no sean aplicables al tipo de cambio (ej. documentación o assets estáticos).
-Si una prueba no puede ejecutarse, indicar exactamente cuál, por qué y qué riesgo queda pendiente.
+
+**Protocolo para prueba no ejecutable:** Si una prueba no puede ejecutarse (entorno no disponible, dependencia externa caída, cobertura pendiente), el agente debe:
+1. Documentar exactamente qué prueba no pudo ejecutarse y la causa.
+2. Estimar el nivel de riesgo residual (bajo / medio / alto).
+3. Si el riesgo es **alto**, bloquear el merge hasta que pueda verificarse o hasta que Martín lo autorice explícitamente con conocimiento del riesgo.
+4. Si el riesgo es **medio o bajo**, dejarlo registrado en el commit message con el prefijo `[TEST-PENDING]`.
+
 Nunca afirmar que una prueba ha pasado si no se ha ejecutado realmente.
 
 ## 9. ORQUESTACIÓN EFICIENTE DE MODELOS 🤖
@@ -166,15 +176,17 @@ Ante una regresión crítica, queda prohibido ejecutar un reset destructivo. El 
 
 ## 13. SEPARACIÓN ENTRE DESARROLLO Y DESPLIEGUE (CASCADA CONTINUA) 🔄
 
-El desarrollo, la integración y el despliegue son fases independientes y progresivas:
+**Pipeline real de este proyecto (sin staging dedicado):**
 
-$$\text{Local (Lint/Pruebas)} \longrightarrow \text{Commit/Push} \longrightarrow \text{Staging (Validación)} \longrightarrow \text{Producción}$$
+$$\text{Local (Lint + PHP\ -l)} \longrightarrow \text{Commit/Push (GitHub)} \longrightarrow \text{Producción VPS (bin/deploy.sh)}$$
 
-- Cada fase requiere sus propias verificaciones.
-- No desplegar automáticamente cada cambio local.
-- No asumir que un commit autoriza un despliegue.
-- No asumir que un despliegue en staging autoriza un pase a producción viva.
-- Las migraciones de base de datos deben validarse en local/staging antes de tocar producción y contar con un plan de rollback técnico.
+Dado que no existe un entorno de staging independiente, el nivel de rigor en local es obligatoriamente más alto:
+
+- **Local es el staging:** Antes de desplegar, ejecutar `php -l` en todos los PHP modificados y validar la lógica manualmente en local cuando sea posible.
+- **Despliegue siempre con `bin/deploy.sh`:** Nunca copiar archivos manualmente al VPS. El script sincroniza, escribe el `.env` blindado y verifica el código HTTP de respuesta.
+- **Verificación post-despliegue obligatoria:** Confirmar HTTP 302 (login activo) o HTTP 200 (autenticado) según el endpoint. Un HTTP 200 en el HTML no garantiza que `api.php` funcione correctamente; verificar también las rutas de API críticas.
+- **Rollback de producción:** Ante un fallo en producción, revertir con `git revert` del commit fallido, ejecutar `bin/deploy.sh` y verificar recuperación. No usar `git push --force` ni edición manual de archivos en el VPS.
+- Las migraciones de datos (ej. `data/deals.json`) deben respaldarse en local antes de cualquier despliegue que las afecte.
 
 ## 14. CLASIFICACIÓN Y LÓGICA DE NEGOCIO 🧠
 
@@ -249,6 +261,34 @@ Ante cualquier fallo o bug, seguir el proceso de 4 pasos obligatorios:
 - Qué pruebas se ejecutaron y sus resultados.
 - Qué riesgos o limitaciones permanecen.
 - **El comando o paso exacto de 1 línea para que el desarrollador verifique el resultado en menos de 10 segundos.**
+
+## 20. OBSERVABILIDAD Y MONITOREO DE PRODUCCIÓN 📡
+
+Un sistema sin observabilidad es un sistema ciego. Este protocolo aplica tanto al agente como al desarrollador.
+
+**Verificaciones periódicas obligatorias (manual o automatizable):**
+```bash
+# 1. Estado HTTP del frontend (debe ser 302 → login, o 200 si ya autenticado)
+curl -s -o /dev/null -w "%{http_code}" https://contenido.creawebes.com/VuelosMartin/
+
+# 2. Estado HTTP de la API (debe ser 401 si no autenticado)
+curl -s -o /dev/null -w "%{http_code}" "https://contenido.creawebes.com/VuelosMartin/api.php?action=scan"
+
+# 3. Verificar que el Cron generó deals (el archivo no debe estar vacío ni ser muy antiguo)
+# Revisar fecha de modificación de data/deals.json en el VPS
+```
+
+**Señales de alerta que requieren acción inmediata:**
+- `data/deals.json` con 0 vuelos o sin actualizar en más de 25 horas → el cron falló.
+- HTTP 500 en cualquier endpoint → error de PHP en producción; revisar logs de Apache en Hostinger.
+- HTTP 200 en `api.php` sin autenticación → la protección de sesión falló; revisar `auth.php`.
+- Bot de Telegram sin mensajes en más de 48 h con cron activo → problema en el token o en el script de notificación.
+
+**Ante cualquier alerta:**
+1. Revisar logs del servidor (Hostinger → Logs de errores de PHP/Apache).
+2. Reproducir el error en local con el mismo input.
+3. Aplicar el Protocolo de Depuración de la Sección 19.
+4. Desplegar el fix vía `bin/deploy.sh` y re-verificar.
 
 ---
 
