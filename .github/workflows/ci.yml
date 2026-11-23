@@ -32,8 +32,8 @@ jobs:
             php -l "$f"
           done
 
-      - name: Instalar dependencias (npm ci)
-        run: npm ci
+      - name: Instalar dependencias (npm install)
+        run: npm install --no-audit --no-fund
 
       - name: Análisis estático de tipos (tsc)
         run: npm run typecheck
