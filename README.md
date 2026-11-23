@@ -1,5 +1,7 @@
 # ✈️ Vuelos Martín — AI-Powered Flight Deal Radar
 
+[![CI — Calidad ITV](https://github.com/20Luisma/ViajesMartin/actions/workflows/ci.yml/badge.svg)](https://github.com/20Luisma/ViajesMartin/actions/workflows/ci.yml)
+
 > **Radar autónomo de vuelos chollo desde Barcelona-El Prat (BCN).**  
 > Multi-aerolínea · Filtros inteligentes de horario · Alertas push en Telegram · Web PWA con dark mode.
 

@@ -1,0 +1,51 @@
+name: CI — Calidad ITV
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  quality:
+    name: Lint PHP + TypeScript + Tests + E2E + Audit
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Configurar PHP 8.2
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+
+      - name: Verificar sintaxis PHP
+        run: |
+          for f in public/*.php public/api/*.php; do
+            php -l "$f"
+          done
+
+      - name: Instalar dependencias (npm ci)
+        run: npm ci
+
+      - name: Análisis estático de tipos (tsc)
+        run: npm run typecheck
+
+      - name: Tests unitarios y cobertura (>= 75%)
+        run: npm test
+
+      - name: Instalar Chromium para Playwright
+        run: npx playwright install --with-deps chromium
+
+      - name: Pruebas E2E en navegador real
+        run: npm run test:e2e
+
+      - name: Auditoría de dependencias (0 CVEs moderate+)
+        run: npm audit --audit-level=moderate
