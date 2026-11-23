@@ -34,14 +34,17 @@ Solo pasan los vuelos con **horarios aprovechables + precio real bajo**. Sin vue
 ## 🏗️ Stack Técnico
 
 ```
-Backend     PHP 8.2 · Apache · Hostinger VPS
+Backend     PHP 8.2 puro (sin Composer/vendor) · Apache · Hostinger VPS
+            Router public/api.php + módulos desacoplados en public/api/
 APIs        Kiwi MCP (Vueling, easyJet, Wizz Air, Air Europa)
-            Ryanair FareFinder · Pool rotativo de RapidAPI (11 claves)
+            Ryanair FareFinder · Pool rotativo de RapidAPI
 Notificaciones  Bot de Telegram con alertas push y enlace directo de compra
-Frontend    HTML5 · CSS3 Glassmorphism · Vanilla JS · PWA instalable
+Frontend    HTML5 (WCAG 2.1 AA) · CSS3 Glassmorphism · ES Modules (public/js/modules/) · PWA
+Calidad     TypeScript (checkJs) · Vitest + cobertura >=75% · Playwright E2E · 0 CVEs
+Observabilidad  Logs JSON fail-safe (Node + PHP) + soporte opcional SENTRY_DSN
 Persistencia    JSON flat-file · Motor de deduplicación canónica multi-API
 Deploy      rsync + SSH via bin/deploy.sh · Cron desatendido a las 00:00h
-Agentes IA  Antigravity God-Mode · MEMORY.md persistente · AGENTS.md por proyecto
+Agentes IA  Antigravity God-Mode · MEMORY.md persistente · AGENTS.md · docs/adr/
 ```
 
 ---
@@ -94,12 +97,35 @@ Este proyecto usa **Antigravity God-Mode** — un sistema de reglas persistentes
 
 ---
 
-## 🚀 Deploy y Calidad Local (ITV 7/7)
+## 🚀 Instalación Local, Calidad (ITV 7/7) y Deploy
 
+### Requisitos
+- **Node.js ≥ 20** y **npm** (para scanners CLI, TypeScript, Vitest y Playwright E2E)
+- **PHP ≥ 8.2** con `curl` (PHP puro: **no requiere Composer ni `vendor/`**)
+
+### Instalación desde cero (clon limpio)
 ```bash
-# Verificación local completa (tipos, tests unitarios + cobertura >=75%, E2E Playwright, auditoría CVEs)
+# 1. Instalar dependencias de desarrollo (TypeScript, Vitest, coverage-v8, Playwright)
+npm ci
+
+# 2. Instalar navegador Chromium para pruebas E2E (solo la primera vez)
+npx playwright install chromium
+
+# 3. Configurar variables de entorno locales
+cp .env.example .env
+```
+
+### Verificación Local Completa (ITV 7/7)
+```bash
+# Tipos estáticos, tests unitarios + cobertura >=75%, E2E en navegador real y auditoría 0 CVEs
 npm run typecheck && npm test && npm run test:e2e && npm audit --audit-level=moderate
 
+# Sintaxis PHP en todos los endpoints y módulos
+for f in public/*.php public/api/*.php; do php -l "$f" || exit 1; done
+```
+
+### Deploy a Producción (Hostinger VPS)
+```bash
 # Despliegue completo a producción (sincroniza, escribe .env blindado, verifica HTTP)
 bash bin/deploy.sh
 
