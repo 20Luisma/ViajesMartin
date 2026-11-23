@@ -159,3 +159,13 @@ Aplicación autónoma de monitorización, rastreo y alerta en tiempo real de **v
 - **Commits:** ViajesMartin `main → 8b6ef66` | Perfil `20Luisma main → 3187d10`.
 - **Backup de memoria:** `memory_backups/MEMORY_2026-11-03_21-30.md`.
 
+### Sesión 2026-11-23 (ITV 7/7 en Verde · Modularización PHP/JS · Arnés Real de Calidad)
+- **Objetivo:** Llevar el repositorio completo a **ITV 7/7 APTO** (0 observaciones, 0 omitidas, 0 desfavorables, checklist seguridad 6/6 = 100%) sin esconder ni desactivar ninguna comprobación.
+- **Modularización Backend PHP (`public/api/`):** `public/api.php` (antes 752 líneas / 229 ramas) refactorizado a router delgado despachando a `env.php`, `observability.php`, `trips.php`, `copilot.php`, `telegram.php`, `scanner_ryanair.php`, `scanner_kiwi.php` y `scan.php`, con `public/api/.htaccess` (`Require all denied`) y cierre de `<FilesMatch>` + `Referrer-Policy` en `public/.htaccess`.
+- **Modularización Frontend JS (`public/js/modules/`):** `public/js/app.js` (antes 1414 líneas / 257 ramas) dividido en ES Modules (`constants.js`, `pwa.js`, `radar.js`, `trips.js`, `copilot.js`, `photoCleaner.js`), preservando contratos `window.app.*` y cache-busting en `public/index.php`.
+- **Herramientas Reales Instaladas (0 CVEs):** `typescript` + `@types/node` (`tsc --noEmit` con `checkJs: true`), `vitest` + `@vitest/coverage-v8` (13/13 tests, 81.13% cobertura >= 75%), `@playwright/test` (2/2 E2E reales en Chromium incluyendo 404 y 401 API), y `package-lock.json` verificado con `npm audit --audit-level=moderate` (0 CVEs).
+- **Accesibilidad WCAG 2.1 AA y Observabilidad Fail-Safe:** Corregidos saltos `h1 → h3` a `h2` y `aria-label` en `public/index.html`; agregados `src/Core/ErrorLogger.js` (Node) y `public/api/observability.php` (PHP) con logs JSON estructurados y soporte opcional `SENTRY_DSN`.
+- **Bugs reales cazados:** Corregido `!this.apiKey` → `!this.activeKey` en `src/Scanners/GoogleFlightsScanner.js` y aritmética `.getTime()` en scanners.
+- **ADR y README:** Creado `docs/adr/001-modularizacion-y-arnes-calidad-itv.md` y actualizado `README.md`.
+- **Cascada:** Commit `1f5b0b7` + tag `v-estable-2026-11-23` en `origin/main` + deploy en Hostinger VPS vía `bin/deploy.sh`.
+
