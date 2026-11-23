@@ -146,7 +146,7 @@ export class GoogleFlightsScanner {
       const inDepTime = `${arrivalDate}T20:30:00`;
       const inArrTime = `${arrivalDate}T22:15:00`;
 
-      const diffDays = Math.round((new Date(arrivalDate) - new Date(departureDate)) / (1000 * 3600 * 24));
+      const diffDays = Math.round((new Date(arrivalDate).getTime() - new Date(departureDate).getTime()) / (1000 * 3600 * 24));
 
       fares.push({
         airline: airlineName,
@@ -178,7 +178,7 @@ export class GoogleFlightsScanner {
   }
 
   async scan() {
-    if (!this.apiKey) return [];
+    if (!this.activeKey) return [];
 
     console.log(`[GoogleFlights] 🌐 Escaneando Vueling, Air Europa y legacy carriers con Google Flights...`);
 

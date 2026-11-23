@@ -105,7 +105,7 @@
           <div class="filter-actions">
             <div class="search-box">
               <span class="search-icon">🔍</span>
-              <input type="text" id="searchInput" class="search-input" placeholder="Buscar destino (ej. Oporto, Milán)...">
+              <input type="text" id="searchInput" class="search-input" aria-label="Buscar destino o aerolínea" placeholder="Buscar destino (ej. Oporto, Milán)...">
             </div>
 
             <select id="sortSelect" class="sort-select" aria-label="Ordenar vuelos">
@@ -187,14 +187,14 @@
         <div class="photo-cleaner-card">
           <div class="photo-cleaner-header">
             <span class="photo-cleaner-badge">🛡️ Bypass C2PA / Meta / Instagram</span>
-            <h3 class="photo-cleaner-title">Limpiador de Fotos de Viaje (Anti-Tag IA)</h3>
+            <h2 class="photo-cleaner-title">Limpiador de Fotos de Viaje (Anti-Tag IA)</h2>
             <p class="photo-cleaner-desc">
               ¿Retocaste fotos con IA (Lightroom, Magic Eraser, Photoshop)? Al subirlas acá, la app redibuja los píxeles puros en un canvas local nativo en alta resolución, <strong>destruyendo al 100% las firmas invisibles C2PA y etiquetas digitales</strong> para que Instagram las publique como fotos naturales de cámara.
             </p>
           </div>
 
           <div class="photo-dropzone" id="photoDropzone">
-            <input type="file" id="photoCleanerInput" multiple accept="image/*" style="display: none;">
+            <input type="file" id="photoCleanerInput" aria-label="Seleccionar fotos para limpiar" multiple accept="image/*" style="display: none;">
             <div class="dropzone-content">
               <span class="dropzone-icon">📸</span>
               <div class="dropzone-text">
@@ -239,7 +239,7 @@
         <div class="copilot-header-info">
           <span class="copilot-avatar">🤖</span>
           <div>
-            <h3 class="copilot-title">Copiloto de Viajes</h3>
+            <h2 class="copilot-title">Copiloto de Viajes</h2>
             <span class="copilot-status"><span class="live-dot"></span> Gemini Flash Multimodal</span>
           </div>
         </div>
@@ -262,11 +262,11 @@
 
       <!-- Input Bar -->
       <form id="copilotForm" class="copilot-input-bar">
-        <input type="file" id="copilotFileInput" accept="image/*,application/pdf" style="display: none;">
+        <input type="file" id="copilotFileInput" aria-label="Adjuntar archivo de viaje" accept="image/*,application/pdf" style="display: none;">
         <button type="button" id="copilotAttachBtn" class="copilot-attach-btn" title="Adjuntar captura de vuelo, hotel o PDF">
           📎
         </button>
-        <input type="text" id="copilotInput" class="copilot-text-input" placeholder="Escribile al copiloto o adjuntá captura..." autocomplete="off">
+        <input type="text" id="copilotInput" class="copilot-text-input" aria-label="Mensaje para el Copiloto de Viajes" placeholder="Escribile al copiloto o adjuntá captura..." autocomplete="off">
         <button type="submit" id="copilotSendBtn" class="copilot-send-btn" title="Enviar mensaje">
           ➤
         </button>
@@ -274,6 +274,6 @@
     </div>
   </div>
 
-  <script src="js/app.js?v=4.8"></script>
+  <script type="module" src="js/app.js?v=4.8"></script>
 </body>
 </html>

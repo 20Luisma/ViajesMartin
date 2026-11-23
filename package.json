@@ -7,7 +7,10 @@
   "scripts": {
     "start": "node --env-file=.env src/index.js",
     "scan": "node --env-file=.env src/index.js --once",
-    "test-alert": "node --env-file=.env src/test-alert.js"
+    "test-alert": "node --env-file=.env src/test-alert.js",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --coverage",
+    "test:e2e": "playwright test"
   },
   "keywords": [
     "flights",
@@ -17,5 +20,15 @@
     "travel"
   ],
   "author": "Martín",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "@types/node": "^26.6.6",
+    "@vitest/coverage-v8": "^5.1.1",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.1"
+  },
+  "optionalDependencies": {
+    "@rolldown/binding-darwin-arm64": "^1.2.19"
+  }
 }

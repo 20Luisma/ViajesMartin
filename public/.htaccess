@@ -5,6 +5,7 @@ Options -Indexes
 <IfModule mod_headers.c>
     Header set X-Content-Type-Options "nosniff"
     Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>
 
 # Evitar cache en archivos que cambian dinámicamente
@@ -16,6 +17,7 @@ Options -Indexes
         Header set Pragma "no-cache"
         Header set Expires "Wed, 11 Jan 1984 05:00:00 GMT"
     </IfModule>
+</FilesMatch>
 
 # Bloquear acceso a archivos sensibles
 <FilesMatch "^\.env">
@@ -26,4 +28,3 @@ Options -Indexes
 <FilesMatch "^auth\.php$">
     Require all denied
 </FilesMatch>
-

@@ -107,7 +107,7 @@ export class SkyscannerScanner {
 
       const outDep = new Date(legOut.departure);
       const inDep = new Date(legIn.departure);
-      const diffDays = Math.round((inDep - outDep) / (1000 * 3600 * 24));
+      const diffDays = Math.round((inDep.getTime() - outDep.getTime()) / (1000 * 3600 * 24));
 
       const fare = {
         airline: carrierCombined,

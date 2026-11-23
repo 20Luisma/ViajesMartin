@@ -4,7 +4,10 @@ import { GoogleFlightsScanner } from './Scanners/GoogleFlightsScanner.js';
 import { FlightFilter } from './Core/FlightFilter.js';
 import { TelegramNotifier } from './Notifier/TelegramNotifier.js';
 import { AlertHistory } from './Storage/AlertHistory.js';
+import { defaultLogger } from './Core/ErrorLogger.js';
 import { Config } from '../config/config.js';
+
+defaultLogger.installGlobalHandlers();
 
 class FlightDealHunter {
   constructor() {

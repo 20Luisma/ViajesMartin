@@ -94,9 +94,12 @@ Este proyecto usa **Antigravity God-Mode** — un sistema de reglas persistentes
 
 ---
 
-## 🚀 Deploy
+## 🚀 Deploy y Calidad Local (ITV 7/7)
 
 ```bash
+# Verificación local completa (tipos, tests unitarios + cobertura >=75%, E2E Playwright, auditoría CVEs)
+npm run typecheck && npm test && npm run test:e2e && npm audit --audit-level=moderate
+
 # Despliegue completo a producción (sincroniza, escribe .env blindado, verifica HTTP)
 bash bin/deploy.sh
 

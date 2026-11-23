@@ -7,4 +7,6 @@ storage/logs/
 vendor/
 node_modules/
 .venv/
-
+coverage/
+playwright-report/
+test-results/
