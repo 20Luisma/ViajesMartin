@@ -88,8 +88,8 @@
                     "id": 4,
                     "day": "2026-11-25",
                     "time": "12:15",
-                    "title": "Grand Taxi blanco oficial a Barrio Ziat",
-                    "desc": "Salir por la puerta principal a la parada oficial de Grand Taxis BLANCOS (los únicos que van al aeropuerto). Pactar 15 € en efectivo ANTES de subir, confirmar que es privado y dar destino: N 25 Derb El Bakraoui, Barrio Ziat. Avisar por WhatsApp al riad (+212 5356 36092).",
+                    "title": "Grand Taxi blanco oficial a Ziat (Poste Maroc)",
+                    "desc": "Salir por la puerta principal a la parada oficial de Grand Taxis BLANCOS. Pactar 15 € en efectivo ANTES de subir, confirmar que es privado y decirle: 'Ziat, Poste Maroc' (mostrar pin Dar Berrada-Ziat, te deja a 50 m del riad). Avisar por WhatsApp al riad (+212 5356 36092).",
                     "category": "transport",
                     "completed": false
                 },
@@ -106,8 +106,8 @@
                     "id": 6,
                     "day": "2026-11-25",
                     "time": "13:30",
-                    "title": "Cambiar 60 € en Puerta Azul + Almuerzo rápido",
-                    "desc": "Cambiar 60 € en efectivo (~620-630 MAD) en casa de cambio oficial junto a Puerta Azul (Bab Boujloud) / Plaza Batha. Almorzar tajín o brochetas + zumo natural cerca de la Puerta Azul (necesitás ~100 MAD sueltos para el tour).",
+                    "title": "Cambiar 60 € (Place Batha / Puerta Azul) + Almuerzo",
+                    "desc": "Caminar 7-8 min a 'Place Batha, Fes' (casas de cambio) o 12-15 min a 'Bab Boujloud' (Puerta Azul). Cambiar 60 € en efectivo (~620-630 MAD) en casa de cambio oficial y almorzar tajín o brochetas + zumo natural.",
                     "category": "food",
                     "completed": false
                 },
@@ -116,7 +116,7 @@
                     "day": "2026-11-25",
                     "time": "14:30",
                     "title": "Puerta Azul y Madraza Bou Inania (Libre)",
-                    "desc": "Maps: 'Bab Boujloud' -> bajar recto por 'Talaa Kebira' -> 'Bou Inania Madrasa' (3 min a pie, entrada 20 MAD). Si prefieres guía oficial, pedir uno con placa en el riad (~200-250 MAD).",
+                    "desc": "Maps: 'Bab Boujloud' -> bajar recto por 'Talaa Kebira' -> 'Bou Inania Madrasa' (3 min bajando, entrada 20 MAD). Si prefieres guía oficial, pedir uno con placa en el riad (~200-250 MAD).",
                     "category": "visit",
                     "completed": false
                 },
@@ -125,7 +125,7 @@
                     "day": "2026-11-25",
                     "time": "15:30",
                     "title": "Plaza Nejjarine, Al Karaouine y Curtiduría Chouara",
-                    "desc": "Seguir bajando por Talaa Kebira. Maps en orden: 'Place Nejjarine' -> 'Al-Qarawiyyin Mosque' (exterior) -> 'Chouara Tannery' (llegar antes de 17:15 con luz; 10-20 MAD en terraza). Ignorar falsos guías ('La, shukran').",
+                    "desc": "Seguir bajando por Talaa Kebira. Maps en orden: 'Place Nejjarine, Fes' -> 'Al-Qarawiyyin Mosque' (exterior) -> 'Chouara Tannery' (llegar antes de 17:15 con luz; 10-20 MAD en terraza). Ignorar falsos guías ('La, shukran').",
                     "category": "visit",
                     "completed": false
                 },
@@ -133,8 +133,8 @@
                     "id": 9,
                     "day": "2026-11-25",
                     "time": "17:30",
-                    "title": "Vuelta desde Plaza R'cif en Petit Taxi Rojo",
-                    "desc": "Maps: 'Place R'cif, Fes' (5 min a pie desde Chouara). Agarrar Petit Taxi ROJO ('Bab Boujloud, compteur', 10-20 MAD, 5 min) para subir a tu zona antes de que cierre la noche. Ducha y descanso.",
+                    "title": "Vuelta desde Plaza R'cif a Ziat (Poste Maroc)",
+                    "desc": "Maps: 'Place R'cif, Fes' (5 min a pie desde Chouara). Agarrar Petit Taxi ROJO y decirle 'Ziat, Poste Maroc, compteur' (10-20 MAD, 5 min): te deja a 50 m de tu riad sin caminar de noche. Ducha y descanso.",
                     "category": "transport",
                     "completed": false
                 },
@@ -142,8 +142,8 @@
                     "id": 10,
                     "day": "2026-11-25",
                     "time": "20:00",
-                    "title": "Cena y Noche en Terraza (Puerta Azul)",
-                    "desc": "Maps: 'Bab Boujloud' o 'Cafe Clock, Fes' (5 min a pie del riad). Pastela de pollo o tajín de cordero con ciruelas y té con menta. Llevar sudadera (baja a 6-8°C de noche).",
+                    "title": "Cena tranquila (Ziat o Puerta Azul en taxi)",
+                    "desc": "Opción pegada al riad: 'Restaurant Berrada' (en Ziat, a 1 min). O ir/volver en Petit Taxi ROJO (10-15 MAD) a 'Bab Boujloud' / 'Cafe Clock, Fes'. Llevar sudadera (baja a 6-8°C de noche).",
                     "category": "food",
                     "completed": false
                 },
@@ -160,8 +160,8 @@
                     "id": 12,
                     "day": "2026-11-26",
                     "time": "10:00",
-                    "title": "Jardín Jnan Sbil (5 min a pie)",
-                    "desc": "Maps: 'Jnan Sbil Gardens'. Oasis histórico gratuito con palmeras, fuentes y sombra pegado a Batha.",
+                    "title": "Jardín Jnan Sbil (12-15 min a pie o taxi 10 MAD)",
+                    "desc": "Maps: 'Jnan Sbil Gardens' (12-15 min caminando pasando por Place Batha, o 5 min en Petit Taxi rojo por 10 MAD). Oasis histórico gratuito con palmeras, fuentes y sombra.",
                     "category": "visit",
                     "completed": false
                 },
