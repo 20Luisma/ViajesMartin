@@ -114,27 +114,27 @@
                 {
                     "id": 7,
                     "day": "2026-11-25",
-                    "time": "14:45",
-                    "title": "Punto de encuentro Free Tour (zona Puerta Azul)",
-                    "desc": "A 5 min caminando desde el riad (revisar punto exacto en confirmación Civitatis junto a Bab Boujloud). Llevar ~100-150 MAD en efectivo para propina del guía al final + alguna entrada de Madraza.",
+                    "time": "14:30",
+                    "title": "Puerta Azul y Madraza Bou Inania (Libre)",
+                    "desc": "Maps: 'Bab Boujloud' -> bajar recto por 'Talaa Kebira' -> 'Bou Inania Madrasa' (3 min a pie, entrada 20 MAD). Si prefieres guía oficial, pedir uno con placa en el riad (~200-250 MAD).",
                     "category": "visit",
                     "completed": false
                 },
                 {
                     "id": 8,
                     "day": "2026-11-25",
-                    "time": "15:00",
-                    "title": "Free Tour por la Medina de Fez (15:00 - 18:00)",
-                    "desc": "Tour 2h30-3h en español (propina libre): Puerta Azul (Bab Bou Jeloud), zocos, Medersa Attarine o Bou Inania, Plaza Nejjarine, Mausoleo Mulay Idris II y recta final en la Curtiduría Chouara (la grande).",
+                    "time": "15:30",
+                    "title": "Plaza Nejjarine, Al Karaouine y Curtiduría Chouara",
+                    "desc": "Seguir bajando por Talaa Kebira. Maps en orden: 'Place Nejjarine' -> 'Al-Qarawiyyin Mosque' (exterior) -> 'Chouara Tannery' (llegar antes de 17:15 con luz; 10-20 MAD en terraza). Ignorar falsos guías ('La, shukran').",
                     "category": "visit",
                     "completed": false
                 },
                 {
                     "id": 9,
                     "day": "2026-11-25",
-                    "time": "18:00",
-                    "title": "Vuelta desde Chouara / Plaza R'cif y descanso",
-                    "desc": "Ya es de noche (~17:15 atardecer). Desde la salida de Chouara / Plaza R'cif agarrar Petit Taxi ROJO ('Bab Boujloud, compteur', 15-20 MAD, 5 min) hasta tu zona. Ducha y recarga de baterías.",
+                    "time": "17:30",
+                    "title": "Vuelta desde Plaza R'cif en Petit Taxi Rojo",
+                    "desc": "Maps: 'Place R'cif, Fes' (5 min a pie desde Chouara). Agarrar Petit Taxi ROJO ('Bab Boujloud, compteur', 10-20 MAD, 5 min) para subir a tu zona antes de que cierre la noche. Ducha y descanso.",
                     "category": "transport",
                     "completed": false
                 },
@@ -142,8 +142,8 @@
                     "id": 10,
                     "day": "2026-11-25",
                     "time": "20:00",
-                    "title": "Cena y Noche en Terraza",
-                    "desc": "Pastela de pollo o tajín de cordero con ciruelas y té con menta mirando la Medina iluminada (zona Bab Boujloud / Ziat).",
+                    "title": "Cena y Noche en Terraza (Puerta Azul)",
+                    "desc": "Maps: 'Bab Boujloud' o 'Cafe Clock, Fes' (5 min a pie del riad). Pastela de pollo o tajín de cordero con ciruelas y té con menta. Llevar sudadera (baja a 6-8°C de noche).",
                     "category": "food",
                     "completed": false
                 },
@@ -161,7 +161,7 @@
                     "day": "2026-11-26",
                     "time": "10:00",
                     "title": "Jardín Jnan Sbil (5 min a pie)",
-                    "desc": "Oasis histórico gratuito con palmeras, fuentes y sombra pegado a Batha. 100% nuevo respecto al tour del miércoles.",
+                    "desc": "Maps: 'Jnan Sbil Gardens'. Oasis histórico gratuito con palmeras, fuentes y sombra pegado a Batha.",
                     "category": "visit",
                     "completed": false
                 },
@@ -170,7 +170,7 @@
                     "day": "2026-11-26",
                     "time": "10:45",
                     "title": "Palacio Real (7 Puertas) y Barrio Judío (Mellah)",
-                    "desc": "10 min caminando en llano desde Jnan Sbil. Fotos en las 7 puertas doradas de bronce de Dar el-Makhzen y paseo por los balcones de madera del Mellah.",
+                    "desc": "Maps: 'Royal Palace of Fez' -> 'Mellah, Fes' (10 min caminando en llano desde Jnan Sbil). Fotos en las 7 puertas doradas de bronce y balcones de madera del Mellah.",
                     "category": "visit",
                     "completed": false
                 },
@@ -179,7 +179,7 @@
                     "day": "2026-11-26",
                     "time": "12:15",
                     "title": "Tumbas Meriníes (Mirador Panorámico)",
-                    "desc": "Petit Taxi rojo (15-20 MAD, 'compteur') hasta lo alto de la colina: mejor panorámica de toda la Medina de Fez con luz de mañana.",
+                    "desc": "Maps: 'Marinid Tombs, Fes'. Subir en Petit Taxi ROJO ('compteur', 15-20 MAD) hasta lo alto de la colina: mejor panorámica de toda la Medina de Fez.",
                     "category": "visit",
                     "completed": false
                 },
@@ -187,8 +187,8 @@
                     "id": 15,
                     "day": "2026-11-26",
                     "time": "13:15",
-                    "title": "Almuerzo tranquilo en Ville Nouvelle / Batha",
-                    "desc": "Bajada en Petit Taxi (15-20 MAD). Último tajín o café en zona moderna (Av. Hassan II / Batha), ya camino al aeropuerto y sin volver al riad.",
+                    "title": "Almuerzo de despedida en Puerta Azul",
+                    "desc": "Bajar en Petit Taxi ROJO a 'Bab Boujloud' (15-20 MAD). Último tajín, café Nous-Nous y compras rápidas junto a la parada de taxis del aeropuerto.",
                     "category": "food",
                     "completed": false
                 },
@@ -197,7 +197,7 @@
                     "day": "2026-11-26",
                     "time": "15:00",
                     "title": "Grand Taxi blanco directo al Aeropuerto Fez-Saïss",
-                    "desc": "Agarrar Grand Taxi BLANCO (parada Place Boujloud/Batha o Estación de Tren/Av. Hassan II en Ville Nouvelle). Pactar 15 € (o 120-150 MAD) privado ANTES de subir. Calcular 35-45 min con tráfico de jueves por la tarde (Route d'Imouzzer).",
+                    "desc": "Maps: 'Place Boujloud' / 'Place Batha, Fes' -> 'Fes-Saiss Airport'. Agarrar Grand Taxi BLANCO (pactar 15 € o 120-150 MAD privado ANTES de subir). Calcular 35-45 min con tráfico de jueves.",
                     "category": "transport",
                     "completed": false
                 },
@@ -205,8 +205,8 @@
                     "id": 17,
                     "day": "2026-11-26",
                     "time": "15:45",
-                    "title": "Aeropuerto Fez-Saïss (3h25 antes) + Mostrador Ryanair",
-                    "desc": "Llegada holgada incluso con tráfico. Café tranquilo y, en cuanto abra el mostrador (~16:10-16:40), retirar tarjeta de embarque en papel sellada gratis (OBLIGATORIO en Marruecos) + control de pasaportes.",
+                    "title": "Aeropuerto Fez-Saïss (3h25 antes) + Control Ryanair",
+                    "desc": "Llegada holgada incluso con tráfico. Preguntar en entrada si pasás directo con el QR móvil o si imprimís papel sellado gratis en mostrador Ryanair (~16:10-16:40). Puerta cierra 18:40.",
                     "category": "airport",
                     "completed": false
                 },
@@ -262,8 +262,8 @@
                 },
                 {
                     "id": "c7",
-                    "text": "Reserva confirmada del Free Tour Medina Día 1 a las 15:00 (Civitatis, propina libre)",
-                    "checked": true
+                    "text": "Sudadera / campera abrigada en la mochila (de noche baja a 6-8°C en Fez)",
+                    "checked": false
                 },
                 {
                     "id": "c8",
