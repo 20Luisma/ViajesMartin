@@ -80,7 +80,7 @@
                     "day": "2026-11-25",
                     "time": "11:30",
                     "title": "Aterrizaje en Aeropuerto Fez-Saïss",
-                    "desc": "Aduana, sello de pasaporte y activar eSIM 48h (1 GB). Sacar 500-600 MAD en ATM del hall (elegir SIEMPRE 'Sin conversión / MAD') o cambiar luego en Bab Boujloud.",
+                    "desc": "Aduana, sello de pasaporte y activar eSIM 48h (1 GB). Nada de ATM ni cambio en aeropuerto: salís directo a los Grand Taxis blancos.",
                     "category": "arrival",
                     "completed": false
                 },
@@ -88,8 +88,8 @@
                     "id": 4,
                     "day": "2026-11-25",
                     "time": "12:15",
-                    "title": "Grand Taxi oficial a Barrio Ziat",
-                    "desc": "Salir por la puerta principal a la parada oficial de Grand Taxis. Pactar 15 € (o 120-150 MAD) ANTES de subir, confirmar que es privado y dar destino: N 25 Derb El Bakraoui, Barrio Ziat. Avisar por WhatsApp al riad (+212 5356 36092).",
+                    "title": "Grand Taxi blanco oficial a Barrio Ziat",
+                    "desc": "Salir por la puerta principal a la parada oficial de Grand Taxis BLANCOS (los únicos que van al aeropuerto). Pactar 15 € en efectivo ANTES de subir, confirmar que es privado y dar destino: N 25 Derb El Bakraoui, Barrio Ziat. Avisar por WhatsApp al riad (+212 5356 36092).",
                     "category": "transport",
                     "completed": false
                 },
@@ -106,8 +106,8 @@
                     "id": 6,
                     "day": "2026-11-25",
                     "time": "13:30",
-                    "title": "Almuerzo rápido cerca de Bab Boujloud",
-                    "desc": "Tajín o brochetas + zumo natural junto a la Puerta Azul. Si aún no sacaste MAD, cambiar 50-60 € en casa de cambio oficial de Bab Boujloud / Batha (necesitás ~100 MAD para las entradas del tour).",
+                    "title": "Cambiar 60 € en Puerta Azul + Almuerzo rápido",
+                    "desc": "Cambiar 60 € en efectivo (~620-630 MAD) en casa de cambio oficial junto a Puerta Azul (Bab Boujloud) / Plaza Batha. Almorzar tajín o brochetas + zumo natural cerca de la Puerta Azul (necesitás ~100 MAD sueltos para el tour).",
                     "category": "food",
                     "completed": false
                 },
@@ -150,63 +150,63 @@
                 {
                     "id": 11,
                     "day": "2026-11-26",
-                    "time": "08:30",
-                    "title": "Desayuno incluido y Checkout",
-                    "desc": "Desayuno incluido en Dar Berrada-Ziat. Hacer checkout (límite 12:00) y dejar la mochila en consigna gratis en el riad.",
+                    "time": "09:00",
+                    "title": "Desayuno incluido y Checkout definitivo",
+                    "desc": "Desayuno incluido en Dar Berrada-Ziat. Checkout (límite 12:00) y salís ya con tu mochila para no volver más al riad.",
                     "category": "hotel",
                     "completed": false
                 },
                 {
                     "id": 12,
                     "day": "2026-11-26",
-                    "time": "09:30",
-                    "title": "Curtiduría Chouara (La Grande)",
-                    "desc": "El icono fotográfico de Fez (el tour del Día 1 solo fue a Sidi Moussa). Mejor luz y máxima actividad de teñido entre 9:30 y 11:00. Pedir ramita de menta y llevar 10-20 MAD de propina para la terraza.",
+                    "time": "10:00",
+                    "title": "Jardín Jnan Sbil (5 min a pie)",
+                    "desc": "Oasis histórico gratuito con palmeras, fuentes y sombra pegado a Batha. 100% nuevo respecto al tour del miércoles.",
                     "category": "visit",
                     "completed": false
                 },
                 {
                     "id": 13,
                     "day": "2026-11-26",
-                    "time": "11:15",
-                    "title": "Tumbas Meriníes (Vistas Panorámicas)",
-                    "desc": "Petit Taxi rojo (15-20 MAD) hasta lo alto de la colina: mejor panorámica de toda la Medina de Fez con luz de mañana.",
+                    "time": "10:45",
+                    "title": "Palacio Real (7 Puertas) y Barrio Judío (Mellah)",
+                    "desc": "10 min caminando en llano desde Jnan Sbil. Fotos en las 7 puertas doradas de bronce de Dar el-Makhzen y paseo por los balcones de madera del Mellah.",
                     "category": "visit",
                     "completed": false
                 },
                 {
                     "id": 14,
                     "day": "2026-11-26",
-                    "time": "12:30",
-                    "title": "Palacio Real y Barrio Judío (Mellah)",
-                    "desc": "Fotos en las 7 puertas doradas de bronce tallado de Dar el-Makhzen y paseo por los balcones de madera del Mellah.",
+                    "time": "12:15",
+                    "title": "Tumbas Meriníes (Mirador Panorámico)",
+                    "desc": "Petit Taxi rojo (15-20 MAD, 'compteur') hasta lo alto de la colina: mejor panorámica de toda la Medina de Fez con luz de mañana.",
                     "category": "visit",
                     "completed": false
                 },
                 {
                     "id": 15,
                     "day": "2026-11-26",
-                    "time": "13:45",
-                    "title": "Almuerzo de despedida y Compras Finales",
-                    "desc": "Último tajín, café Nous-Nous y compras rápidas de especias o recuerdos en Bab Boujloud / Talaa Kebira.",
+                    "time": "13:15",
+                    "title": "Almuerzo tranquilo en Ville Nouvelle / Batha",
+                    "desc": "Bajada en Petit Taxi (15-20 MAD). Último tajín o café en zona moderna (Av. Hassan II / Batha), ya camino al aeropuerto y sin volver al riad.",
                     "category": "food",
                     "completed": false
                 },
                 {
                     "id": 16,
                     "day": "2026-11-26",
-                    "time": "15:45",
-                    "title": "Recoger Mochila y Grand Taxi al Aeropuerto",
-                    "desc": "Retirar mochila en Dar Berrada-Ziat y salir a las 16:00 en Grand Taxi desde Barrio Ziat / Bab Boujloud a Fez-Saïss (120-150 MAD o 15 €, ~30 min).",
+                    "time": "15:00",
+                    "title": "Grand Taxi blanco directo al Aeropuerto Fez-Saïss",
+                    "desc": "Agarrar Grand Taxi BLANCO (parada Place Boujloud/Batha o Estación de Tren/Av. Hassan II en Ville Nouvelle). Pactar 15 € (o 120-150 MAD) privado ANTES de subir. Calcular 35-45 min con tráfico de jueves por la tarde (Route d'Imouzzer).",
                     "category": "transport",
                     "completed": false
                 },
                 {
                     "id": 17,
                     "day": "2026-11-26",
-                    "time": "16:45",
-                    "title": "Mostrador Ryanair (Billete de Papel Sellado)",
-                    "desc": "OBLIGATORIO en Marruecos: pasar por mostrador Ryanair a retirar tarjeta de embarque en papel sellada gratis (no sirve solo móvil). Luego control de pasaportes.",
+                    "time": "15:45",
+                    "title": "Aeropuerto Fez-Saïss (3h25 antes) + Mostrador Ryanair",
+                    "desc": "Llegada holgada incluso con tráfico. Café tranquilo y, en cuanto abra el mostrador (~16:10-16:40), retirar tarjeta de embarque en papel sellada gratis (OBLIGATORIO en Marruecos) + control de pasaportes.",
                     "category": "airport",
                     "completed": false
                 },
@@ -247,7 +247,7 @@
                 },
                 {
                     "id": "c4",
-                    "text": "Efectivo listo: ~60 € en billetes chicos (23,26 € riad + 30 € taxis) + tarjeta para sacar 500-600 MAD",
+                    "text": "Efectivo listo (~115 € total en billetes chicos): 60 € para cambiar a MAD en Puerta Azul + 25 € riad + 30 € taxis aeropuerto ida/vuelta",
                     "checked": false
                 },
                 {
@@ -273,9 +273,9 @@
             ],
             "survivalTips": [
                 {
-                    "title": "Taxis y Tarifas",
+                    "title": "Taxis: Blanco vs Rojo",
                     "icon": "🚕",
-                    "desc": "Grand Taxi aeropuerto-medina: 120-150 MAD fijos. Petit Taxi en la ciudad: con taxímetro (15-20 MAD)."
+                    "desc": "BLANCO (Grand Taxi): único para aeropuerto (pactar 15 € / 120-150 MAD privado antes de subir). ROJO (Petit Taxi): solo dentro de Fez con taxímetro 'compteur' (10-20 MAD)."
                 },
                 {
                     "title": "El grito Balak!",
