@@ -48,21 +48,21 @@
             },
             "hotel": {
                 "name": "Dar Berrada-Ziat",
-                "address": "Barrio Ziat, Fes El-Bali, Medina de Fez",
-                "checkIn": "12:00 - 13:00 (Aprobada)",
-                "checkOut": "11:00",
+                "address": "N 25 Derb El Bakraoui, Barrio Ziat, Fes El-Bali, Medina de Fez",
+                "checkIn": "12:30 - 00:00 (Llegada aprobada 12:00-13:00)",
+                "checkOut": "12:00",
                 "confirmationNumber": "5259739989",
                 "pin": "6943",
                 "phone": "+212 5356 36092",
-                "notes": "Llegada aprobada 12:00-13:00. Teléfono: +212 5356 36092. Reserva Booking #5259739989 (PIN: 6943)."
+                "notes": "Desayuno incluido. SOLO EFECTIVO en el alojamiento (23,26 € total con impuestos, verificar si ya se cobró por tarjeta). GPS: N 034° 3.468, W 04° 58.546. Tel: +212 5356 36092."
             },
             "timeline": [
                 {
                     "id": 1,
                     "day": "2026-11-25",
-                    "time": "08:30",
+                    "time": "08:00",
                     "title": "Llegada a El Prat (T2B)",
-                    "desc": "Control de seguridad + pasaportes policía.",
+                    "desc": "Te deja tu hermano en T2B. Margen cómodo (2h30) para seguridad + control de pasaportes (fuera de Schengen). Apagar itinerancia de datos en SIM española antes de embarcar.",
                     "category": "transport",
                     "completed": false
                 },
@@ -71,7 +71,7 @@
                     "day": "2026-11-25",
                     "time": "10:30",
                     "title": "Despegue vuelo FR3189",
-                    "desc": "Vuelo directo BCN ➔ FEZ con Ryanair.",
+                    "desc": "Vuelo directo BCN ➔ FEZ con Ryanair. Llevar bolígrafo a mano para el papel de aduana marroquí.",
                     "category": "flight",
                     "completed": false
                 },
@@ -79,8 +79,8 @@
                     "id": 3,
                     "day": "2026-11-25",
                     "time": "11:30",
-                    "title": "Aterrizaje en Aeropuerto Saïss",
-                    "desc": "Aduana, sello pasaporte y sacar 400 MAD en cajero automático.",
+                    "title": "Aterrizaje en Aeropuerto Fez-Saïss",
+                    "desc": "Aduana, sello de pasaporte y activar eSIM 48h (1 GB). Sacar 500-600 MAD en ATM del hall (elegir SIEMPRE 'Sin conversión / MAD') o cambiar luego en Bab Boujloud.",
                     "category": "arrival",
                     "completed": false
                 },
@@ -88,8 +88,8 @@
                     "id": 4,
                     "day": "2026-11-25",
                     "time": "12:15",
-                    "title": "Grand Taxi a Bab Boujloud / Ziat",
-                    "desc": "Pactar 120-150 MAD antes de subir al taxi.",
+                    "title": "Grand Taxi oficial a Barrio Ziat",
+                    "desc": "Salir por la puerta principal a la parada oficial de Grand Taxis. Pactar 15 € (o 120-150 MAD) ANTES de subir, confirmar que es privado y dar destino: N 25 Derb El Bakraoui, Barrio Ziat. Avisar por WhatsApp al riad (+212 5356 36092).",
                     "category": "transport",
                     "completed": false
                 },
@@ -98,7 +98,7 @@
                     "day": "2026-11-25",
                     "time": "12:45",
                     "title": "Check-in en Dar Berrada-Ziat",
-                    "desc": "Llegada aprobada 12:00-13:00. Dejar mochila, té con menta de bienvenida y confirmar con el anfitrión.",
+                    "desc": "Llegada aprobada 12:00-13:00. Pago SOLO EN EFECTIVO (23,26 € total con impuestos). Dejar mochila, té con menta de bienvenida y salir liviano.",
                     "category": "hotel",
                     "completed": false
                 },
@@ -106,107 +106,107 @@
                     "id": 6,
                     "day": "2026-11-25",
                     "time": "13:30",
-                    "title": "Almuerzo en la Medina",
-                    "desc": "Tajín de cordero con ciruelas y zumo natural en Talaa Kebira.",
+                    "title": "Almuerzo rápido cerca de Bab Boujloud",
+                    "desc": "Tajín o brochetas + zumo natural junto a la Puerta Azul. Si aún no sacaste MAD, cambiar 50-60 € en casa de cambio oficial de Bab Boujloud / Batha (necesitás ~100 MAD para las entradas del tour).",
                     "category": "food",
                     "completed": false
                 },
                 {
                     "id": 7,
                     "day": "2026-11-25",
-                    "time": "15:00",
-                    "title": "Madraza Bou Inania y Talaa Kebira",
-                    "desc": "Paseo por la arteria principal de la medina y visita a la joya arquitectónica del siglo XIV.",
+                    "time": "14:45",
+                    "title": "Punto de encuentro Tour (Liceo Moulay Idriss)",
+                    "desc": "A 5-7 min caminando desde el riad/Bab Boujloud. Llevar ~100 MAD sueltos en efectivo para las entradas de las Madrazas y propina.",
                     "category": "visit",
                     "completed": false
                 },
                 {
                     "id": 8,
                     "day": "2026-11-25",
-                    "time": "17:00",
-                    "title": "Zocos de Bab Boujloud y Café Tradicional",
-                    "desc": "Exploración de bazares locales y café Nous-Nous al atardecer.",
+                    "time": "15:00",
+                    "title": "Visita Guiada Medina de Fez (15:00 - 18:00)",
+                    "desc": "Tour 3h en español (16 €): Puerta Azul, Madraza Al-Attarine, Madraza Bou Inania, Talaa Kebira y Seguira, Mausoleo Mulay Idris, Mezquita Al Karaouine, Barrio Andaluz, Curtiduría Sidi Moussa y Plaza Seffarine. Termina en Plaza R'cif.",
                     "category": "visit",
                     "completed": false
                 },
                 {
                     "id": 9,
                     "day": "2026-11-25",
-                    "time": "19:10",
-                    "title": "Check-in Online de Vuelta",
-                    "desc": "Hacer check-in en la app de Ryanair desde el wifi del Riad.",
-                    "category": "alert",
+                    "time": "18:15",
+                    "title": "Vuelta desde Plaza R'cif y descanso en el Riad",
+                    "desc": "Ya es de noche (~17:15 atardecer). Agarrar Petit Taxi rojo en Plaza R'cif hasta Barrio Ziat (15-20 MAD, 5 min) para no subir la Medina cansado. Ducha y recarga de baterías.",
+                    "category": "transport",
                     "completed": false
                 },
                 {
                     "id": 10,
                     "day": "2026-11-25",
-                    "time": "20:30",
+                    "time": "20:00",
                     "title": "Cena y Noche en Terraza",
-                    "desc": "Pastela de pollo y té mirando la medina iluminada.",
+                    "desc": "Pastela de pollo o tajín de cordero con ciruelas y té con menta mirando la Medina iluminada (zona Bab Boujloud / Ziat).",
                     "category": "food",
                     "completed": false
                 },
                 {
                     "id": 11,
                     "day": "2026-11-26",
-                    "time": "08:15",
-                    "title": "Desayuno en Dar Berrada-Ziat y Checkout",
-                    "desc": "Desayuno en el riad. Dejar mochila en consigna gratis antes de salir.",
+                    "time": "08:30",
+                    "title": "Desayuno incluido y Checkout",
+                    "desc": "Desayuno incluido en Dar Berrada-Ziat. Hacer checkout (límite 12:00) y dejar la mochila en consigna gratis en el riad.",
                     "category": "hotel",
                     "completed": false
                 },
                 {
                     "id": 12,
                     "day": "2026-11-26",
-                    "time": "09:00",
-                    "title": "Tour Privado: Curtidurías Chouara",
-                    "desc": "Encuentro con guía privado. Momento óptimo: máxima actividad de teñido y menor olor. Llevar ramita de menta.",
+                    "time": "09:30",
+                    "title": "Curtiduría Chouara (La Grande)",
+                    "desc": "El icono fotográfico de Fez (el tour del Día 1 solo fue a Sidi Moussa). Mejor luz y máxima actividad de teñido entre 9:30 y 11:00. Pedir ramita de menta y llevar 10-20 MAD de propina para la terraza.",
                     "category": "visit",
                     "completed": false
                 },
                 {
                     "id": 13,
                     "day": "2026-11-26",
-                    "time": "11:00",
+                    "time": "11:15",
                     "title": "Tumbas Meriníes (Vistas Panorámicas)",
-                    "desc": "Petit Taxi rojo (15-20 MAD) para contemplar toda la medina desde lo alto.",
+                    "desc": "Petit Taxi rojo (15-20 MAD) hasta lo alto de la colina: mejor panorámica de toda la Medina de Fez con luz de mañana.",
                     "category": "visit",
                     "completed": false
                 },
                 {
                     "id": 14,
                     "day": "2026-11-26",
-                    "time": "12:15",
+                    "time": "12:30",
                     "title": "Palacio Real y Barrio Judío (Mellah)",
-                    "desc": "Fotos en las 7 puertas doradas de bronce tallado y arquitectura con balcones de madera.",
+                    "desc": "Fotos en las 7 puertas doradas de bronce tallado de Dar el-Makhzen y paseo por los balcones de madera del Mellah.",
                     "category": "visit",
                     "completed": false
                 },
                 {
                     "id": 15,
                     "day": "2026-11-26",
-                    "time": "13:30",
-                    "title": "Almuerzo y Compras Finales",
-                    "desc": "Último tajín y compras de especias o recuerdos en la medina.",
+                    "time": "13:45",
+                    "title": "Almuerzo de despedida y Compras Finales",
+                    "desc": "Último tajín, café Nous-Nous y compras rápidas de especias o recuerdos en Bab Boujloud / Talaa Kebira.",
                     "category": "food",
                     "completed": false
                 },
                 {
                     "id": 16,
                     "day": "2026-11-26",
-                    "time": "16:30",
-                    "title": "Recoger Mochila y Taxi al Aeropuerto",
-                    "desc": "Grand Taxi desde Bab Boujloud a Saïss (120-150 MAD).",
+                    "time": "15:45",
+                    "title": "Recoger Mochila y Grand Taxi al Aeropuerto",
+                    "desc": "Retirar mochila en Dar Berrada-Ziat y salir a las 16:00 en Grand Taxi desde Barrio Ziat / Bab Boujloud a Fez-Saïss (120-150 MAD o 15 €, ~30 min).",
                     "category": "transport",
                     "completed": false
                 },
                 {
                     "id": 17,
                     "day": "2026-11-26",
-                    "time": "17:00",
-                    "title": "Mostrador Ryanair (Billete Sellado)",
-                    "desc": "Imprescindible: retirar tarjeta de embarque de papel con sello oficial gratis.",
+                    "time": "16:45",
+                    "title": "Mostrador Ryanair (Billete de Papel Sellado)",
+                    "desc": "OBLIGATORIO en Marruecos: pasar por mostrador Ryanair a retirar tarjeta de embarque en papel sellada gratis (no sirve solo móvil). Luego control de pasaportes.",
                     "category": "airport",
                     "completed": false
                 },
@@ -215,7 +215,7 @@
                     "day": "2026-11-26",
                     "time": "19:10",
                     "title": "Despegue vuelo FR3188",
-                    "desc": "Regreso a Barcelona El Prat.",
+                    "desc": "Regreso directo FEZ ➔ BCN con Ryanair.",
                     "category": "flight",
                     "completed": false
                 },
@@ -224,7 +224,7 @@
                     "day": "2026-11-26",
                     "time": "22:05",
                     "title": "Aterrizaje en Barcelona El Prat (T2)",
-                    "desc": "Llegada y fin de la escapada.",
+                    "desc": "Llegada a Barcelona y fin de la escapada.",
                     "category": "arrival",
                     "completed": false
                 }
@@ -237,37 +237,37 @@
                 },
                 {
                     "id": "c2",
-                    "text": "Check-in online de IDA en app de Ryanair (24 Nov a las 10:30)",
-                    "checked": false
+                    "text": "Check-in online de IDA y VUELTA hechos en app de Ryanair",
+                    "checked": true
                 },
                 {
                     "id": "c3",
-                    "text": "eSIM Airalo instalada + Itinerancia de datos apagada en SIM española",
-                    "checked": false
+                    "text": "eSIM 48h (1 GB) lista + mapa offline de Fez (Google Maps + Organic Maps) + roaming APAGADO en SIM española",
+                    "checked": true
                 },
                 {
                     "id": "c4",
-                    "text": "Bolígrafo en la mochila para aduana marroquí",
+                    "text": "Efectivo listo: ~60 € en billetes chicos (23,26 € riad + 30 € taxis) + tarjeta para sacar 500-600 MAD",
                     "checked": false
                 },
                 {
                     "id": "c5",
-                    "text": "Mochila blanda de tela (40x20x25cm sin ruedas rígidas)",
+                    "text": "Bolígrafo en la mochila (aduana) + datos seguro IATI guardados offline en Notas",
                     "checked": false
                 },
                 {
                     "id": "c6",
-                    "text": "Sacar 400 Dirhams en cajero automático al aterrizar",
+                    "text": "Mochila blanda (40x20x25cm sin ruedas rígidas) + powerbank cargada",
                     "checked": false
                 },
                 {
                     "id": "c7",
-                    "text": "Check-in online de VUELTA en app de Ryanair (25 Nov a las 19:10)",
+                    "text": "Reserva confirmada del Tour Medina Día 1 a las 15:00 (Civitatis, 16 €)",
                     "checked": false
                 },
                 {
                     "id": "c8",
-                    "text": "Retirar billete de papel sellado en mostrador de Ryanair en Fez",
+                    "text": "Vuelta en Fez: retirar billete de papel sellado en mostrador de Ryanair",
                     "checked": false
                 }
             ],
