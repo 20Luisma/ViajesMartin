@@ -115,8 +115,8 @@
                     "id": 7,
                     "day": "2026-11-25",
                     "time": "14:45",
-                    "title": "Punto de encuentro Tour (Liceo Moulay Idriss)",
-                    "desc": "A 5-7 min caminando desde el riad/Bab Boujloud. Llevar ~100 MAD sueltos en efectivo para las entradas de las Madrazas y propina.",
+                    "title": "Punto de encuentro Free Tour (zona Puerta Azul)",
+                    "desc": "A 5 min caminando desde el riad (revisar punto exacto en confirmación Civitatis junto a Bab Boujloud). Llevar ~100-150 MAD en efectivo para propina del guía al final + alguna entrada de Madraza.",
                     "category": "visit",
                     "completed": false
                 },
@@ -124,17 +124,17 @@
                     "id": 8,
                     "day": "2026-11-25",
                     "time": "15:00",
-                    "title": "Visita Guiada Medina de Fez (15:00 - 18:00)",
-                    "desc": "Tour 3h en español (16 €): Puerta Azul, Madraza Al-Attarine, Madraza Bou Inania, Talaa Kebira y Seguira, Mausoleo Mulay Idris, Mezquita Al Karaouine, Barrio Andaluz, Curtiduría Sidi Moussa y Plaza Seffarine. Termina en Plaza R'cif.",
+                    "title": "Free Tour por la Medina de Fez (15:00 - 18:00)",
+                    "desc": "Tour 2h30-3h en español (propina libre): Puerta Azul (Bab Bou Jeloud), zocos, Medersa Attarine o Bou Inania, Plaza Nejjarine, Mausoleo Mulay Idris II y recta final en la Curtiduría Chouara (la grande).",
                     "category": "visit",
                     "completed": false
                 },
                 {
                     "id": 9,
                     "day": "2026-11-25",
-                    "time": "18:15",
-                    "title": "Vuelta desde Plaza R'cif y descanso en el Riad",
-                    "desc": "Ya es de noche (~17:15 atardecer). Agarrar Petit Taxi rojo en Plaza R'cif hasta Barrio Ziat (15-20 MAD, 5 min) para no subir la Medina cansado. Ducha y recarga de baterías.",
+                    "time": "18:00",
+                    "title": "Vuelta desde Chouara / Plaza R'cif y descanso",
+                    "desc": "Ya es de noche (~17:15 atardecer). Desde la salida de Chouara / Plaza R'cif agarrar Petit Taxi ROJO ('Bab Boujloud, compteur', 15-20 MAD, 5 min) hasta tu zona. Ducha y recarga de baterías.",
                     "category": "transport",
                     "completed": false
                 },
@@ -262,8 +262,8 @@
                 },
                 {
                     "id": "c7",
-                    "text": "Reserva confirmada del Tour Medina Día 1 a las 15:00 (Civitatis, 16 €)",
-                    "checked": false
+                    "text": "Reserva confirmada del Free Tour Medina Día 1 a las 15:00 (Civitatis, propina libre)",
+                    "checked": true
                 },
                 {
                     "id": "c8",
