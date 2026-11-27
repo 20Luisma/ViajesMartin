@@ -9,7 +9,7 @@
             "destinationIata": "FEZ",
             "originIata": "BCN",
             "flag": "🇲🇦",
-            "status": "confirmed",
+            "status": "completed",
             "mode": "weekend",
             "dates": {
                 "outbound": "2026-11-25",
@@ -287,6 +287,11 @@
                     "title": "Agua Embotellada",
                     "icon": "💧",
                     "desc": "Siempre embotellada (Sidi Ali o Ain Saiss). Comprobá que el tapón haga clic al abrir."
+                },
+                {
+                    "title": "Notas Reales Post-Viaje (Fez Nov 2026)",
+                    "icon": "🏁",
+                    "desc": "Aeropuerto FEZ ya acepta QR digital en móvil (sin cola de papel). Grand Taxis dispersos piden de más (tarifa oficial 120 MAD): pactar firme o cerrar transfer con riad. Tumbas Meriníes solo con luz de día, no subir al anochecer."
                 },
                 {
                     "title": "Frases Clave",

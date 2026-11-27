@@ -1,5 +1,12 @@
+import {
+  buildBoardingPassesHtml,
+  buildTripHeroHtml,
+  buildTripSelectorHtml,
+  EMPTY_TRIP_HTML,
+} from './tripsTemplates.js';
+
 /**
- * Controlador de Mis Viajes (Hero, cuenta regresiva, boarding passes, itinerario, checklist y tips)
+ * Controlador de Mis Viajes (Hero, historial completado, cuenta regresiva, itinerario, checklist y tips)
  */
 export class TripsController {
   /** @param {() => void} onTripsLoaded */
@@ -13,6 +20,7 @@ export class TripsController {
     this.countdownTimer = null;
 
     this.tripCountBadge = document.getElementById('tripCountBadge');
+    this.tripHistoryBar = document.getElementById('tripHistoryBar');
     this.tripHeroSection = document.getElementById('tripHeroSection');
     this.tripBoardingPasses = document.getElementById('tripBoardingPasses');
     this.tripTimelineContainer = document.getElementById('tripTimelineContainer');
@@ -39,80 +47,78 @@ export class TripsController {
   /** @param {any} updatedTrip */
   setActiveTrip(updatedTrip) {
     this.activeTrip = updatedTrip;
-    if (this.tripsData?.trips && updatedTrip) {
+    if (this.tripsData && updatedTrip) {
+      if (!Array.isArray(this.tripsData.trips)) this.tripsData.trips = [];
       const idx = this.tripsData.trips.findIndex((/** @type {any} */ t) => t.id === updatedTrip.id);
       if (idx !== -1) this.tripsData.trips[idx] = updatedTrip;
+      else this.tripsData.trips.push(updatedTrip);
+      this.tripsData.activeTripId = updatedTrip.id;
+      if (this.tripCountBadge) this.tripCountBadge.innerText = String(this.tripsData.trips.length);
     }
     this.renderTrips();
   }
 
+  /** @param {string} tripId */
+  selectTrip(tripId) {
+    const found = (this.tripsData?.trips || []).find((/** @type {any} */ t) => t.id === tripId);
+    if (!found) return;
+    this.activeTrip = found;
+    this.tripsData.activeTripId = found.id;
+    this.renderTrips();
+    this.onTripsLoaded();
+  }
+
+  /** @param {string} tripId */
+  toggleTripStatus(tripId) {
+    const found = (this.tripsData?.trips || []).find((/** @type {any} */ t) => t.id === tripId);
+    if (!found) return;
+    found.status = found.status === 'completed' ? 'confirmed' : 'completed';
+    if (this.activeTrip?.id === found.id) this.activeTrip = found;
+    this.renderTrips();
+    this.saveTripChanges();
+  }
+
   renderTrips() {
     const subnav = /** @type {HTMLElement | null} */ (document.querySelector('.trip-subnav-container'));
+    this.renderTripSelector();
     if (!this.activeTrip) {
       this.renderEmptyState(subnav);
       return;
     }
     if (subnav) subnav.style.display = 'block';
-    this.renderTripHero();
-    this.renderBoardingPasses();
+    if (this.tripHeroSection) this.tripHeroSection.innerHTML = buildTripHeroHtml(this.activeTrip);
+    if (this.tripBoardingPasses) this.tripBoardingPasses.innerHTML = buildBoardingPassesHtml(this.activeTrip);
     this.renderTimeline();
     this.renderChecklist();
     this.renderSurvivalTips();
-    this.startCountdown();
+    if (this.activeTrip.status !== 'completed') {
+      this.startCountdown();
+    } else if (this.countdownTimer) {
+      clearInterval(this.countdownTimer);
+    }
+  }
+
+  renderTripSelector() {
+    if (!this.tripHistoryBar) return;
+    const tripsList = this.tripsData?.trips || [];
+    if (tripsList.length === 0) {
+      this.tripHistoryBar.style.display = 'none';
+      this.tripHistoryBar.innerHTML = '';
+      return;
+    }
+    this.tripHistoryBar.style.display = 'flex';
+    this.tripHistoryBar.innerHTML = buildTripSelectorHtml(tripsList, this.activeTrip?.id);
   }
 
   /** @param {HTMLElement | null} subnav */
   renderEmptyState(subnav) {
-    if (this.tripHeroSection) {
-      this.tripHeroSection.innerHTML = `
-        <div class="empty-state" style="padding: 50px 20px; text-align: center;">
-          <div class="empty-icon" style="font-size: 3.5rem; margin-bottom: 14px;">🎒</div>
-          <h2 class="empty-title" style="font-size: 1.5rem; color: #fff; margin-bottom: 10px;">Todavía no tenés ningún viaje cargado</h2>
-          <p class="empty-desc" style="color: var(--text-secondary); max-width: 480px; margin: 0 auto 24px; font-size: 0.95rem; line-height: 1.5;">
-            Abrí el <strong>Copiloto IA 🤖</strong> abajo a la derecha y adjuntá la captura de tu reserva o escribile tus fechas para que te arme el itinerario inteligente al instante.
-          </p>
-          <button class="scan-now-btn" onclick="window.app.openCopilot()" style="margin: 0 auto; display: inline-flex; font-size: 0.95rem; padding: 12px 24px;">
-            <span class="btn-icon">📸</span> <span>Cargar mi primer viaje</span>
-          </button>
-        </div>
-      `;
-    }
+    if (this.tripHeroSection) this.tripHeroSection.innerHTML = EMPTY_TRIP_HTML;
     if (this.tripBoardingPasses) this.tripBoardingPasses.innerHTML = '';
     if (this.tripTimelineContainer) this.tripTimelineContainer.innerHTML = '';
     if (this.tripChecklistContainer) this.tripChecklistContainer.innerHTML = '';
     if (this.tripTipsContainer) this.tripTipsContainer.innerHTML = '';
     if (subnav) subnav.style.display = 'none';
     if (this.tripCountBadge) this.tripCountBadge.innerText = '0';
-  }
-
-  renderTripHero() {
-    if (!this.tripHeroSection || !this.activeTrip) return;
-    const t = this.activeTrip;
-    this.tripHeroSection.innerHTML = `
-      <div class="trip-hero-header">
-        <div class="trip-hero-destination">
-          <span class="trip-hero-flag">${t.flag || '✈️'}</span>
-          <div>
-            <h2 class="trip-hero-title">${t.title || 'Mi Viaje'}</h2>
-            <div class="trip-hero-subtitle">
-              <span>${t.destinationCity}, ${t.destinationCountry}</span> •
-              <span>${t.dates.outbound} al ${t.dates.inbound}</span> •
-              <span>${t.usefulHours || 32} horas útiles</span>
-            </div>
-          </div>
-        </div>
-        <span class="trip-badge-confirmed"><span class="live-dot"></span> Vuelos Confirmados</span>
-      </div>
-      <div class="trip-countdown-container">
-        <span class="countdown-label">Cuenta Regresiva:</span>
-        <div class="countdown-units">
-          <div class="countdown-unit-box"><div class="countdown-val" id="cdDays">--</div><div class="countdown-sub">Días</div></div>
-          <div class="countdown-unit-box"><div class="countdown-val" id="cdHours">--</div><div class="countdown-sub">Horas</div></div>
-          <div class="countdown-unit-box"><div class="countdown-val" id="cdMins">--</div><div class="countdown-sub">Min</div></div>
-          <div class="countdown-unit-box"><div class="countdown-val" id="cdSecs">--</div><div class="countdown-sub">Seg</div></div>
-        </div>
-      </div>
-    `;
   }
 
   startCountdown() {
@@ -145,56 +151,6 @@ export class TripsController {
 
     tick();
     this.countdownTimer = setInterval(tick, 1000);
-  }
-
-  /** @param {any} leg @param {string} cssClass @param {string} label */
-  renderBoardingCard(leg, cssClass, label) {
-    return `
-      <div class="boarding-pass-card">
-        <div class="boarding-card-header">
-          <span class="boarding-tag ${cssClass}">${label}</span>
-          <span class="boarding-flight-num">${leg.airline} ${leg.flightNumber}</span>
-        </div>
-        <div class="boarding-route">
-          <div class="boarding-point"><div class="iata">${leg.originIata}</div><div class="time">${leg.departureTime}</div><div class="city">${leg.originName}</div></div>
-          <span class="boarding-arrow">✈️ ➔</span>
-          <div class="boarding-point right"><div class="iata">${leg.destinationIata}</div><div class="time">${leg.arrivalTime}</div><div class="city">${leg.destinationName}</div></div>
-        </div>
-        <div class="boarding-footer">
-          <span class="boarding-footer-date" title="${leg.departureDate} • ${leg.terminal || 'T2'}">📅 ${leg.departureDate} • ${leg.terminal || 'T2'}</span>
-          <span class="boarding-tag-luggage">🎒 Mochila 40x20x25cm</span>
-        </div>
-      </div>
-    `;
-  }
-
-  renderBoardingPasses() {
-    if (!this.tripBoardingPasses || !this.activeTrip) return;
-    const { outbound, inbound } = this.activeTrip.flights;
-    const hotel = this.activeTrip.hotel || {};
-
-    this.tripBoardingPasses.innerHTML = `
-      ${this.renderBoardingCard(outbound, 'outbound', '🛫 Vuelo de Ida')}
-      ${this.renderBoardingCard(inbound, 'inbound', '🛬 Vuelo de Vuelta')}
-      <div class="hotel-card">
-        <div class="hotel-header">
-          <span class="hotel-icon">🏨</span>
-          <div>
-            <div class="hotel-name">${hotel.name || 'Alojamiento'}</div>
-            <div class="hotel-address">${hotel.address || 'Ubicación céntrica'}</div>
-          </div>
-        </div>
-        <div class="hotel-meta-row">
-          <span>🕒 Check-in: <strong>${hotel.checkIn || '12:00 - 13:00'}</strong></span>
-          <span>🕒 Check-out: <strong>${hotel.checkOut || '11:00'}</strong></span>
-          ${hotel.confirmationNumber ? `<span>📋 Booking: <strong>#${hotel.confirmationNumber}</strong></span>` : ''}
-          ${hotel.phone ? `<span>📞 Tel: <strong>${hotel.phone}</strong></span>` : ''}
-        </div>
-        <p style="margin-top: 10px; font-size: 0.85rem; color: var(--text-muted); line-height: 1.4;">
-          💡 <strong>Nota del Copiloto:</strong> ${hotel.notes || 'Avisar llegada para transfer.'}
-        </p>
-      </div>
-    `;
   }
 
   renderTimeline() {

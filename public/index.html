@@ -13,7 +13,7 @@
   <link rel="icon" type="image/svg+xml" href="assets/icon.svg">
   <link rel="apple-touch-icon" href="assets/icon-192.png">
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="css/style.css?v=4.8">
+  <link rel="stylesheet" href="css/style.css?v=4.9">
 </head>
 <body>
   <!-- Header -->
@@ -141,6 +141,11 @@
 
     <!-- VISTA 2: MIS VIAJES (PLANIFICACIÓN & ITINERARIO) -->
     <div id="tripsView" class="view-panel" style="display: none;">
+      <!-- Selector de Viajes Activos e Historial -->
+      <section class="trip-history-bar" id="tripHistoryBar" aria-label="Selector de viajes e historial" style="display: none;">
+        <!-- Inyectado dinámicamente -->
+      </section>
+
       <!-- Hero Trip Card con Cuenta Regresiva -->
       <section class="trip-hero-card" id="tripHeroSection">
         <!-- Inyectado dinámicamente -->
@@ -244,6 +249,7 @@
           </div>
         </div>
         <div class="copilot-header-actions">
+          <button id="copilotClearChatBtn" class="copilot-action-btn" title="Limpiar hilo actual del chat">🧹 Limpiar</button>
           <button id="copilotNewTripBtn" class="copilot-action-btn" title="Empezar a planificar otro viaje nuevo desde cero">✨ Nuevo Viaje</button>
           <button id="closeCopilotBtn" class="copilot-close-btn" title="Cerrar chat">✕</button>
         </div>
@@ -274,6 +280,6 @@
     </div>
   </div>
 
-  <script type="module" src="js/app.js?v=4.8"></script>
+  <script type="module" src="js/app.js?v=4.9"></script>
 </body>
 </html>

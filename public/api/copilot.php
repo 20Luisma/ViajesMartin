@@ -27,6 +27,23 @@ function buildCopilotSystemInstruction(): string
         . "{\n  \"reply\": \"Tu respuesta directa a Martín.\",\n  \"updatedTrip\": null o { ... }\n}";
 }
 
+function formatCopilotHistory(array $history): string
+{
+    $recent = array_slice($history, -10);
+    $lines = [];
+    foreach ($recent as $entry) {
+        if (!is_array($entry)) {
+            continue;
+        }
+        $role = ($entry['role'] ?? '') === 'model' ? 'Copiloto' : 'Martín';
+        $text = trim((string)($entry['text'] ?? ''));
+        if ($text !== '') {
+            $lines[] = "$role: " . mb_substr($text, 0, 800);
+        }
+    }
+    return empty($lines) ? '' : "\n\nHISTORIAL RECIENTE DE LA CONVERSACIÓN (mantené el hilo):\n" . implode("\n", $lines);
+}
+
 function handleTripCopilot(array $env): void
 {
     @set_time_limit(120);
@@ -34,6 +51,7 @@ function handleTripCopilot(array $env): void
     $userMsg = trim($payload['message'] ?? '');
     $tripState = $payload['trip'] ?? null;
     $fileData = $payload['file'] ?? null;
+    $history = is_array($payload['history'] ?? null) ? $payload['history'] : [];
 
     if (empty($userMsg) && empty($fileData)) {
         echo json_encode(['status' => false, 'message' => 'Mensaje o archivo vacío']);
@@ -46,10 +64,12 @@ function handleTripCopilot(array $env): void
         return;
     }
 
+    $historyBlock = formatCopilotHistory($history);
     $parts = [[
         'text' => buildCopilotSystemInstruction()
             . "\n\nESTADO ACTUAL DEL VIAJE:\n" . json_encode($tripState, JSON_UNESCAPED_UNICODE)
-            . "\n\nMENSAJE DE MARTÍN:\n" . ($userMsg ?: 'Analizá el archivo adjunto y armá el viaje con estos datos.')
+            . $historyBlock
+            . "\n\nMENSAJE ACTUAL DE MARTÍN:\n" . ($userMsg ?: 'Analizá el archivo adjunto y armá el viaje con estos datos.')
     ]];
 
     if (!empty($fileData['data']) && !empty($fileData['mimeType'])) {

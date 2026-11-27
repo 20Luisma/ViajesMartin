@@ -89,6 +89,10 @@ class VuelosApp {
   toggleChecklist(id) { return this.trips.toggleChecklist(id); }
   addChecklist() { return this.trips.addChecklist(); }
   /** @param {string} id */
+  selectTrip(id) { return this.trips.selectTrip(id); }
+  /** @param {string} id */
+  toggleTripStatus(id) { return this.trips.toggleTripStatus(id); }
+  /** @param {string} id */
   downloadSinglePhoto(id) { return this.photoCleaner.downloadSinglePhoto(id); }
 }
 
